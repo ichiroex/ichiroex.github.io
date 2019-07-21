@@ -37,7 +37,7 @@ header {
 }
 
 .sns h1 {
-  text-align: left;
+  text-align: right;
   font-size: 12px;
   padding: 30px;
   padding-bottom: 0;
@@ -45,14 +45,14 @@ header {
   color: #CCCCCC
 }
 
-svg {
+.sns svg {
+  div-align: right;
   display: inline-block;
   padding: 3px 6px;
   font-size: 12px;
 }
 
 path {
-  text-align: none;
   color: inherit;
 }
 
