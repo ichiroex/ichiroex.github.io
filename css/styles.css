@@ -46,10 +46,10 @@ header {
 }
 
 .sns svg {
-  div-align: right;
   display: inline-block;
   padding: 3px 6px;
   font-size: 12px;
+  padding-right: 10px
 }
 
 path {
