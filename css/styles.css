@@ -14,10 +14,21 @@ padding-top: none;
 padding-bottom: 30px;
 }
 
-li {
+.nav-pills li {
 display: inline-block;
 padding: 4px 8px;
 font-size: 12px;
+}
+
+.works li {
+  font-size: 12px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 20px;
+  border-top: 0px;
+  border-bottom: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 a {
@@ -64,6 +75,7 @@ g:hover {
   text-align: left;
   padding: 15px;
   border-bottom: none;
+  margin: none;
   font-weight: 500;
   font-family: Ostrich, sans-serif;
   color: #222;
