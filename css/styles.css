@@ -4,6 +4,8 @@ line-height: 1.6;
 font-weight: 400;
 font-family: Ostrich, sans-serif;
 color: #222;
+margin-right: 200px;
+margin-left: 200px;
 }
 
 .container h2 {
@@ -90,6 +92,7 @@ footer p {
   color: lightgray;
   font-size: 14px;
   text-align: right;
+  margin-bottom: 100px;
 }
 
 /* section {
