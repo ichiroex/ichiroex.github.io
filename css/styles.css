@@ -17,27 +17,31 @@ body {
 }
 
 .container h2 {
-line-height: normal;
-text-align: center;
-font-weight: normal;
-font-size: 35px;
-padding-top: none;
-padding-bottom: 30px;
-color: #555555
+  line-height: normal;
+  text-align: center;
+  font-weight: normal;
+  font-size: 35px;
+  padding-top: none;
+  padding-bottom: 30px;
+  color: #555555;
 }
 
-.mb-0 {
-font-size: 15px;
-color:#555555;
-margin-left: 20px;
+p.mb-0 {
+  font-size: 15px;
+  color:#555555;
+  margin-left: 20px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-family: Ostrich, sans-serif;
+  font-weight: 600;
 }
 
 .nav-pillss li {
-display: inline-block;
-padding: 4px 8px;
-font-size: 12px;
-header nav nav-pillss
-text-align: right;
+  display: inline-block;
+  padding: 4px 8px;
+  font-size: 12px;
+  header nav nav-pillss;
+  text-align: right;
 }
 
 ul {
