@@ -6,76 +6,7 @@
   font-weight: 400;
 }
 
-body {
-  /* font-size: 1.5em;
-  line-height: 1.6; */
-  font-weight: 400;
-  font-family: Ostrich, sans-serif;
-  color: #222;
-  /* margin-right: 200px;
-  margin-left: 200px; */
-}
-
-.container h2 {
-  line-height: normal;
-  text-align: center;
-  font-weight: normal;
-  font-size: 35px;
-  padding-top: none;
-  padding-bottom: 30px;
-  color: #555555;
-}
-
-p.mb-0 {
-  font-size: 17px;
-  color:#555555;
-  margin-left: 20px;
-  margin-top: 15px;
-  margin-bottom: 5px;
-  font-family: Ostrich, sans-serif;
-  font-weight: 600;
-}
-
-.nav-pillss li {
-  display: inline-block;
-  padding: 4px 8px;
-  font-size: 12px;
-  header nav nav-pillss;
-  text-align: right;
-}
-
-ul {
-  /* font-size: 12px; */
-  margin-top: 0px;
-  margin-bottom: 0px;
-  margin-left: 20px;
-  border-top: 0px;
-  border-bottom: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  line-height: 1.6em;
-}
-
-a {
-  /* text-decoration: none;
-  color: inherit; */
-}
-
-a:hover {
-  color: #CCCCCC;
-}
-
-.header nav nav-pillss {
-  text-align: right;
-  padding: 10px;
-  padding-bottom: 0;
-  padding-top: 0;
-}
-
-/* .icon {
-  border-radius: 50%;
-} */
-
+/* SNSアイコンのスタイル */
 .snss h1 {
   text-align: right;
   font-size: 12px;
@@ -101,83 +32,71 @@ g:hover {
   color: #CCCCCC;
 }
 
-.works section h3 {
-  text-align: left;
-  padding: 15px;
-  /* border-bottom: none;
-  margin: none; */
-  font-weight: 500;
-  font-family: Ostrich, sans-serif;
-  color: #222;
-  line-height: normal;
+/* リンクの選択中の色 */
+a:hover {
+  color: #CCCCCC;
 }
 
-h3  {
+/* BODY */
+body {
+  font-weight: 400;
+  font-family: Ostrich, sans-serif;
+  color: #222;
+}
+
+/* タイトル(名前)のフォント */
+.container h2 {
+  line-height: normal;
+  text-align: center;
+  font-weight: normal;
+  font-size: 35px;
+  padding-top: none;
+  padding-bottom: 30px;
+  color: #555555;
+}
+
+.intro_myself {
+  padding: 15px;
+}
+
+/* 各セクションのタイトル */
+p.mb-0 {
+  font-size: 17px;
+  color:#555555;
+  margin-left: 20px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-family: Ostrich, sans-serif;
+  font-weight: 600;
+}
+
+/* セクション内の各項目 */
+ul {
+  margin-top: 0px;
   margin-bottom: 0px;
+  margin-left: 20px;
+  border-top: 0px;
+  border-bottom: 0px;
+  padding-top: 0px;
+  padding-left: 10px;
+  padding-bottom: 0px;
+  line-height: 1.6em;
 }
 
 h3 {
   text-align: left;
   padding: 15px;
-  /* border-bottom: none;
-  margin: none; */
+  margin-bottom: 0px;
   font-weight: 500;
   font-family: Ostrich, sans-serif;
   color: #222;
   line-height: normal;
 }
 
-.works ul {
-  padding-left: 10px;
-  padding-top: 0;
-}
-
-button {
-  color: #333333;
-  font-size: 14px;
-}
-/* .menu > li.menu__single {
-  position: relative;
-} */
-
-/* li.menu__single ul.menu__second-level {
-    position: absolute;
-    top: 40px;
-    width: 100%;
-    -webkit-transition: all .2s ease;
-    transition: all .2s ease;
-} */
-
-/* li.menu__single:hover ul.menu__second-level {
-    top: 50px;
-    visibility: visible;
-    opacity: 1;
-  } */
-
+/* フッター */
 footer p {
   color: lightgray;
   font-size: 14px;
   text-align: right;
-  margin-bottom: 100px;
-}
-
-
-
-/* section {
-text-align: center;
-}
-
-.works h3 {
-  width: 400px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.works li {
-  text-align: center;
-} */
-
-/* .works h3,
-.works li {
-  text-align: left; */
+  margin-bottom: 10px;
 }
