@@ -100,3 +100,7 @@ footer p {
   text-align: right;
   margin-bottom: 10px;
 }
+
+p.papertitle {
+  font-style: italic; 
+}
