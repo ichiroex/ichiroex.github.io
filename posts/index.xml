@@ -6,14 +6,15 @@
     <description>Recent content in Posts on Soichiro Murakami</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>© Copyright 2020 Soichiro Murakami All Right Reserved</copyright><atom:link href="https://ichiroex.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© Copyright 2020 Soichiro Murakami All Right Reserved</copyright>
+    <lastBuildDate>Wed, 25 Nov 2020 08:21:55 +0900</lastBuildDate><atom:link href="https://ichiroex.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title></title>
-      <link>https://ichiroex.github.io/posts/post-test/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>Hello</title>
+      <link>https://ichiroex.github.io/posts/hello/</link>
+      <pubDate>Wed, 25 Nov 2020 08:21:55 +0900</pubDate>
       
-      <guid>https://ichiroex.github.io/posts/post-test/</guid>
-      <description>this is test</description>
+      <guid>https://ichiroex.github.io/posts/hello/</guid>
+      <description></description>
     </item>
     
   </channel>

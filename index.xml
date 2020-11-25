@@ -6,23 +6,33 @@
     <description>Recent content on Soichiro Murakami</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>© Copyright 2020 Soichiro Murakami All Right Reserved</copyright><atom:link href="https://ichiroex.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© Copyright 2020 Soichiro Murakami All Right Reserved</copyright>
+    <lastBuildDate>Wed, 25 Nov 2020 08:21:55 +0900</lastBuildDate><atom:link href="https://ichiroex.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hello</title>
+      <link>https://ichiroex.github.io/posts/hello/</link>
+      <pubDate>Wed, 25 Nov 2020 08:21:55 +0900</pubDate>
+      
+      <guid>https://ichiroex.github.io/posts/hello/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title></title>
       <link>https://ichiroex.github.io/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ichiroex.github.io/about/</guid>
-      <description></description>
+      <description>About me I&amp;rsquo;m a 2nd-year Ph.D student at Okumura-Takamura group, Tokyo Institute of Technology, supervised by Prof. Manabu Okumura. Previously I received my master&amp;rsquo;s degree from Tokyo Institute of Technology under the supervision of Prof. Hiroya Takamura. My research interest is natural language generation with neural networks and I&amp;rsquo;m particularly interested in generating text from non-linguistic data. Also, I am currently working on machine translation as a research engineer at NTT docomo.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://ichiroex.github.io/posts/post-test/</link>
+      <link>https://ichiroex.github.io/publication/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ichiroex.github.io/posts/post-test/</guid>
-      <description>this is test</description>
+      <guid>https://ichiroex.github.io/publication/</guid>
+      <description></description>
     </item>
     
   </channel>
