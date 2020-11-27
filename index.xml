@@ -7,14 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Copyright Soichiro Murakami All Right Reserved</copyright>
-    <lastBuildDate>Wed, 25 Nov 2020 08:21:55 +0900</lastBuildDate><atom:link href="https://ichiroex.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 27 Nov 2020 21:28:33 +0900</lastBuildDate><atom:link href="https://ichiroex.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Hello</title>
-      <link>https://ichiroex.github.io/posts/hello/</link>
-      <pubDate>Wed, 25 Nov 2020 08:21:55 +0900</pubDate>
+      <title>サイトを更新しました。</title>
+      <link>https://ichiroex.github.io/posts/2020-11-27_greeting/</link>
+      <pubDate>Fri, 27 Nov 2020 21:28:33 +0900</pubDate>
       
-      <guid>https://ichiroex.github.io/posts/hello/</guid>
-      <description></description>
+      <guid>https://ichiroex.github.io/posts/2020-11-27_greeting/</guid>
+      <description>はじめに これまで個人ページを自作していましたが、管理や更新が大変かつ新たなことを勉強してみたかったので Hugo、 Github Pagesで個人ページを更新しました。 今回の更新にあたりブログ機能も導入しましたので、何かしらの発信もしていきます。
+今後投稿すること 更新は不定期ですが、主に以下の内容について投稿していく予定です。 これまでQiitaに投稿していたような記事をこちらにも書いていけたらと思います。
+ 技術記事  主に自然言語処理、機械学習、研究系のツールについて   論文紹介 学会・勉強会の参加報告 採択論文に関するお知らせ  参考ページ 個人ページの更新にあたって、参考にさせていただいたページです。
+ Host on GitHub - Hugo Hugo+Github Pagesで新しい個人ウェブサイトを作った  </description>
     </item>
     
     <item>

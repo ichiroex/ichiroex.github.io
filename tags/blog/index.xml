@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Soichiro Murakami</title>
-    <link>https://ichiroex.github.io/posts/</link>
-    <description>Recent content in Posts on Soichiro Murakami</description>
+    <title>blog on Soichiro Murakami</title>
+    <link>https://ichiroex.github.io/tags/blog/</link>
+    <description>Recent content in blog on Soichiro Murakami</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Copyright Soichiro Murakami All Right Reserved</copyright>
-    <lastBuildDate>Fri, 27 Nov 2020 21:28:33 +0900</lastBuildDate><atom:link href="https://ichiroex.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 27 Nov 2020 21:28:33 +0900</lastBuildDate><atom:link href="https://ichiroex.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>サイトを更新しました。</title>
       <link>https://ichiroex.github.io/posts/2020-11-27_greeting/</link>

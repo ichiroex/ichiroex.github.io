@@ -3,18 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://ichiroex.github.io/posts/hello/</loc>
-    <lastmod>2020-11-25T08:21:55+09:00</lastmod>
+    <loc>https://ichiroex.github.io/tags/blog/</loc>
+    <lastmod>2020-11-27T21:28:33+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://ichiroex.github.io/posts/</loc>
-    <lastmod>2020-11-25T08:21:55+09:00</lastmod>
+    <lastmod>2020-11-27T21:28:33+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://ichiroex.github.io/</loc>
-    <lastmod>2020-11-25T08:21:55+09:00</lastmod>
+    <lastmod>2020-11-27T21:28:33+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ichiroex.github.io/tags/</loc>
+    <lastmod>2020-11-27T21:28:33+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ichiroex.github.io/posts/2020-11-27_greeting/</loc>
+    <lastmod>2020-11-27T21:28:33+09:00</lastmod>
   </url>
   
   <url>
@@ -25,10 +35,6 @@
   <url>
     <loc>https://ichiroex.github.io/publication/</loc>
     <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://ichiroex.github.io/tags/</loc>
   </url>
   
 </urlset>
