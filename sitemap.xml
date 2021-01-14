@@ -3,42 +3,49 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://ichiroex.github.io/tags/blog/</loc>
+    <loc>/tags/blog/</loc>
     <lastmod>2020-11-27T21:28:33+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ichiroex.github.io/posts/</loc>
+    <loc>/posts/</loc>
     <lastmod>2020-11-27T21:28:33+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ichiroex.github.io/</loc>
+    <loc>/</loc>
     <lastmod>2020-11-27T21:28:33+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ichiroex.github.io/tags/</loc>
+    <loc>/tags/</loc>
     <lastmod>2020-11-27T21:28:33+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ichiroex.github.io/posts/2020-11-27_greeting/</loc>
+    <loc>/posts/2020-11-27_greeting/</loc>
     <lastmod>2020-11-27T21:28:33+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ichiroex.github.io/about/</loc>
+    <loc>/publication/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://ichiroex.github.io/publication/</loc>
-    <priority>0</priority>
+    <loc>/authors/</loc>
   </url>
   
   <url>
-    <loc>https://ichiroex.github.io/contact/</loc>
+    <loc>/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>/contact/</loc>
+  </url>
+  
+  <url>
+    <loc>/series/</loc>
   </url>
   
 </urlset>
