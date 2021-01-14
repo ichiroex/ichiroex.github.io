@@ -3,12 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/tags/blog/</loc>
+    <loc>/posts/2021-01-14_eacl2021-notification/</loc>
     <lastmod>2021-01-14T23:44:50+09:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/2021-01-14_eacl2021-notification/</loc>
+    <loc>/tags/notification/</loc>
     <lastmod>2021-01-14T23:44:50+09:00</lastmod>
   </url>
   
@@ -25,6 +25,11 @@
   <url>
     <loc>/tags/</loc>
     <lastmod>2021-01-14T23:44:50+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/blog/</loc>
+    <lastmod>2020-11-27T21:28:33+09:00</lastmod>
   </url>
   
   <url>
