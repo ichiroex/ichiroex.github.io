@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2020 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 27 Nov 2020 21:28:33 +0900</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 14 Jan 2021 23:44:50 +0900</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>EACL2021に主著論文が採択されました.</title>
+      <link>/posts/2021-01-14_eacl2021-notification/</link>
+      <pubDate>Thu, 14 Jan 2021 23:44:50 +0900</pubDate>
+      
+      <guid>/posts/2021-01-14_eacl2021-notification/</guid>
+      <description>論文採択のお知らせ 下記の主著論文がEACL2021に採択されました。
+ Soichiro Murakami, Sora Tanaka, Masatsugu Hangyo, Hidetaka Kamigaito, Kotaro Funakoshi, Hiroya Takamura and Manabu Okumura, &amp;ldquo;Generating Weather Comments from Meteorological Simulations&amp;rdquo;, In Proceedings of the 16th Conference of the European Chapter of the Association for Computational Linguistics (EACL2021)
+ </description>
+    </item>
+    
     <item>
       <title>サイトを更新しました。</title>
       <link>/posts/2020-11-27_greeting/</link>
