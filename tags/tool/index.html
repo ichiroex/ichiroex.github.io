@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width">
 
 
-<title>Soichiro Murakami</title>
+<title>tool | Soichiro Murakami</title>
 <link rel="stylesheet" href="/css/eureka.min.css">
 <script defer src="/js/eureka.min.js"></script>
 
@@ -54,6 +54,21 @@
 
 <meta name="description"
   content="Eureka is a elegant and powerful theme for Hugo.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Tags",
+      "item":"/tags/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"tool",
+      "item":"/tags/tool/"}]
+}
+</script>
 
 
 
@@ -68,29 +83,17 @@
             "name": "displaCyで固有表現抽出の結果を可視化する",
             "description": "はじめに この記事では、固有表現抽出の結果を可視化する方法を紹介します。 可視化のためのライブラリとして、spaCyで利用可能なdisplaCyを利用します\n本記事は基本編と応用編の二構成となっています。 基本編では、spaCy上で動作する日本語自然言語処理のライブラリ「GiNZA」で固有表現抽出した結果を可視化する方法を紹介します。\n応用編として、自作の固有表現抽出器の結果をdisplayCyで可視化する方法を紹介します。\n環境 最近ではちょっとした実験はGoogle Colaboratoryを使っています。\n環境をすぐに立ち上げることができて便利ですね。\n本記事でもGoogle Colaboratory上での作業を例に紹介していきます。\n作成したNotebookはこちらに公開しました。\nまずは、pipで今回使用するginzaをインストールします。\n※spaCyも依存ライブラリとしてインストールされます。\n!pip install -U ginza  インストール後は、下記のようにパッケージをリロードしましょう。 これをしないとインストールしたもモデルを読むことができず、ランタイムの再起動が必要になります。\nimport pkg_resources, imp imp.reload(pkg_resources)  ginzaによる固有表現抽出 インストール後、モデルを読み込みます。\nimport spacy nlp = spacy.load('ja_ginza')  動作確認 例文「銀座線渋谷駅から銀座に向かう.」を銀座で解析してみます。\ndoc = nlp(\u0026quot;銀座線渋谷駅から銀座に向かう.\u0026quot;) for sent in doc.sents: for token in sent: print(token.i, token.orth_, token.lemma_, token.pos_, token.tag_, token.dep_, token.head.i)  このような結果が得られればOKです。\n0 銀座 銀座 PROPN 名詞-固有名詞-地名-一般 compound 2 1 線 線 NOUN 名詞-普通名詞-一般 compound 2 2 渋谷駅 渋谷駅 PROPN 名詞-固有名詞-一般 obl 6 3 から から ADP 助詞-格助詞 case 2 4 銀座 銀座 PROPN 名詞-固有名詞-地名-一般 obl 6 5 に に ADP 助詞-格助詞 case 4 6 向かう 向かう VERB 動詞-一般 ROOT 6 7 .",
             "url": "/posts/2021-06-12_how-to-use-spacy-visualizers/"
-        },{
-            "@type":"ListItem",
-            "position":  2 ,
-            "name": "EACL2021に主著論文が採択されました.",
-            "description": "論文採択のお知らせ 下記の主著論文がEACL2021に採択されました。\n Soichiro Murakami, Sora Tanaka, Masatsugu Hangyo, Hidetaka Kamigaito, Kotaro Funakoshi, Hiroya Takamura and Manabu Okumura, \u0026ldquo;Generating Weather Comments from Meteorological Simulations\u0026rdquo;, In Proceedings of the 16th Conference of the European Chapter of the Association for Computational Linguistics (EACL2021)\n ",
-            "url": "/posts/2021-01-14_eacl2021-notification/"
-        },{
-            "@type":"ListItem",
-            "position":  3 ,
-            "name": "サイトを更新しました。",
-            "description": "はじめに これまで個人ページを自作していましたが、管理や更新が大変かつ新たなことを勉強してみたかったので Hugo、 Github Pagesで個人ページを更新しました。 今回の更新にあたりブログ機能も導入しましたので、何かしらの発信もしていきます。\n今後投稿すること 更新は不定期ですが、主に以下の内容について投稿していく予定です。 これまでQiitaに投稿していたような記事をこちらにも書いていけたらと思います。\n 技術記事  主に自然言語処理、機械学習、研究系のツールについて   論文紹介 学会・勉強会の参加報告 採択論文に関するお知らせ  参考ページ 個人ページの更新にあたって、参考にさせていただいたページです。\n Host on GitHub - Hugo Hugo+Github Pagesで新しい個人ウェブサイトを作った  ",
-            "url": "/posts/2020-11-27_greeting/"
         }
     ]
 }
-</script><meta property="og:title" content="Soichiro Murakami" />
+</script><meta property="og:title" content="tool | Soichiro Murakami" />
 <meta property="og:type" content="website" />
 
 
 <meta property="og:image" content="/images/favicon.png">
 
 
-<meta property="og:url" content="/posts/" />
+<meta property="og:url" content="/tags/tool/" />
 
 
 
@@ -118,10 +121,10 @@
 
 
 
-<meta property="article:section" content="posts" />
+<meta property="article:section" content="tags" />
 
 
-<link rel="alternate" type="application/rss+xml" href="/posts/index.xml" title="Soichiro Murakami" />
+<link rel="alternate" type="application/rss+xml" href="/tags/tool/index.xml" title="Soichiro Murakami" />
 
 <body class="flex flex-col min-h-screen">
     <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
@@ -145,11 +148,11 @@
             <a href="/publication/"
                 class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">Publication</a>
             <a href="/posts/"
-                class="block mt-4 md:inline-block md:mt-0  text-eureka  hover:text-eureka mr-4">Posts</a>
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">Posts</a>
             <a href="/contact/"
                 class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">Contact</a>
             <a href="/tags/"
-                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">Tags</a>
+                class="block mt-4 md:inline-block md:mt-0  text-eureka  hover:text-eureka mr-4">Tags</a>
         </div>
 
         <div class="flex">
@@ -198,7 +201,7 @@
         <div class="pl-scrollbar">
             <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
 <article class="mx-6 my-8">
-    <h1 class="font-bold text-3xl text-primary-text">Posts</h1>
+    <h1 class="font-bold text-3xl text-primary-text">tool</h1>
     
 </article>
 <div class="bg-secondary-bg rounded px-6">
@@ -236,75 +239,6 @@ doc = nlp(&amp;quot;銀座線渋谷駅から銀座に向かう.&amp;quot;) for s
     <div class="mr-6 my-2">
         <i class="fas fa-clock mr-1"></i>
         <span>2 min read</span>
-    </div>
-    
-    
-
-    
-</div>
-
-  </div>
-
-  
-</div>
-  </div>
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="mb-4">
-  <a href="/posts/2021-01-14_eacl2021-notification/" class="font-bold text-xl hover:text-eureka">EACL2021に主著論文が採択されました.</a>
-</div>
-<div class="content">
-  論文採択のお知らせ 下記の主著論文がEACL2021に採択されました。
- Soichiro Murakami, Sora Tanaka, Masatsugu Hangyo, Hidetaka Kamigaito, Kotaro Funakoshi, Hiroya Takamura and Manabu Okumura, &amp;ldquo;Generating Weather Comments from Meteorological Simulations&amp;rdquo;, In Proceedings of the 16th Conference of the European Chapter of the Association for Computational Linguistics (EACL2021)
- 
-</div>
-
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-    <div class="mr-6 my-2">
-        <i class="fas fa-calendar mr-1"></i>
-        <span>2021-01-14</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-clock mr-1"></i>
-        <span>1 min read</span>
-    </div>
-    
-    
-
-    
-</div>
-
-  </div>
-
-  
-</div>
-  </div>
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="mb-4">
-  <a href="/posts/2020-11-27_greeting/" class="font-bold text-xl hover:text-eureka">サイトを更新しました。</a>
-</div>
-<div class="content">
-  はじめに これまで個人ページを自作していましたが、管理や更新が大変かつ新たなことを勉強してみたかったので Hugo、 Github Pagesで個人ページを更新しました。 今回の更新にあたりブログ機能も導入しましたので、何かしらの発信もしていきます。
-今後投稿すること 更新は不定期ですが、主に以下の内容について投稿していく予定です。 これまでQiitaに投稿していたような記事をこちらにも書いていけたらと思います。
- 技術記事  主に自然言語処理、機械学習、研究系のツールについて   論文紹介 学会・勉強会の参加報告 採択論文に関するお知らせ  参考ページ 個人ページの更新にあたって、参考にさせていただいたページです。
- Host on GitHub - Hugo Hugo&#43;Github Pagesで新しい個人ウェブサイトを作った  
-</div>
-
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-    <div class="mr-6 my-2">
-        <i class="fas fa-calendar mr-1"></i>
-        <span>2020-11-27</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-clock mr-1"></i>
-        <span>1 min read</span>
     </div>
     
     

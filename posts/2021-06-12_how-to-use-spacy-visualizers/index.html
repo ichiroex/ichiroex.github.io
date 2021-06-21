@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang='en' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>displaCyで固有表現抽出の結果を可視化する | Soichiro Murakami</title>
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-46305538-5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-46305538-5');
+</script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_hu53a4421b6231ae7001608b5fda2dd431_857_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_hu53a4421b6231ae7001608b5fda2dd431_857_180x180_fill_box_center_2.png">
+
+<meta name="description"
+  content="はじめに この記事では、固有表現抽出の結果を可視化する方法を紹介します。 可視化のためのライブラリとして、spaCyで利用可能なdisplaCyを利用します
+本記事は基本編と応用編の二構成となっています。 基本編では、spaCy上で動作する日本語自然言語処理のライブラリ「GiNZA」で固有表現抽出した結果を可視化する方法を紹介します。
+応用編として、自作の固有表現抽出器の結果をdisplayCyで可視化する方法を紹介します。
+環境 最近ではちょっとした実験はGoogle Colaboratoryを使っています。
+環境をすぐに立ち上げることができて便利ですね。
+本記事でもGoogle Colaboratory上での作業を例に紹介していきます。
+作成したNotebookはこちらに公開しました。
+まずは、pipで今回使用するginzaをインストールします。
+※spaCyも依存ライブラリとしてインストールされます。
+!pip install -U ginza  インストール後は、下記のようにパッケージをリロードしましょう。 これをしないとインストールしたもモデルを読むことができず、ランタイムの再起動が必要になります。
+import pkg_resources, imp imp.reload(pkg_resources)  ginzaによる固有表現抽出 インストール後、モデルを読み込みます。
+import spacy nlp = spacy.load(&#39;ja_ginza&#39;)  動作確認 例文「銀座線渋谷駅から銀座に向かう.」を銀座で解析してみます。
+doc = nlp(&quot;銀座線渋谷駅から銀座に向かう.&quot;) for sent in doc.sents: for token in sent: print(token.i, token.orth_, token.lemma_, token.pos_, token.tag_, token.dep_, token.head.i)  このような結果が得られればOKです。
+0 銀座 銀座 PROPN 名詞-固有名詞-地名-一般 compound 2 1 線 線 NOUN 名詞-普通名詞-一般 compound 2 2 渋谷駅 渋谷駅 PROPN 名詞-固有名詞-一般 obl 6 3 から から ADP 助詞-格助詞 case 2 4 銀座 銀座 PROPN 名詞-固有名詞-地名-一般 obl 6 5 に に ADP 助詞-格助詞 case 4 6 向かう 向かう VERB 動詞-一般 ROOT 6 7 .">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"displaCyで固有表現抽出の結果を可視化する",
+      "item":"/posts/2021-06-12_how-to-use-spacy-visualizers/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/2021-06-12_how-to-use-spacy-visualizers/"
+    },
+    "headline": "displaCyで固有表現抽出の結果を可視化する | Soichiro Murakami","datePublished": "2021-06-12T00:55:51+09:00",
+    "dateModified": "2021-06-12T00:55:51+09:00",
+    "wordCount":  244 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "S. Murakami",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/favicon.png"
+        }
+        },
+    "description": "はじめに この記事では、固有表現抽出の結果を可視化する方法を紹介します。 可視化のためのライブラリとして、spaCyで利用可能なdisplaCyを利用します\n本記事は基本編と応用編の二構成となっています。 基本編では、spaCy上で動作する日本語自然言語処理のライブラリ「GiNZA」で固有表現抽出した結果を可視化する方法を紹介します。\n応用編として、自作の固有表現抽出器の結果をdisplayCyで可視化する方法を紹介します。\n環境 最近ではちょっとした実験はGoogle Colaboratoryを使っています。\n環境をすぐに立ち上げることができて便利ですね。\n本記事でもGoogle Colaboratory上での作業を例に紹介していきます。\n作成したNotebookはこちらに公開しました。\nまずは、pipで今回使用するginzaをインストールします。\n※spaCyも依存ライブラリとしてインストールされます。\n!pip install -U ginza  インストール後は、下記のようにパッケージをリロードしましょう。 これをしないとインストールしたもモデルを読むことができず、ランタイムの再起動が必要になります。\nimport pkg_resources, imp imp.reload(pkg_resources)  ginzaによる固有表現抽出 インストール後、モデルを読み込みます。\nimport spacy nlp = spacy.load(\u0027ja_ginza\u0027)  動作確認 例文「銀座線渋谷駅から銀座に向かう.」を銀座で解析してみます。\ndoc = nlp(\u0026quot;銀座線渋谷駅から銀座に向かう.\u0026quot;) for sent in doc.sents: for token in sent: print(token.i, token.orth_, token.lemma_, token.pos_, token.tag_, token.dep_, token.head.i)  このような結果が得られればOKです。\n0 銀座 銀座 PROPN 名詞-固有名詞-地名-一般 compound 2 1 線 線 NOUN 名詞-普通名詞-一般 compound 2 2 渋谷駅 渋谷駅 PROPN 名詞-固有名詞-一般 obl 6 3 から から ADP 助詞-格助詞 case 2 4 銀座 銀座 PROPN 名詞-固有名詞-地名-一般 obl 6 5 に に ADP 助詞-格助詞 case 4 6 向かう 向かう VERB 動詞-一般 ROOT 6 7 ."
+}
+</script><meta property="og:title" content="displaCyで固有表現抽出の結果を可視化する | Soichiro Murakami" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/favicon.png">
+
+
+<meta property="og:url" content="/posts/2021-06-12_how-to-use-spacy-visualizers/" />
+
+
+
+
+<meta property="og:description" content="はじめに この記事では、固有表現抽出の結果を可視化する方法を紹介します。 可視化のためのライブラリとして、spaCyで利用可能なdisplaCyを利用します
+本記事は基本編と応用編の二構成となっています。 基本編では、spaCy上で動作する日本語自然言語処理のライブラリ「GiNZA」で固有表現抽出した結果を可視化する方法を紹介します。
+応用編として、自作の固有表現抽出器の結果をdisplayCyで可視化する方法を紹介します。
+環境 最近ではちょっとした実験はGoogle Colaboratoryを使っています。
+環境をすぐに立ち上げることができて便利ですね。
+本記事でもGoogle Colaboratory上での作業を例に紹介していきます。
+作成したNotebookはこちらに公開しました。
+まずは、pipで今回使用するginzaをインストールします。
+※spaCyも依存ライブラリとしてインストールされます。
+!pip install -U ginza  インストール後は、下記のようにパッケージをリロードしましょう。 これをしないとインストールしたもモデルを読むことができず、ランタイムの再起動が必要になります。
+import pkg_resources, imp imp.reload(pkg_resources)  ginzaによる固有表現抽出 インストール後、モデルを読み込みます。
+import spacy nlp = spacy.load(&#39;ja_ginza&#39;)  動作確認 例文「銀座線渋谷駅から銀座に向かう.」を銀座で解析してみます。
+doc = nlp(&quot;銀座線渋谷駅から銀座に向かう.&quot;) for sent in doc.sents: for token in sent: print(token.i, token.orth_, token.lemma_, token.pos_, token.tag_, token.dep_, token.head.i)  このような結果が得られればOKです。
+0 銀座 銀座 PROPN 名詞-固有名詞-地名-一般 compound 2 1 線 線 NOUN 名詞-普通名詞-一般 compound 2 2 渋谷駅 渋谷駅 PROPN 名詞-固有名詞-一般 obl 6 3 から から ADP 助詞-格助詞 case 2 4 銀座 銀座 PROPN 名詞-固有名詞-地名-一般 obl 6 5 に に ADP 助詞-格助詞 case 4 6 向かう 向かう VERB 動詞-一般 ROOT 6 7 ." />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="Soichiro Murakami" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2021-06-12T00:55:51&#43;09:00" />
+
+
+<meta property="article:modified_time" content="2021-06-12T00:55:51&#43;09:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="tool" />
+
+
+
+
+
+<body class="flex flex-col min-h-screen">
+    <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+        <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if ((storageColorScheme == 'Auto' && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap p-4">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">Soichiro Murakami</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">About</a>
+            <a href="/publication/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">Publication</a>
+            <a href="/posts/"
+                class="block mt-4 md:inline-block md:mt-0  text-eureka  hover:text-eureka mr-4">Posts</a>
+            <a href="/contact/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">Contact</a>
+            <a href="/tags/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">Tags</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-sun"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == 'Auto') {
+        element.firstElementChild.classList.remove('fa-sun')
+        element.firstElementChild.setAttribute("data-icon", 'adjust')
+        element.firstElementChild.classList.add('fa-adjust')
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-sun')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script></div>
+    </header>
+    <main class="flex-grow pt-16">
+        <div class="pl-scrollbar">
+            <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">displaCyで固有表現抽出の結果を可視化する</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2021-06-12</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>2 min read</span>
+    </div>
+    
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <h2 id="はじめに">はじめに</h2>
+<p>この記事では、固有表現抽出の結果を可視化する方法を紹介します。
+可視化のためのライブラリとして、spaCyで利用可能な<a href="https://explosion.ai/demos/displacy">displaCy</a>を利用します</p>
+<p>本記事は基本編と応用編の二構成となっています。
+基本編では、spaCy上で動作する日本語自然言語処理のライブラリ「<a href="https://github.com/megagonlabs/ginza">GiNZA</a>」で固有表現抽出した結果を可視化する方法を紹介します。<br>
+応用編として、自作の固有表現抽出器の結果をdisplayCyで可視化する方法を紹介します。</p>
+<h2 id="環境">環境</h2>
+<p>最近ではちょっとした実験はGoogle Colaboratoryを使っています。<br>
+環境をすぐに立ち上げることができて便利ですね。</p>
+<p>本記事でもGoogle Colaboratory上での作業を例に紹介していきます。<br>
+作成したNotebookは<a href="https://colab.research.google.com/drive/1d67Hd4hB0TnIBT_5WrHMiCvSD8F55Gi8?usp=sharing">こちら</a>に公開しました。</p>
+<p>まずは、<code>pip</code>で今回使用するginzaをインストールします。<br>
+※spaCyも依存ライブラリとしてインストールされます。</p>
+<pre><code class="language-bash">!pip install -U ginza
+</code></pre>
+<p>インストール後は、下記のようにパッケージをリロードしましょう。
+これをしないとインストールしたもモデルを読むことができず、ランタイムの再起動が必要になります。</p>
+<pre><code class="language-py">import pkg_resources, imp
+imp.reload(pkg_resources)
+</code></pre>
+<h2 id="ginzaによる固有表現抽出">ginzaによる固有表現抽出</h2>
+<p>インストール後、モデルを読み込みます。</p>
+<pre><code class="language-py">import spacy
+
+nlp = spacy.load('ja_ginza')
+</code></pre>
+<h3 id="動作確認">動作確認</h3>
+<p>例文「銀座線渋谷駅から銀座に向かう.」を銀座で解析してみます。</p>
+<pre><code class="language-py">doc = nlp(&quot;銀座線渋谷駅から銀座に向かう.&quot;)
+
+for sent in doc.sents:
+    for token in sent:
+        print(token.i, token.orth_, token.lemma_, token.pos_, token.tag_, token.dep_, token.head.i)
+</code></pre>
+<p>このような結果が得られればOKです。</p>
+<pre><code class="language-txt">0 銀座 銀座 PROPN 名詞-固有名詞-地名-一般 compound 2
+1 線 線 NOUN 名詞-普通名詞-一般 compound 2
+2 渋谷駅 渋谷駅 PROPN 名詞-固有名詞-一般 obl 6
+3 から から ADP 助詞-格助詞 case 2
+4 銀座 銀座 PROPN 名詞-固有名詞-地名-一般 obl 6
+5 に に ADP 助詞-格助詞 case 4
+6 向かう 向かう VERB 動詞-一般 ROOT 6
+7 . . PUNCT 補助記号-句点 punct 6
+</code></pre>
+<h2 id="基本編-ginzaによる固有表現抽出の結果をdisplaycyで可視化">【基本編】 ginzaによる固有表現抽出の結果をdisplayCyで可視化</h2>
+<p>では早速displaCyで固有表現を可視化します。
+コードはかなりシンプルです。</p>
+<p>ginzaの解析結果（<code>doc</code>）を<code>displacy.render</code>に渡すだけでOKです。<br>
+<code>jupyter</code>オプションを<code>True</code>にすることで、Notebook上でそのまま結果を確認できます。</p>
+<pre><code class="language-py">from spacy import displacy
+
+doc = nlp(&quot;銀座線渋谷駅から銀座に向かう&quot;)
+displacy.render(doc, style=&quot;ent&quot;, jupyter=True)
+</code></pre>
+<p>このような結果が得られます。
+<img src="https://drive.google.com/uc?id=1UVjA7Df629O6L8YVicoX1YxeFdSUTjoV" alt="代替テキスト"></p>
+<p><strong>⭐️Tips 固有表現ラベルや色のカスタムも可能⭐️</strong></p>
+<p>displaCyでは、固有表現の各ラベルごとに色を設定することもできます。<br>
+ラベルごとに色を設定して、視覚的に分かりやすくしてみましょう。</p>
+<pre><code class="language-py"># 各ラベルに任意の色を設定する
+colors = {}
+colors[&quot;RAILROAD&quot;] = &quot;lightpink&quot;
+colors[&quot;STATION&quot;] = &quot;lavender&quot;
+colors[&quot;CITY&quot;] = &quot;mediumaquamarine&quot;
+options = {&quot;colors&quot;: colors}
+
+doc = nlp(&quot;銀座線渋谷駅から銀座に向かう&quot;)
+displacy.render(doc, style=&quot;ent&quot;, jupyter=True, options=options) # 色オプションを設定
+</code></pre>
+<p>このように、各ラベルに色を設定することができました。</p>
+<p><img src="https://drive.google.com/uc?id=1MXrJi5zGk-F4wHRRy2vam_jQ-IF2RZRm" alt="代替テキスト"></p>
+<p>設定した色の名称は<a href="https://qiita.com/damyarou/items/f8af87a62681161afce5">こちらの記事</a>を参考にしました。<br>
+※matplotlibの色名称の一覧ですが、displaCyにも対応していました。</p>
+<h2 id="応用編-自作の固有表現抽出器の結果をdisplaycyで可視化">【応用編】 自作の固有表現抽出器の結果をdisplayCyで可視化</h2>
+<p>基本編では、ginza (spaCy)による固有表現抽出の結果をdisplaCyで可視化する方法を紹介しましたが、
+その他のライブラリによる固有表現抽出の結果もdisplaCyで可視化することができます。</p>
+<p>ここでは、自作の固有表現抽出器の結果をdisplayCyで可視化する方法を紹介します。<br>
+自作の固有表現抽出器のモデルは何でも良いのですが、先ほどと同じ例文「<strong>銀座線渋谷駅から銀座に向かう</strong>」に対する固有表現抽出の結果が下記となることを想定します。</p>
+<pre><code class="language-py">ents = [
+    {&quot;start&quot;: 0, &quot;end&quot;: 3, &quot;label&quot;: &quot;路線名&quot;}, # 銀座線
+    {&quot;start&quot;: 3, &quot;end&quot;: 6, &quot;label&quot;: &quot;駅名&quot;},  # 渋谷駅
+    {&quot;start&quot;: 8, &quot;end&quot;: 10, &quot;label&quot;: &quot;地名&quot;},  # 銀座
+]
+</code></pre>
+<p>ここで、<code>start</code>, <code>end</code>は固有表現の開始・終了位置（文字単位）で、<code>label</code>はその固有表現のラベル名称を表しています。
+下記の例では、例文中の「銀座線」、「渋谷駅」、「銀座」がそれぞれ、「路線名」、「駅名」、「地名」というラベルの固有表現として認識されたことを意味します。</p>
+<p>固有表現抽出の結果は、下記のように<code>displacy.render</code>で可視化することができます。
+この時、<code>manual</code>オプションを<code>True</code>にして下さい。</p>
+<pre><code class="language-py"># 日本語のラベル名称も設定可能です。
+colors = {}
+colors[&quot;路線名&quot;] = &quot;lightpink&quot;
+colors[&quot;駅名&quot;] = &quot;lavender&quot;
+colors[&quot;地名&quot;] = &quot;mediumaquamarine&quot;
+options = {&quot;colors&quot;: colors}
+
+ex = [{
+    &quot;text&quot;: &quot;銀座線渋谷駅から銀座に向かう&quot;,
+    &quot;ents&quot;: ents # 固有表現抽出の結果
+}]
+displacy.render(ex, style=&quot;ent&quot;, manual=True, jupyter=True, options=options)
+</code></pre>
+<p>このように、自作の固有表現抽出器の結果もdisplaCyで可視化することができました。<br>
+今回の例では、ラベル名を日本語にしてみましたが、色の設定や表示もうまくできています。<br>
+<img src="https://drive.google.com/uc?id=13-ukCZ3Nhp2tfHO1W3vBYqVXb88gC5Uz" alt="代替テキスト"></p>
+<h2 id="おわりに">おわりに</h2>
+<p>今回の記事では、spaCyの可視化ライブラリであるdisplaCyを使って固有表現抽出の結果を色付けして可視化する方法を紹介しました。<br>
+spaCyの固有表現抽出器を使えば数行で結果を可視化することができます。<br>
+また、自作の固有表現抽出器による抽出結果もdisplaCyで簡単に可視化することができました。</p>
+<p>このような可視化ツールを活用することで、固有表現抽出器の結果が見えやすくなり、分析も捗ることでしょう。<br>
+実験結果をプレゼンしたり、論文を書く際にも分かりやすく結果を示すことができるため大いに役に立ちそうです。</p>
+<h2 id="参考ページ">参考ページ</h2>
+<ul>
+<li><a href="https://www.nogawanogawa.com/entry/ginzaa">GiNZAを使って固有表現のマスキングをやってみる</a></li>
+<li><a href="https://notebook.community/rishuatgithub/MLPy/nlp/UPDATED_NLP_COURSE/02-Parts-of-Speech-Tagging/03-Visualizing-NER">https://notebook.community/rishuatgithub/MLPy/nlp/UPDATED_NLP_COURSE/02-Parts-of-Speech-Tagging/03-Visualizing-NER</a></li>
+</ul>
+
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="/tags/tool/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#tool</a>
+    
+</div>
+        
+        
+        
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">Next</span>
+        <a href="/posts/2021-01-14_eacl2021-notification/" class="block">EACL2021に主著論文が採択されました.</a>
+        
+    </div>
+</div>
+
+        
+    </div>
+    
+
+    
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+            </div>
+        </div>
+        
+    </main>
+    <footer class="pl-scrollbar">
+        <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">© Copyright Soichiro Murakami All Right Reserved &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+    </footer>
+</body>
+
+</html>

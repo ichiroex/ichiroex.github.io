@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Soichiro Murakami</title>
-    <link>/posts/</link>
-    <description>Recent content in Posts on Soichiro Murakami</description>
+    <title>tool on Soichiro Murakami</title>
+    <link>/tags/tool/</link>
+    <description>Recent content in tool on Soichiro Murakami</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© Copyright Soichiro Murakami All Right Reserved</copyright>
-    <lastBuildDate>Sat, 12 Jun 2021 00:55:51 +0900</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Jun 2021 00:55:51 +0900</lastBuildDate><atom:link href="/tags/tool/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>displaCyで固有表現抽出の結果を可視化する</title>
       <link>/posts/2021-06-12_how-to-use-spacy-visualizers/</link>
@@ -28,29 +28,6 @@ import pkg_resources, imp imp.reload(pkg_resources)  ginzaによる固有表現�
 import spacy nlp = spacy.load(&#39;ja_ginza&#39;)  動作確認 例文「銀座線渋谷駅から銀座に向かう.」を銀座で解析してみます。
 doc = nlp(&amp;quot;銀座線渋谷駅から銀座に向かう.&amp;quot;) for sent in doc.sents: for token in sent: print(token.i, token.orth_, token.lemma_, token.pos_, token.tag_, token.dep_, token.head.i)  このような結果が得られればOKです。
 0 銀座 銀座 PROPN 名詞-固有名詞-地名-一般 compound 2 1 線 線 NOUN 名詞-普通名詞-一般 compound 2 2 渋谷駅 渋谷駅 PROPN 名詞-固有名詞-一般 obl 6 3 から から ADP 助詞-格助詞 case 2 4 銀座 銀座 PROPN 名詞-固有名詞-地名-一般 obl 6 5 に に ADP 助詞-格助詞 case 4 6 向かう 向かう VERB 動詞-一般 ROOT 6 7 .</description>
-    </item>
-    
-    <item>
-      <title>EACL2021に主著論文が採択されました.</title>
-      <link>/posts/2021-01-14_eacl2021-notification/</link>
-      <pubDate>Thu, 14 Jan 2021 23:44:50 +0900</pubDate>
-      
-      <guid>/posts/2021-01-14_eacl2021-notification/</guid>
-      <description>論文採択のお知らせ 下記の主著論文がEACL2021に採択されました。
- Soichiro Murakami, Sora Tanaka, Masatsugu Hangyo, Hidetaka Kamigaito, Kotaro Funakoshi, Hiroya Takamura and Manabu Okumura, &amp;ldquo;Generating Weather Comments from Meteorological Simulations&amp;rdquo;, In Proceedings of the 16th Conference of the European Chapter of the Association for Computational Linguistics (EACL2021)
- </description>
-    </item>
-    
-    <item>
-      <title>サイトを更新しました。</title>
-      <link>/posts/2020-11-27_greeting/</link>
-      <pubDate>Fri, 27 Nov 2020 21:28:33 +0900</pubDate>
-      
-      <guid>/posts/2020-11-27_greeting/</guid>
-      <description>はじめに これまで個人ページを自作していましたが、管理や更新が大変かつ新たなことを勉強してみたかったので Hugo、 Github Pagesで個人ページを更新しました。 今回の更新にあたりブログ機能も導入しましたので、何かしらの発信もしていきます。
-今後投稿すること 更新は不定期ですが、主に以下の内容について投稿していく予定です。 これまでQiitaに投稿していたような記事をこちらにも書いていけたらと思います。
- 技術記事  主に自然言語処理、機械学習、研究系のツールについて   論文紹介 学会・勉強会の参加報告 採択論文に関するお知らせ  参考ページ 個人ページの更新にあたって、参考にさせていただいたページです。
- Host on GitHub - Hugo Hugo+Github Pagesで新しい個人ウェブサイトを作った  </description>
     </item>
     
   </channel>
