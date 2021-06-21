@@ -67,7 +67,7 @@
             "position":  1 ,
             "name": "displaCyで固有表現抽出の結果を可視化する",
             "description": "はじめに この記事では、固有表現抽出の結果を可視化する方法を紹介します。 可視化のためのライブラリとして、spaCyで利用可能なdisplaCyを利用します\n本記事は基本編と応用編の二構成となっています。 基本編では、spaCy上で動作する日本語自然言語処理のライブラリ「GiNZA」で固有表現抽出した結果を可視化する方法を紹介します。\n応用編として、自作の固有表現抽出器の結果をdisplayCyで可視化する方法を紹介します。\n環境 最近ではちょっとした実験はGoogle Colaboratoryを使っています。\n環境をすぐに立ち上げることができて便利ですね。\n本記事でもGoogle Colaboratory上での作業を例に紹介していきます。\n作成したNotebookはこちらに公開しました。\nまずは、pipで今回使用するginzaをインストールします。\n※spaCyも依存ライブラリとしてインストールされます。\n!pip install -U ginza  インストール後は、下記のようにパッケージをリロードしましょう。 これをしないとインストールしたもモデルを読むことができず、ランタイムの再起動が必要になります。\nimport pkg_resources, imp imp.reload(pkg_resources)  ginzaによる固有表現抽出 インストール後、モデルを読み込みます。\nimport spacy nlp = spacy.load('ja_ginza')  動作確認 例文「銀座線渋谷駅から銀座に向かう.」を銀座で解析してみます。\ndoc = nlp(\u0026quot;銀座線渋谷駅から銀座に向かう.\u0026quot;) for sent in doc.sents: for token in sent: print(token.i, token.orth_, token.lemma_, token.pos_, token.tag_, token.dep_, token.head.i)  このような結果が得られればOKです。\n0 銀座 銀座 PROPN 名詞-固有名詞-地名-一般 compound 2 1 線 線 NOUN 名詞-普通名詞-一般 compound 2 2 渋谷駅 渋谷駅 PROPN 名詞-固有名詞-一般 obl 6 3 から から ADP 助詞-格助詞 case 2 4 銀座 銀座 PROPN 名詞-固有名詞-地名-一般 obl 6 5 に に ADP 助詞-格助詞 case 4 6 向かう 向かう VERB 動詞-一般 ROOT 6 7 .",
-            "url": "/posts/2021-06-12_how-to-use-spacy-visualizers/"
+            "url": "/posts/2021-06-22_how-to-use-spacy-visualizers/"
         },{
             "@type":"ListItem",
             "position":  2 ,
@@ -114,7 +114,7 @@
 
 
 
-<meta property="og:updated_time" content="2021-06-12T00:55:51&#43;09:00" />
+<meta property="og:updated_time" content="2021-06-22T00:55:51&#43;09:00" />
 
 
 
@@ -209,7 +209,7 @@
   
   <div class="w-full ">
     <div class="mb-4">
-  <a href="/posts/2021-06-12_how-to-use-spacy-visualizers/" class="font-bold text-xl hover:text-eureka">displaCyで固有表現抽出の結果を可視化する</a>
+  <a href="/posts/2021-06-22_how-to-use-spacy-visualizers/" class="font-bold text-xl hover:text-eureka">displaCyで固有表現抽出の結果を可視化する</a>
 </div>
 <div class="content">
   はじめに この記事では、固有表現抽出の結果を可視化する方法を紹介します。 可視化のためのライブラリとして、spaCyで利用可能なdisplaCyを利用します
@@ -231,7 +231,7 @@ doc = nlp(&amp;quot;銀座線渋谷駅から銀座に向かう.&amp;quot;) for s
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
     <div class="mr-6 my-2">
         <i class="fas fa-calendar mr-1"></i>
-        <span>2021-06-12</span>
+        <span>2021-06-22</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-clock mr-1"></i>

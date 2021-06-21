@@ -7,13 +7,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© Copyright Soichiro Murakami All Right Reserved</copyright>
-    <lastBuildDate>Sat, 12 Jun 2021 00:55:51 +0900</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 22 Jun 2021 00:55:51 +0900</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>displaCyで固有表現抽出の結果を可視化する</title>
-      <link>/posts/2021-06-12_how-to-use-spacy-visualizers/</link>
-      <pubDate>Sat, 12 Jun 2021 00:55:51 +0900</pubDate>
+      <link>/posts/2021-06-22_how-to-use-spacy-visualizers/</link>
+      <pubDate>Tue, 22 Jun 2021 00:55:51 +0900</pubDate>
       
-      <guid>/posts/2021-06-12_how-to-use-spacy-visualizers/</guid>
+      <guid>/posts/2021-06-22_how-to-use-spacy-visualizers/</guid>
       <description>はじめに この記事では、固有表現抽出の結果を可視化する方法を紹介します。 可視化のためのライブラリとして、spaCyで利用可能なdisplaCyを利用します
 本記事は基本編と応用編の二構成となっています。 基本編では、spaCy上で動作する日本語自然言語処理のライブラリ「GiNZA」で固有表現抽出した結果を可視化する方法を紹介します。
 応用編として、自作の固有表現抽出器の結果をdisplayCyで可視化する方法を紹介します。
