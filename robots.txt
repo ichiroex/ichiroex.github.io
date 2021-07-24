@@ -1,3 +1,2 @@
 User-agent: *
-Disallow:
 Sitemap: https://ichiroex.github.io/sitemap.xml
