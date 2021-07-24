@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang='en' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>論文紹介: A Neural Layered Model for Nested Named Entity Recognition (Ju&#43;,NAACL2018) | Soichiro Murakami</title>
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-46305538-5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-46305538-5');
+</script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_hu53a4421b6231ae7001608b5fda2dd431_857_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_hu53a4421b6231ae7001608b5fda2dd431_857_180x180_fill_box_center_2.png">
+
+<meta name="description"
+  content="はじめに Nested Named Entity Recognitionについて調べる機会があり, いくつかの論文をサーベイしたのでその記録としてまとめていきます. 今回は調査した論文のうち, 下記の1つをピックアップして, 簡単に中身を記録します.
+ ⭐️A Neural Layered Model for Nested Named Entity Recognition (Ju&#43;,NAACL2018) Deep Exhaustive Model for Nested Named Entity Recognition (Sohrab&#43;,EMNLP2018) A Boundary-aware Neural Model for Nested Named Entity Recognition (Zhen&#43;,EMNLP2019) Boundary Enhanced Neural SpanClassification for Nested Named Entity Recognition (Tan&#43;,AAAI2020) HIT: Nested Named Entity Recognition via Head-Tail Pairand Token Interaction (Wamg&#43;,EMNLP2020) A Boundary Assembling Method for NestedBiomedical Named Entity Recognition (Chen&#43;,IEEE Access,2020) Locate and Label: A Two-stage Identifier for Nested Named EntityRecognition (Shen&#43;,ACL2021)  Nested Named Entity Recognitionとは 固有表現抽出（Named Entity Recogniton; NER）とは, 人名や組織名などの固有名詞や日付, 時間, 価格などに関する表現をテキストから抽出するタスクのことです.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"論文紹介: A Neural Layered Model for Nested Named Entity Recognition (Ju+,NAACL2018)",
+      "item":"/posts/2021-07-24_survey-on-nested-ner/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/2021-07-24_survey-on-nested-ner/"
+    },
+    "headline": "論文紹介: A Neural Layered Model for Nested Named Entity Recognition (Ju\u002b,NAACL2018) | Soichiro Murakami","datePublished": "2021-07-24T15:20:00+09:00",
+    "dateModified": "2021-07-24T15:20:00+09:00",
+    "wordCount":  331 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "S. Murakami",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/favicon.png"
+        }
+        },
+    "description": "はじめに Nested Named Entity Recognitionについて調べる機会があり, いくつかの論文をサーベイしたのでその記録としてまとめていきます. 今回は調査した論文のうち, 下記の1つをピックアップして, 簡単に中身を記録します.\n ⭐️A Neural Layered Model for Nested Named Entity Recognition (Ju\u002b,NAACL2018) Deep Exhaustive Model for Nested Named Entity Recognition (Sohrab\u002b,EMNLP2018) A Boundary-aware Neural Model for Nested Named Entity Recognition (Zhen\u002b,EMNLP2019) Boundary Enhanced Neural SpanClassification for Nested Named Entity Recognition (Tan\u002b,AAAI2020) HIT: Nested Named Entity Recognition via Head-Tail Pairand Token Interaction (Wamg\u002b,EMNLP2020) A Boundary Assembling Method for NestedBiomedical Named Entity Recognition (Chen\u002b,IEEE Access,2020) Locate and Label: A Two-stage Identifier for Nested Named EntityRecognition (Shen\u002b,ACL2021)  Nested Named Entity Recognitionとは 固有表現抽出（Named Entity Recogniton; NER）とは, 人名や組織名などの固有名詞や日付, 時間, 価格などに関する表現をテキストから抽出するタスクのことです."
+}
+</script><meta property="og:title" content="論文紹介: A Neural Layered Model for Nested Named Entity Recognition (Ju&#43;,NAACL2018) | Soichiro Murakami" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/favicon.png">
+
+
+<meta property="og:url" content="/posts/2021-07-24_survey-on-nested-ner/" />
+
+
+
+
+<meta property="og:description" content="はじめに Nested Named Entity Recognitionについて調べる機会があり, いくつかの論文をサーベイしたのでその記録としてまとめていきます. 今回は調査した論文のうち, 下記の1つをピックアップして, 簡単に中身を記録します.
+ ⭐️A Neural Layered Model for Nested Named Entity Recognition (Ju&#43;,NAACL2018) Deep Exhaustive Model for Nested Named Entity Recognition (Sohrab&#43;,EMNLP2018) A Boundary-aware Neural Model for Nested Named Entity Recognition (Zhen&#43;,EMNLP2019) Boundary Enhanced Neural SpanClassification for Nested Named Entity Recognition (Tan&#43;,AAAI2020) HIT: Nested Named Entity Recognition via Head-Tail Pairand Token Interaction (Wamg&#43;,EMNLP2020) A Boundary Assembling Method for NestedBiomedical Named Entity Recognition (Chen&#43;,IEEE Access,2020) Locate and Label: A Two-stage Identifier for Nested Named EntityRecognition (Shen&#43;,ACL2021)  Nested Named Entity Recognitionとは 固有表現抽出（Named Entity Recogniton; NER）とは, 人名や組織名などの固有名詞や日付, 時間, 価格などに関する表現をテキストから抽出するタスクのことです." />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="Soichiro Murakami" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2021-07-24T15:20:00&#43;09:00" />
+
+
+<meta property="article:modified_time" content="2021-07-24T15:20:00&#43;09:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="paper" />
+
+
+
+
+
+<body class="flex flex-col min-h-screen">
+    <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+        <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if ((storageColorScheme == 'Auto' && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap p-4">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">Soichiro Murakami</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">About</a>
+            <a href="/publication/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">Publication</a>
+            <a href="/posts/"
+                class="block mt-4 md:inline-block md:mt-0  text-eureka  hover:text-eureka mr-4">Posts</a>
+            <a href="/contact/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">Contact</a>
+            <a href="/tags/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">Tags</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-sun"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == 'Auto') {
+        element.firstElementChild.classList.remove('fa-sun')
+        element.firstElementChild.setAttribute("data-icon", 'adjust')
+        element.firstElementChild.classList.add('fa-adjust')
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-sun')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script></div>
+    </header>
+    <main class="flex-grow pt-16">
+        <div class="pl-scrollbar">
+            <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">論文紹介: A Neural Layered Model for Nested Named Entity Recognition (Ju&#43;,NAACL2018)</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2021-07-24</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>2 min read</span>
+    </div>
+    
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <h1 id="はじめに">はじめに</h1>
+<p>Nested Named Entity Recognitionについて調べる機会があり, いくつかの論文をサーベイしたのでその記録としてまとめていきます.
+今回は調査した論文のうち, 下記の1つをピックアップして, 簡単に中身を記録します.</p>
+<ul>
+<li>⭐️<strong>A Neural Layered Model for Nested Named Entity Recognition (Ju+,NAACL2018)</strong></li>
+<li>Deep Exhaustive Model for Nested Named Entity Recognition (Sohrab+,EMNLP2018)</li>
+<li>A Boundary-aware Neural Model for Nested Named Entity Recognition (Zhen+,EMNLP2019)</li>
+<li>Boundary Enhanced Neural SpanClassification for Nested Named Entity Recognition (Tan+,AAAI2020)</li>
+<li>HIT: Nested Named Entity Recognition via Head-Tail Pairand Token Interaction (Wamg+,EMNLP2020)</li>
+<li>A Boundary Assembling Method for NestedBiomedical Named Entity Recognition (Chen+,IEEE Access,2020)</li>
+<li>Locate and Label: A Two-stage Identifier for Nested Named EntityRecognition (Shen+,ACL2021)</li>
+</ul>
+<h1 id="nested-named-entity-recognitionとは">Nested Named Entity Recognitionとは</h1>
+<p>固有表現抽出（Named Entity Recogniton; NER）とは, 人名や組織名などの固有名詞や日付, 時間, 価格などに関する表現をテキストから抽出するタスクのことです. 自然言語処理の分野で長年取り組まれているタスクの1つであり, Entity Linkingや関係抽出, イベント抽出などの前段処理として広く用いられています.</p>
+<p>自然言語の特性から多くの固有表現（Named Entity）には, 他の固有表現を含むものが多く存在しています.
+たとえば以下の例のように, 「東京工業大学」という固有表現（組織名）には, 「東京」といった固有表現（地名）が含まれています.</p>
+<center>
+<img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/92685/9a377368-beb1-e0aa-17eb-ed60baad9fbc.png" width="500" alt="例1">
+</center>
+<p>このように, 固有表現の中に別の固有表現が含まれているような構造は <strong>入れ子（Nest）</strong> と呼ばれています.
+（プログラミングでも入れ子というワードはよく出てきますね）</p>
+<p>以上の背景から, 入れ子の固有表現も考慮した固有表現抽出のことを特に <strong>Nested Named Entity Recognition</strong>, または, <strong>Nested NER</strong>  と呼ばれています.
+このNestedというキーワードに対比して, Nested NERに関する論文では, 入れ子を考慮しない一般的な固有表現抽出のことを <strong>Flat-NER</strong> と呼んでいます.</p>
+<p>Nested NERでは, 固有表現の入れ子構造を考慮する必要があるため, 通常のFlat-NERにおける手法では不十分なケースが多々あります.
+そのため, Nested NERタスクでは, 固有表現の入れ子構造を考慮した手法が多く提案されています.</p>
+<p>本記事では, 数多くあるNested NERに関する論文の中から1つピックアップして手法を紹介していきます.</p>
+<h1 id="論文紹介">論文紹介</h1>
+<p>それでは, 今回紹介する論文について簡単にまとめていきます.
+本記事では, <a href="https://github.com/arXivTimes/arXivTimes">arXivTimes</a>を参考に, 簡潔に論文をまとめることを心がけています.
+手法の詳細が気になる方はぜひ論文も合わせて読んでみると良いでしょう.</p>
+<p><strong>タイトル</strong><br>
+A Neural Layered Model for Nested Named Entity Recognition (Ju+,NAACL2018)</p>
+<p><strong>著者</strong><br>
+Meizhi Ju, Makoto Miwa, Sophia Ananiadou</p>
+<p><strong>論文リンク</strong><br>
+<a href="https://aclanthology.org/N18-1131/">https://aclanthology.org/N18-1131/</a></p>
+<p>※ 本記事の図の一部は紹介した論文より引用しています.</p>
+<h2 id="一言でいうと">一言でいうと</h2>
+<ul>
+<li>NERで一般的に使われているBiLSTMとCRFからなる <strong>flat-NER layer</strong> を動的に重ねていくことで, ネスト構造の固有表現を抽出する手法を提案しています.</li>
+<li>提案モデルでは, flat-NER layerを重ねてながら, テキスト中の固有表現を内側から外側に向かって段階的に判定しています.</li>
+<li>実験結果では, Nested NERのベンチマークであるGENIAとACE2005において, SOTAを達成しました.</li>
+</ul>
+<h2 id="手法">手法</h2>
+<p>本研究では, Flat NERタスクで一般的に広く用いられているBiLSTMとCRFを組み合わせたモデル（BiLSTM-CRF）を階層的に重ねることで異なるレイヤー（ネスト）の固有表現を段階的に抽出する手法を提案しています. (ちなみに提案モデルは, Layered-BiLSTM-CRFと名付けられています.)<br>
+各層で固有表現が抽出されると, 新たなFlat NER layerが導入され, 次の階層で固有表現抽出が行われます.</p>
+<p>例えば下図の例では, 入力テキスト <code>Mouse interleukin-2 receptor alpha gene expression</code> に対して, まずは1層目で <code>interleukin-2</code>が<code>Protein</code>であると判定されています. 次に2層目では, <code>interleukin-2 receptor alpha gene</code> に対して, <code>DNA</code>であることが判定されています. これらの結果からこの入力テキストには, <code>interleukin-2 receptor alpha gene</code>という固有表現が含まれていて, その中に <code>interleukin-2</code>という他の固有表現が含まれていることが分かります.</p>
+<p>以上のように, 提案モデルでは各階層の固有表現を内側から外側へFlat NER layerを動的に導入しながら判定していくことができます.</p>
+<center>
+    <img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/92685/f5359a18-8ded-02a1-ea27-1df032b170aa.png" width="700">
+</center>
+<p>また, 各階層で抽出された固有表現は, 下記の式に基づいて結合および平均化され, 新たな表現ベクトルとして次の階層に渡されます.
+例えば, 上記の図の例では, 2層目で抽出された固有表現 <code>interleukin-2 receptor alpha gene</code> は, 結合および平均化され, あらたな表現ベクトルが3層目に渡されていることが分かります.</p>
+<center>
+    <img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/92685/25d3d89f-82b4-c717-133a-dc6199bf998b.png" 
+width="300">
+</center>
+<p>この式において, startは固有表現の開始位置, endは終了位置, $z_i$は, 該当するflat-NER layerにおける$i$番目のトークンの表現ベクトルであることを表しています.</p>
+<h2 id="結果">結果</h2>
+<p>実験では, Nested NERのベンチマークとして用いられているGENIAとACEというデータセットを使用しています.</p>
+<p>Table 1に実験結果を示します. （当時の）SOTAモデルであるMuis and Lu (2017)を含めて, 関連研究との比較によると, 提案モデルでは最も高い精度を達成しています.</p>
+<p>Table 1によると, 提案モデルではGENIAよりもACE2005においてお大きく性能を改善することができています. この要因として, ACE2005の方がGENIAよりもネスト構造の固有表現の事例が多く, 提案モデルにより改善できた事例が多かったためであると論文では考察されています. （ACE2005は37.45%, GENIAには21.56%のnested entityが含まれているようです. ）</p>
+<center>
+    <img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/92685/1fa48b3e-ff4d-aa3f-adfa-f14d99ee698d.png" 
+width="600">
+</center>
+<p>加えて, 実験では, ネスト構造の固有表現の層ごとの抽出精度も評価しています (Table 5, Table 6). これらの結果によると, ネスト構造がより深くなるほど（上位の層になるほど）抽出精度が落ちていることが伺えます. これは, 正解の固有表現の事例数から分かるように, ネスト構造が深い固有表現の事例数が少ないことも要因の1つとして考えられます.</p>
+<p>また, Table 5, Table 6では, 通常のPrecision, Recall, F-scoreに加えて, Extended Precision (EP), Extended Recall (ER), Extended F-score (EF)による評価をしています.</p>
+<p>通常のPrecision, Recall, F-scoreでは, 予測した固有表現の層が異なる場合は正解として算出されませんでしたが, EP, ER, EFでは, 予測した固有表現と全ての正解の固有表現と比較するため, 層が異なっていても正しく抽出できていれば正解として算出することができます.</p>
+<p>EP, ER, EFの結果によると, 通常のPrecision, Recall, F-scoreと比べてスコアが上がっていることから, 予測した固有表現の層が異なっていた事例が多く見受けられたことが推察できます.</p>
+<center>
+    <img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/92685/af743c7d-9f0c-a00e-b98a-1c60feeb8a5c.png" 
+width="600">
+</center>
+<h2 id="コメント">コメント</h2>
+<p>flat-NER layerを動的に重ねることでネスト構造の固有表現を段階的に抽出するというアイデアは面白かったです. しかし, 下位の層の予測を間違えてしまうと, 上位の層の予測性能に影響することが考えられるため, 段階的に予測するよりも全ての階層を同時に考慮しながら予測したほうが良さそうな気もしました.</p>
+<h1 id="おわりに">おわりに</h1>
+<p>今回の記事では, Nested NERタスクの概要, および, 関連する論文を1つピックアップして紹介しました.<br>
+今後も自分の勉強記録およびアウトプットの機会として, 論文紹介ができればと思います.</p>
+<h1 id="参考文献">参考文献</h1>
+<ul>
+<li><a href="https://ja.wikipedia.org/wiki/%E5%9B%BA%E6%9C%89%E8%A1%A8%E7%8F%BE%E6%8A%BD%E5%87%BA">Wikipedia - 固有表現抽出</a></li>
+<li><a href="https://speakerdeck.com/sansandsoc/practical-use-of-named-entity-recognition">実務で使う固有表現抽出 / Practical Use of Named Entity Recognition</a></li>
+</ul>
+
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="/tags/paper/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#paper</a>
+    
+</div>
+        
+        
+        
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">Next</span>
+        <a href="/posts/2021-06-22_how-to-use-spacy-visualizers/" class="block">displaCyで固有表現抽出の結果を可視化する</a>
+        
+    </div>
+</div>
+
+        
+    </div>
+    
+
+    
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+            </div>
+        </div>
+        
+    </main>
+    <footer class="pl-scrollbar">
+        <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">© Copyright Soichiro Murakami All Right Reserved &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+    </footer>
+</body>
+
+</html>

@@ -65,21 +65,21 @@
     "itemListElement":[{
             "@type":"ListItem",
             "position":  1 ,
+            "name": "論文紹介: A Neural Layered Model for Nested Named Entity Recognition (Ju+,NAACL2018)",
+            "description": "はじめに Nested Named Entity Recognitionについて調べる機会があり, いくつかの論文をサーベイしたのでその記録としてまとめていきます. 今回は調査した論文のうち, 下記の1つをピックアップして, 簡単に中身を記録します.\n ⭐️A Neural Layered Model for Nested Named Entity Recognition (Ju+,NAACL2018) Deep Exhaustive Model for Nested Named Entity Recognition (Sohrab+,EMNLP2018) A Boundary-aware Neural Model for Nested Named Entity Recognition (Zhen+,EMNLP2019) Boundary Enhanced Neural SpanClassification for Nested Named Entity Recognition (Tan+,AAAI2020) HIT: Nested Named Entity Recognition via Head-Tail Pairand Token Interaction (Wamg+,EMNLP2020) A Boundary Assembling Method for NestedBiomedical Named Entity Recognition (Chen+,IEEE Access,2020) Locate and Label: A Two-stage Identifier for Nested Named EntityRecognition (Shen+,ACL2021)  Nested Named Entity Recognitionとは 固有表現抽出（Named Entity Recogniton; NER）とは, 人名や組織名などの固有名詞や日付, 時間, 価格などに関する表現をテキストから抽出するタスクのことです.",
+            "url": "/posts/2021-07-24_survey-on-nested-ner/"
+        },{
+            "@type":"ListItem",
+            "position":  2 ,
             "name": "displaCyで固有表現抽出の結果を可視化する",
             "description": "はじめに この記事では、固有表現抽出の結果を可視化する方法を紹介します。 可視化のためのライブラリとして、spaCyで利用可能なdisplaCyを利用します\n本記事は基本編と応用編の二構成となっています。 基本編では、spaCy上で動作する日本語自然言語処理のライブラリ「GiNZA」で固有表現抽出した結果を可視化する方法を紹介します。\n応用編として、自作の固有表現抽出器の結果をdisplayCyで可視化する方法を紹介します。\n環境 最近ではちょっとした実験はGoogle Colaboratoryを使っています。\n環境をすぐに立ち上げることができて便利ですね。\n本記事でもGoogle Colaboratory上での作業を例に紹介していきます。\n作成したNotebookはこちらに公開しました。\nまずは、pipで今回使用するginzaをインストールします。\n※spaCyも依存ライブラリとしてインストールされます。\n!pip install -U ginza  インストール後は、下記のようにパッケージをリロードしましょう。 これをしないとインストールしたもモデルを読むことができず、ランタイムの再起動が必要になります。\nimport pkg_resources, imp imp.reload(pkg_resources)  ginzaによる固有表現抽出 インストール後、モデルを読み込みます。\nimport spacy nlp = spacy.load('ja_ginza')  動作確認 例文「銀座線渋谷駅から銀座に向かう.」を銀座で解析してみます。\ndoc = nlp(\u0026quot;銀座線渋谷駅から銀座に向かう.\u0026quot;) for sent in doc.sents: for token in sent: print(token.i, token.orth_, token.lemma_, token.pos_, token.tag_, token.dep_, token.head.i)  このような結果が得られればOKです。\n0 銀座 銀座 PROPN 名詞-固有名詞-地名-一般 compound 2 1 線 線 NOUN 名詞-普通名詞-一般 compound 2 2 渋谷駅 渋谷駅 PROPN 名詞-固有名詞-一般 obl 6 3 から から ADP 助詞-格助詞 case 2 4 銀座 銀座 PROPN 名詞-固有名詞-地名-一般 obl 6 5 に に ADP 助詞-格助詞 case 4 6 向かう 向かう VERB 動詞-一般 ROOT 6 7 .",
             "url": "/posts/2021-06-22_how-to-use-spacy-visualizers/"
         },{
             "@type":"ListItem",
-            "position":  2 ,
+            "position":  3 ,
             "name": "EACL2021に主著論文が採択されました.",
             "description": "論文採択のお知らせ 下記の主著論文がEACL2021に採択されました。\n Soichiro Murakami, Sora Tanaka, Masatsugu Hangyo, Hidetaka Kamigaito, Kotaro Funakoshi, Hiroya Takamura and Manabu Okumura, \u0026ldquo;Generating Weather Comments from Meteorological Simulations\u0026rdquo;, In Proceedings of the 16th Conference of the European Chapter of the Association for Computational Linguistics (EACL2021)\n ",
             "url": "/posts/2021-01-14_eacl2021-notification/"
-        },{
-            "@type":"ListItem",
-            "position":  3 ,
-            "name": "サイトを更新しました。",
-            "description": "はじめに これまで個人ページを自作していましたが、管理や更新が大変かつ新たなことを勉強してみたかったので Hugo、 Github Pagesで個人ページを更新しました。 今回の更新にあたりブログ機能も導入しましたので、何かしらの発信もしていきます。\n今後投稿すること 更新は不定期ですが、主に以下の内容について投稿していく予定です。 これまでQiitaに投稿していたような記事をこちらにも書いていけたらと思います。\n 技術記事  主に自然言語処理、機械学習、研究系のツールについて   論文紹介 学会・勉強会の参加報告 採択論文に関するお知らせ  参考ページ 個人ページの更新にあたって、参考にさせていただいたページです。\n Host on GitHub - Hugo Hugo+Github Pagesで新しい個人ウェブサイトを作った  ",
-            "url": "/posts/2020-11-27_greeting/"
         }
     ]
 }
@@ -114,7 +114,7 @@
 
 
 
-<meta property="og:updated_time" content="2021-06-22T00:55:51&#43;09:00" />
+<meta property="og:updated_time" content="2021-07-24T15:20:00&#43;09:00" />
 
 
 
@@ -209,6 +209,39 @@
   
   <div class="w-full ">
     <div class="mb-4">
+  <a href="/posts/2021-07-24_survey-on-nested-ner/" class="font-bold text-xl hover:text-eureka">論文紹介: A Neural Layered Model for Nested Named Entity Recognition (Ju&#43;,NAACL2018)</a>
+</div>
+<div class="content">
+  はじめに Nested Named Entity Recognitionについて調べる機会があり, いくつかの論文をサーベイしたのでその記録としてまとめていきます. 今回は調査した論文のうち, 下記の1つをピックアップして, 簡単に中身を記録します.
+ ⭐️A Neural Layered Model for Nested Named Entity Recognition (Ju&#43;,NAACL2018) Deep Exhaustive Model for Nested Named Entity Recognition (Sohrab&#43;,EMNLP2018) A Boundary-aware Neural Model for Nested Named Entity Recognition (Zhen&#43;,EMNLP2019) Boundary Enhanced Neural SpanClassification for Nested Named Entity Recognition (Tan&#43;,AAAI2020) HIT: Nested Named Entity Recognition via Head-Tail Pairand Token Interaction (Wamg&#43;,EMNLP2020) A Boundary Assembling Method for NestedBiomedical Named Entity Recognition (Chen&#43;,IEEE Access,2020) Locate and Label: A Two-stage Identifier for Nested Named EntityRecognition (Shen&#43;,ACL2021)  Nested Named Entity Recognitionとは 固有表現抽出（Named Entity Recogniton; NER）とは, 人名や組織名などの固有名詞や日付, 時間, 価格などに関する表現をテキストから抽出するタスクのことです.
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2021-07-24</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>2 min read</span>
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
   <a href="/posts/2021-06-22_how-to-use-spacy-visualizers/" class="font-bold text-xl hover:text-eureka">displaCyで固有表現抽出の結果を可視化する</a>
 </div>
 <div class="content">
@@ -283,46 +316,31 @@ doc = nlp(&amp;quot;銀座線渋谷駅から銀座に向かう.&amp;quot;) for s
 </div>
   </div>
   
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="mb-4">
-  <a href="/posts/2020-11-27_greeting/" class="font-bold text-xl hover:text-eureka">サイトを更新しました。</a>
-</div>
-<div class="content">
-  はじめに これまで個人ページを自作していましたが、管理や更新が大変かつ新たなことを勉強してみたかったので Hugo、 Github Pagesで個人ページを更新しました。 今回の更新にあたりブログ機能も導入しましたので、何かしらの発信もしていきます。
-今後投稿すること 更新は不定期ですが、主に以下の内容について投稿していく予定です。 これまでQiitaに投稿していたような記事をこちらにも書いていけたらと思います。
- 技術記事  主に自然言語処理、機械学習、研究系のツールについて   論文紹介 学会・勉強会の参加報告 採択論文に関するお知らせ  参考ページ 個人ページの更新にあたって、参考にさせていただいたページです。
- Host on GitHub - Hugo Hugo&#43;Github Pagesで新しい個人ウェブサイトを作った  
-</div>
-
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-    <div class="mr-6 my-2">
-        <i class="fas fa-calendar mr-1"></i>
-        <span>2020-11-27</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-clock mr-1"></i>
-        <span>1 min read</span>
-    </div>
-    
-    
-
-    
-</div>
-
-  </div>
-
-  
-</div>
-  </div>
-  
 </div>
 
 
 </div>
 
+<ul class="pagination">
+  <li class="page-item">
+    <a href="/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+  </li>
+  <li class="page-item disabled">
+    <a  class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+  </li>
+  <li class="page-item active">
+    <a class="page-link" href="/posts/">1</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/2/">2</a>
+  </li>
+  <li class="page-item">
+    <a href="/posts/page/2/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a href="/posts/page/2/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+  </li>
+</ul>
 
 
 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>paper on Soichiro Murakami</title>
+    <link>/tags/paper/</link>
+    <description>Recent content in paper on Soichiro Murakami</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© Copyright Soichiro Murakami All Right Reserved</copyright>
+    <lastBuildDate>Sat, 24 Jul 2021 15:20:00 +0900</lastBuildDate><atom:link href="/tags/paper/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>論文紹介: A Neural Layered Model for Nested Named Entity Recognition (Ju&#43;,NAACL2018)</title>
+      <link>/posts/2021-07-24_survey-on-nested-ner/</link>
+      <pubDate>Sat, 24 Jul 2021 15:20:00 +0900</pubDate>
+      
+      <guid>/posts/2021-07-24_survey-on-nested-ner/</guid>
+      <description>はじめに Nested Named Entity Recognitionについて調べる機会があり, いくつかの論文をサーベイしたのでその記録としてまとめていきます. 今回は調査した論文のうち, 下記の1つをピックアップして, 簡単に中身を記録します.
+ ⭐️A Neural Layered Model for Nested Named Entity Recognition (Ju+,NAACL2018) Deep Exhaustive Model for Nested Named Entity Recognition (Sohrab+,EMNLP2018) A Boundary-aware Neural Model for Nested Named Entity Recognition (Zhen+,EMNLP2019) Boundary Enhanced Neural SpanClassification for Nested Named Entity Recognition (Tan+,AAAI2020) HIT: Nested Named Entity Recognition via Head-Tail Pairand Token Interaction (Wamg+,EMNLP2020) A Boundary Assembling Method for NestedBiomedical Named Entity Recognition (Chen+,IEEE Access,2020) Locate and Label: A Two-stage Identifier for Nested Named EntityRecognition (Shen+,ACL2021)  Nested Named Entity Recognitionとは 固有表現抽出（Named Entity Recogniton; NER）とは, 人名や組織名などの固有名詞や日付, 時間, 価格などに関する表現をテキストから抽出するタスクのことです.</description>
+    </item>
+    
+  </channel>
+</rss>
