@@ -3,79 +3,90 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/tags/paper/</loc>
+    <loc>https://ichiroex.github.io/categories/</loc>
     <lastmod>2021-07-24T15:20:00+09:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/</loc>
+    <loc>https://ichiroex.github.io/tags/paper/</loc>
     <lastmod>2021-07-24T15:20:00+09:00</lastmod>
   </url>
   
   <url>
-    <loc>/</loc>
+    <loc>https://ichiroex.github.io/posts/</loc>
     <lastmod>2021-07-24T15:20:00+09:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/</loc>
+    <loc>https://ichiroex.github.io/</loc>
     <lastmod>2021-07-24T15:20:00+09:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/2021-07-24_survey-on-nested-ner/</loc>
+    <loc>https://ichiroex.github.io/tags/</loc>
     <lastmod>2021-07-24T15:20:00+09:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/2021-06-22_how-to-use-spacy-visualizers/</loc>
+    <loc>https://ichiroex.github.io/categories/%E8%AB%96%E6%96%87%E7%B4%B9%E4%BB%8B/</loc>
+    <lastmod>2021-07-24T15:20:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ichiroex.github.io/posts/2021-07-24_survey-on-nested-ner/</loc>
+    <lastmod>2021-07-24T15:20:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ichiroex.github.io/posts/2021-06-22_how-to-use-spacy-visualizers/</loc>
     <lastmod>2021-06-22T00:55:51+09:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/tool/</loc>
+    <loc>https://ichiroex.github.io/tags/tool/</loc>
     <lastmod>2021-06-22T00:55:51+09:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/2021-01-14_eacl2021-notification/</loc>
+    <loc>https://ichiroex.github.io/categories/%E3%83%84%E3%83%BC%E3%83%AB/</loc>
+    <lastmod>2021-06-22T00:55:51+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ichiroex.github.io/posts/2021-01-14_eacl2021-notification/</loc>
     <lastmod>2021-01-14T23:44:50+09:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/notification/</loc>
+    <loc>https://ichiroex.github.io/tags/notification/</loc>
     <lastmod>2021-01-14T23:44:50+09:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/blog/</loc>
+    <loc>https://ichiroex.github.io/tags/blog/</loc>
     <lastmod>2020-11-27T21:28:33+09:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/2020-11-27_greeting/</loc>
+    <loc>https://ichiroex.github.io/posts/2020-11-27_greeting/</loc>
     <lastmod>2020-11-27T21:28:33+09:00</lastmod>
   </url>
   
   <url>
-    <loc>/publication/</loc>
+    <loc>https://ichiroex.github.io/publication/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/authors/</loc>
+    <loc>https://ichiroex.github.io/authors/</loc>
   </url>
   
   <url>
-    <loc>/categories/</loc>
+    <loc>https://ichiroex.github.io/contact/</loc>
   </url>
   
   <url>
-    <loc>/contact/</loc>
-  </url>
-  
-  <url>
-    <loc>/series/</loc>
+    <loc>https://ichiroex.github.io/series/</loc>
   </url>
   
 </urlset>

@@ -2,82 +2,63 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Soichiro Murakami</title>
-    <link>/</link>
+    <link>https://ichiroex.github.io/</link>
     <description>Recent content on Soichiro Murakami</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© Copyright Soichiro Murakami All Right Reserved</copyright>
-    <lastBuildDate>Sat, 24 Jul 2021 15:20:00 +0900</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 24 Jul 2021 15:20:00 +0900</lastBuildDate><atom:link href="https://ichiroex.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>論文紹介: A Neural Layered Model for Nested Named Entity Recognition (Ju&#43;,NAACL2018)</title>
-      <link>/posts/2021-07-24_survey-on-nested-ner/</link>
+      <link>https://ichiroex.github.io/posts/2021-07-24_survey-on-nested-ner/</link>
       <pubDate>Sat, 24 Jul 2021 15:20:00 +0900</pubDate>
       
-      <guid>/posts/2021-07-24_survey-on-nested-ner/</guid>
-      <description>はじめに Nested Named Entity Recognitionについて調べる機会があり, いくつかの論文をサーベイしたのでその記録としてまとめていきます. 今回は調査した論文のうち, 下記の1つをピックアップして, 簡単に中身を記録します.
- ⭐️A Neural Layered Model for Nested Named Entity Recognition (Ju+,NAACL2018) Deep Exhaustive Model for Nested Named Entity Recognition (Sohrab+,EMNLP2018) A Boundary-aware Neural Model for Nested Named Entity Recognition (Zhen+,EMNLP2019) Boundary Enhanced Neural SpanClassification for Nested Named Entity Recognition (Tan+,AAAI2020) HIT: Nested Named Entity Recognition via Head-Tail Pairand Token Interaction (Wamg+,EMNLP2020) A Boundary Assembling Method for NestedBiomedical Named Entity Recognition (Chen+,IEEE Access,2020) Locate and Label: A Two-stage Identifier for Nested Named EntityRecognition (Shen+,ACL2021)  Nested Named Entity Recognitionとは 固有表現抽出（Named Entity Recogniton; NER）とは, 人名や組織名などの固有名詞や日付, 時間, 価格などに関する表現をテキストから抽出するタスクのことです.</description>
+      <guid>https://ichiroex.github.io/posts/2021-07-24_survey-on-nested-ner/</guid>
+      <description>Nested Named Entity Recognitionについて調べる機会があり, いくつかの論文をサーベイしたのでその記録としてまとめていきます. 今回は調査した論文のうち, A Neural Layered Model for Nested Named Entity Recognition (Ju+,NAACL2018)について簡単に中身を記録します.</description>
     </item>
     
     <item>
       <title>displaCyで固有表現抽出の結果を可視化する</title>
-      <link>/posts/2021-06-22_how-to-use-spacy-visualizers/</link>
+      <link>https://ichiroex.github.io/posts/2021-06-22_how-to-use-spacy-visualizers/</link>
       <pubDate>Tue, 22 Jun 2021 00:55:51 +0900</pubDate>
       
-      <guid>/posts/2021-06-22_how-to-use-spacy-visualizers/</guid>
-      <description>はじめに この記事では、固有表現抽出の結果を可視化する方法を紹介します。 可視化のためのライブラリとして、spaCyで利用可能なdisplaCyを利用します
-本記事は基本編と応用編の二構成となっています。 基本編では、spaCy上で動作する日本語自然言語処理のライブラリ「GiNZA」で固有表現抽出した結果を可視化する方法を紹介します。
-応用編として、自作の固有表現抽出器の結果をdisplayCyで可視化する方法を紹介します。
-環境 最近ではちょっとした実験はGoogle Colaboratoryを使っています。
-環境をすぐに立ち上げることができて便利ですね。
-本記事でもGoogle Colaboratory上での作業を例に紹介していきます。
-作成したNotebookはこちらに公開しました。
-まずは、pipで今回使用するginzaをインストールします。
-※spaCyも依存ライブラリとしてインストールされます。
-!pip install -U ginza  インストール後は、下記のようにパッケージをリロードしましょう。 これをしないとインストールしたもモデルを読むことができず、ランタイムの再起動が必要になります。
-import pkg_resources, imp imp.reload(pkg_resources)  ginzaによる固有表現抽出 インストール後、モデルを読み込みます。
-import spacy nlp = spacy.load(&#39;ja_ginza&#39;)  動作確認 例文「銀座線渋谷駅から銀座に向かう.」を銀座で解析してみます。
-doc = nlp(&amp;quot;銀座線渋谷駅から銀座に向かう.&amp;quot;) for sent in doc.sents: for token in sent: print(token.i, token.orth_, token.lemma_, token.pos_, token.tag_, token.dep_, token.head.i)  このような結果が得られればOKです。
-0 銀座 銀座 PROPN 名詞-固有名詞-地名-一般 compound 2 1 線 線 NOUN 名詞-普通名詞-一般 compound 2 2 渋谷駅 渋谷駅 PROPN 名詞-固有名詞-一般 obl 6 3 から から ADP 助詞-格助詞 case 2 4 銀座 銀座 PROPN 名詞-固有名詞-地名-一般 obl 6 5 に に ADP 助詞-格助詞 case 4 6 向かう 向かう VERB 動詞-一般 ROOT 6 7 .</description>
+      <guid>https://ichiroex.github.io/posts/2021-06-22_how-to-use-spacy-visualizers/</guid>
+      <description>この記事では、固有表現抽出の結果を可視化する方法を紹介します。 可視化のためのライブラリとして、spaCyで利用可能なdisplaCyを利用します。 本記事は基本編と応用編の二構成となっています。 基本編では、spaCy上で動作する日本語自然言語処理のライブラリ「GiNZA」で固有表現抽出した結果を可視化する方法を紹介します。 応用編として、自作の固有表現抽出器の結果をdisplayCyで可視化する方法を紹介します。</description>
     </item>
     
     <item>
       <title>EACL2021に主著論文が採択されました.</title>
-      <link>/posts/2021-01-14_eacl2021-notification/</link>
+      <link>https://ichiroex.github.io/posts/2021-01-14_eacl2021-notification/</link>
       <pubDate>Thu, 14 Jan 2021 23:44:50 +0900</pubDate>
       
-      <guid>/posts/2021-01-14_eacl2021-notification/</guid>
-      <description>論文採択のお知らせ 下記の主著論文がEACL2021に採択されました。
- Soichiro Murakami, Sora Tanaka, Masatsugu Hangyo, Hidetaka Kamigaito, Kotaro Funakoshi, Hiroya Takamura and Manabu Okumura, &amp;ldquo;Generating Weather Comments from Meteorological Simulations&amp;rdquo;, In Proceedings of the 16th Conference of the European Chapter of the Association for Computational Linguistics (EACL2021)
- </description>
+      <guid>https://ichiroex.github.io/posts/2021-01-14_eacl2021-notification/</guid>
+      <description>論文採択のお知らせ 下記の主著論文がEACL2021に採択されました。 Soichiro Murakami, Sora Tanaka, Masatsugu Hangyo, Hidetaka Kamigaito, Kotaro Funakoshi, Hiroya Takamura and Manabu Okumura, &amp;ldquo;Generating Weather Comments from Meteorological Simulations&amp;rdquo;, In Proceedings of the 16th Conference of the European Chapter of the Association for Computational Linguistics (EACL2021)</description>
     </item>
     
     <item>
       <title>サイトを更新しました。</title>
-      <link>/posts/2020-11-27_greeting/</link>
+      <link>https://ichiroex.github.io/posts/2020-11-27_greeting/</link>
       <pubDate>Fri, 27 Nov 2020 21:28:33 +0900</pubDate>
       
-      <guid>/posts/2020-11-27_greeting/</guid>
-      <description>はじめに これまで個人ページを自作していましたが、管理や更新が大変かつ新たなことを勉強してみたかったので Hugo、 Github Pagesで個人ページを更新しました。 今回の更新にあたりブログ機能も導入しましたので、何かしらの発信もしていきます。
-今後投稿すること 更新は不定期ですが、主に以下の内容について投稿していく予定です。 これまでQiitaに投稿していたような記事をこちらにも書いていけたらと思います。
- 技術記事  主に自然言語処理、機械学習、研究系のツールについて   論文紹介 学会・勉強会の参加報告 採択論文に関するお知らせ  参考ページ 個人ページの更新にあたって、参考にさせていただいたページです。
- Host on GitHub - Hugo Hugo+Github Pagesで新しい個人ウェブサイトを作った  </description>
+      <guid>https://ichiroex.github.io/posts/2020-11-27_greeting/</guid>
+      <description>はじめに これまで個人ページを自作していましたが、管理や更新が大変かつ新たなことを勉強してみたかったので Hugo、 Github Pagesで個人ページを更新しました。 今回の更新にあたりブログ機能も導入しましたので、</description>
     </item>
     
     <item>
       <title></title>
-      <link>/publication/</link>
+      <link>https://ichiroex.github.io/publication/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/publication/</guid>
-      <description>Journals  村上聡一朗, 渡邉亮彦, 宮澤彬, 五島圭一, 柳瀬利彦, 高村大也, 宮尾祐介, &amp;ldquo;時系列株価データからの市況コメントの自動生成&amp;rdquo;, 自然言語処理, 27-2, pp.299 - 328, (2020.6) Ningping Sun, Soichiro Murakami, Hiroshi Nagaoka, Takuya Shigemoto, &amp;ldquo;A correction algorithm for stereo matching with general digital cameras and web cameras&amp;rdquo;, International Journal of Space-Based and Situated Computing, Vol.3, No.3, pp.169 - 184 (2013.9)  International Conferences  Soichiro Murakami, Sora Tanaka, Masatsugu Hangyo, Hidetaka Kamigaito, Kotaro Funakoshi, Hiroya Takamura and Manabu Okumura, &amp;ldquo;Generating Weather Comments from Meteorological Simulations&amp;rdquo;, In Proceedings of the 16th Conference of the European Chapter of the Association for Computational Linguistics (EACL2021) (2021.</description>
+      <guid>https://ichiroex.github.io/publication/</guid>
+      <description>Journals  村上聡一朗, 渡邉亮彦, 宮澤彬, 五島圭一, 柳瀬利彦, 高村大也, 宮尾祐介, &amp;ldquo;時系列株価データからの市況コメントの自動生成&amp;rdquo;, 自然言語処理, 27-2, pp.299 - 328, (2020.6) Ningping Sun, Soichiro Murakami, Hiroshi Nagaoka, Takuya Shigemoto, &amp;ldquo;A correction algorithm for stereo matching with general digital cameras and web cameras&amp;rdquo;, International Journal of Space-Based and Situated Computing, Vol.3, No.3, pp.169 - 184 (2013.9)  International Conferences  Soichiro Murakami, Sora Tanaka, Masatsugu Hangyo, Hidetaka Kamigaito, Kotaro Funakoshi, Hiroya Takamura and Manabu Okumura, &amp;ldquo;Generating Weather Comments from Meteorological Simulations&amp;rdquo;, In Proceedings of the 16th Conference of the European Chapter of the Association for Computational Linguistics (EACL2021) (2021.04), [PDF], [Slide], [Poster], [Code], [bib] Soichiro Murakami*, Makoto Morishita*, Tsutomu Hirao, Masaaki Nagata (*Equal contribution), &amp;ldquo;NTT&amp;rsquo;s Machine Translation Systems for WMT19 Robustness Task”, First Place in the En-Ja Track, The 4th Conference on Machine Translation (WMT19) (2019.</description>
     </item>
     
     <item>
       <title>Contact</title>
-      <link>/contact/</link>
+      <link>https://ichiroex.github.io/contact/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/contact/</guid>
+      <guid>https://ichiroex.github.io/contact/</guid>
       <description>/* Style inputs with type=&#34;text&#34;, select elements and textareas */ input[type=text], input[type=email], select, textarea { width: 100%; /* Full width */ padding: 12px; /* Some padding */ border: 1px solid #ccc; /* Gray border */ border-radius: 4px; /* Rounded borders */ box-sizing: border-box; /* Make sure that padding and width stays in place */ margin-top: 6px; /* Add a top margin */ margin-bottom: 16px; /* Bottom margin */ resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */ } /* Style the submit button with a specific background color etc */ button[type=submit] { background-color: #4CAF50; color: white; padding: 12px 20px; border: none; border-radius: 4px; cursor: pointer; } /* When moving the mouse over the submit button, add a darker green color */ button[type=submit]:hover { background-color: #45a049; }    grecaptcha.</description>
     </item>
     

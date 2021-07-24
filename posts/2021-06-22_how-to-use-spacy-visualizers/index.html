@@ -4,8 +4,8 @@
 
 
 <title>displaCyで固有表現抽出の結果を可視化する | Soichiro Murakami</title>
-<link rel="stylesheet" href="/css/eureka.min.css">
-<script defer src="/js/eureka.min.js"></script>
+<link rel="stylesheet" href="https://ichiroex.github.io/css/eureka.min.css">
+<script defer src="https://ichiroex.github.io/js/eureka.min.js"></script>
 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload"
@@ -49,24 +49,11 @@
 </script>
 
 
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_hu53a4421b6231ae7001608b5fda2dd431_857_32x32_fill_box_center_2.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_hu53a4421b6231ae7001608b5fda2dd431_857_180x180_fill_box_center_2.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://ichiroex.github.io/images/favicon_hu53a4421b6231ae7001608b5fda2dd431_857_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://ichiroex.github.io/images/favicon_hu53a4421b6231ae7001608b5fda2dd431_857_180x180_fill_box_center_2.png">
 
 <meta name="description"
-  content="はじめに この記事では、固有表現抽出の結果を可視化する方法を紹介します。 可視化のためのライブラリとして、spaCyで利用可能なdisplaCyを利用します
-本記事は基本編と応用編の二構成となっています。 基本編では、spaCy上で動作する日本語自然言語処理のライブラリ「GiNZA」で固有表現抽出した結果を可視化する方法を紹介します。
-応用編として、自作の固有表現抽出器の結果をdisplayCyで可視化する方法を紹介します。
-環境 最近ではちょっとした実験はGoogle Colaboratoryを使っています。
-環境をすぐに立ち上げることができて便利ですね。
-本記事でもGoogle Colaboratory上での作業を例に紹介していきます。
-作成したNotebookはこちらに公開しました。
-まずは、pipで今回使用するginzaをインストールします。
-※spaCyも依存ライブラリとしてインストールされます。
-!pip install -U ginza  インストール後は、下記のようにパッケージをリロードしましょう。 これをしないとインストールしたもモデルを読むことができず、ランタイムの再起動が必要になります。
-import pkg_resources, imp imp.reload(pkg_resources)  ginzaによる固有表現抽出 インストール後、モデルを読み込みます。
-import spacy nlp = spacy.load(&#39;ja_ginza&#39;)  動作確認 例文「銀座線渋谷駅から銀座に向かう.」を銀座で解析してみます。
-doc = nlp(&quot;銀座線渋谷駅から銀座に向かう.&quot;) for sent in doc.sents: for token in sent: print(token.i, token.orth_, token.lemma_, token.pos_, token.tag_, token.dep_, token.head.i)  このような結果が得られればOKです。
-0 銀座 銀座 PROPN 名詞-固有名詞-地名-一般 compound 2 1 線 線 NOUN 名詞-普通名詞-一般 compound 2 2 渋谷駅 渋谷駅 PROPN 名詞-固有名詞-一般 obl 6 3 から から ADP 助詞-格助詞 case 2 4 銀座 銀座 PROPN 名詞-固有名詞-地名-一般 obl 6 5 に に ADP 助詞-格助詞 case 4 6 向かう 向かう VERB 動詞-一般 ROOT 6 7 .">
+  content="この記事では、固有表現抽出の結果を可視化する方法を紹介します。 可視化のためのライブラリとして、spaCyで利用可能なdisplaCyを利用します。 本記事は基本編と応用編の二構成となっています。 基本編では、spaCy上で動作する日本語自然言語処理のライブラリ「GiNZA」で固有表現抽出した結果を可視化する方法を紹介します。 応用編として、自作の固有表現抽出器の結果をdisplayCyで可視化する方法を紹介します。">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -75,11 +62,11 @@ doc = nlp(&quot;銀座線渋谷駅から銀座に向かう.&quot;) for sent in d
       "@type": "ListItem",
       "position": 1 ,
       "name":"Posts",
-      "item":"/posts/"},{
+      "item":"https://ichiroex.github.io/posts/"},{
       "@type": "ListItem",
       "position": 2 ,
       "name":"displaCyで固有表現抽出の結果を可視化する",
-      "item":"/posts/2021-06-22_how-to-use-spacy-visualizers/"}]
+      "item":"https://ichiroex.github.io/posts/2021-06-22_how-to-use-spacy-visualizers/"}]
 }
 </script>
 
@@ -91,47 +78,34 @@ doc = nlp(&quot;銀座線渋谷駅から銀座に向かう.&quot;) for sent in d
     "@type": "Article",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "/posts/2021-06-22_how-to-use-spacy-visualizers/"
+        "@id": "https://ichiroex.github.io/posts/2021-06-22_how-to-use-spacy-visualizers/"
     },
     "headline": "displaCyで固有表現抽出の結果を可視化する | Soichiro Murakami","datePublished": "2021-06-22T00:55:51+09:00",
     "dateModified": "2021-06-22T00:55:51+09:00",
-    "wordCount":  244 ,
+    "wordCount":  2294 ,
     "publisher": {
         "@type": "Person",
         "name": "S. Murakami",
         "logo": {
             "@type": "ImageObject",
-            "url": "/images/favicon.png"
+            "url": "https://ichiroex.github.io/images/favicon.png"
         }
         },
-    "description": "はじめに この記事では、固有表現抽出の結果を可視化する方法を紹介します。 可視化のためのライブラリとして、spaCyで利用可能なdisplaCyを利用します\n本記事は基本編と応用編の二構成となっています。 基本編では、spaCy上で動作する日本語自然言語処理のライブラリ「GiNZA」で固有表現抽出した結果を可視化する方法を紹介します。\n応用編として、自作の固有表現抽出器の結果をdisplayCyで可視化する方法を紹介します。\n環境 最近ではちょっとした実験はGoogle Colaboratoryを使っています。\n環境をすぐに立ち上げることができて便利ですね。\n本記事でもGoogle Colaboratory上での作業を例に紹介していきます。\n作成したNotebookはこちらに公開しました。\nまずは、pipで今回使用するginzaをインストールします。\n※spaCyも依存ライブラリとしてインストールされます。\n!pip install -U ginza  インストール後は、下記のようにパッケージをリロードしましょう。 これをしないとインストールしたもモデルを読むことができず、ランタイムの再起動が必要になります。\nimport pkg_resources, imp imp.reload(pkg_resources)  ginzaによる固有表現抽出 インストール後、モデルを読み込みます。\nimport spacy nlp = spacy.load(\u0027ja_ginza\u0027)  動作確認 例文「銀座線渋谷駅から銀座に向かう.」を銀座で解析してみます。\ndoc = nlp(\u0026quot;銀座線渋谷駅から銀座に向かう.\u0026quot;) for sent in doc.sents: for token in sent: print(token.i, token.orth_, token.lemma_, token.pos_, token.tag_, token.dep_, token.head.i)  このような結果が得られればOKです。\n0 銀座 銀座 PROPN 名詞-固有名詞-地名-一般 compound 2 1 線 線 NOUN 名詞-普通名詞-一般 compound 2 2 渋谷駅 渋谷駅 PROPN 名詞-固有名詞-一般 obl 6 3 から から ADP 助詞-格助詞 case 2 4 銀座 銀座 PROPN 名詞-固有名詞-地名-一般 obl 6 5 に に ADP 助詞-格助詞 case 4 6 向かう 向かう VERB 動詞-一般 ROOT 6 7 ."
+    "description": "この記事では、固有表現抽出の結果を可視化する方法を紹介します。 可視化のためのライブラリとして、spaCyで利用可能なdisplaCyを利用します。 本記事は基本編と応用編の二構成となっています。 基本編では、spaCy上で動作する日本語自然言語処理のライブラリ「GiNZA」で固有表現抽出した結果を可視化する方法を紹介します。 応用編として、自作の固有表現抽出器の結果をdisplayCyで可視化する方法を紹介します。"
 }
 </script><meta property="og:title" content="displaCyで固有表現抽出の結果を可視化する | Soichiro Murakami" />
 <meta property="og:type" content="article" />
 
 
-<meta property="og:image" content="/images/favicon.png">
+<meta property="og:image" content="https://ichiroex.github.io/images/favicon.png">
 
 
-<meta property="og:url" content="/posts/2021-06-22_how-to-use-spacy-visualizers/" />
+<meta property="og:url" content="https://ichiroex.github.io/posts/2021-06-22_how-to-use-spacy-visualizers/" />
 
 
 
 
-<meta property="og:description" content="はじめに この記事では、固有表現抽出の結果を可視化する方法を紹介します。 可視化のためのライブラリとして、spaCyで利用可能なdisplaCyを利用します
-本記事は基本編と応用編の二構成となっています。 基本編では、spaCy上で動作する日本語自然言語処理のライブラリ「GiNZA」で固有表現抽出した結果を可視化する方法を紹介します。
-応用編として、自作の固有表現抽出器の結果をdisplayCyで可視化する方法を紹介します。
-環境 最近ではちょっとした実験はGoogle Colaboratoryを使っています。
-環境をすぐに立ち上げることができて便利ですね。
-本記事でもGoogle Colaboratory上での作業を例に紹介していきます。
-作成したNotebookはこちらに公開しました。
-まずは、pipで今回使用するginzaをインストールします。
-※spaCyも依存ライブラリとしてインストールされます。
-!pip install -U ginza  インストール後は、下記のようにパッケージをリロードしましょう。 これをしないとインストールしたもモデルを読むことができず、ランタイムの再起動が必要になります。
-import pkg_resources, imp imp.reload(pkg_resources)  ginzaによる固有表現抽出 インストール後、モデルを読み込みます。
-import spacy nlp = spacy.load(&#39;ja_ginza&#39;)  動作確認 例文「銀座線渋谷駅から銀座に向かう.」を銀座で解析してみます。
-doc = nlp(&quot;銀座線渋谷駅から銀座に向かう.&quot;) for sent in doc.sents: for token in sent: print(token.i, token.orth_, token.lemma_, token.pos_, token.tag_, token.dep_, token.head.i)  このような結果が得られればOKです。
-0 銀座 銀座 PROPN 名詞-固有名詞-地名-一般 compound 2 1 線 線 NOUN 名詞-普通名詞-一般 compound 2 2 渋谷駅 渋谷駅 PROPN 名詞-固有名詞-一般 obl 6 3 から から ADP 助詞-格助詞 case 2 4 銀座 銀座 PROPN 名詞-固有名詞-地名-一般 obl 6 5 に に ADP 助詞-格助詞 case 4 6 向かう 向かう VERB 動詞-一般 ROOT 6 7 ." />
+<meta property="og:description" content="この記事では、固有表現抽出の結果を可視化する方法を紹介します。 可視化のためのライブラリとして、spaCyで利用可能なdisplaCyを利用します。 本記事は基本編と応用編の二構成となっています。 基本編では、spaCy上で動作する日本語自然言語処理のライブラリ「GiNZA」で固有表現抽出した結果を可視化する方法を紹介します。 応用編として、自作の固有表現抽出器の結果をdisplayCyで可視化する方法を紹介します。" />
 
 
 
@@ -251,9 +225,16 @@ doc = nlp(&quot;銀座線渋谷駅から銀座に向かう.&quot;) for sent in d
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-clock mr-1"></i>
-        <span>2 min read</span>
+        <span>5 min read</span>
     </div>
     
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="https://ichiroex.github.io/categories/%E3%83%84%E3%83%BC%E3%83%AB/" class="hover:text-eureka">ツール</a>
+        
+    </div>
     
 
     
@@ -383,7 +364,7 @@ spaCyの固有表現抽出器を使えば数行で結果を可視化すること
         
         <div class="my-4">
     
-    <a href="/tags/tool/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#tool</a>
+    <a href="https://ichiroex.github.io/tags/tool/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#tool</a>
     
 </div>
         
@@ -397,13 +378,13 @@ spaCyの固有表現抽出器を使えば数行で結果を可視化すること
     <div>
         
         <span class="block font-bold">Previous</span>
-        <a href="/posts/2021-07-24_survey-on-nested-ner/" class="block">論文紹介: A Neural Layered Model for Nested Named Entity Recognition (Ju&#43;,NAACL2018)</a>
+        <a href="https://ichiroex.github.io/posts/2021-07-24_survey-on-nested-ner/" class="block">論文紹介: A Neural Layered Model for Nested Named Entity Recognition (Ju&#43;,NAACL2018)</a>
         
     </div>
     <div class="md:text-right mt-4 md:mt-0">
         
         <span class="block font-bold">Next</span>
-        <a href="/posts/2021-01-14_eacl2021-notification/" class="block">EACL2021に主著論文が採択されました.</a>
+        <a href="https://ichiroex.github.io/posts/2021-01-14_eacl2021-notification/" class="block">EACL2021に主著論文が採択されました.</a>
         
     </div>
 </div>

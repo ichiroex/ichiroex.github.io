@@ -2,21 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>notification on Soichiro Murakami</title>
-    <link>/tags/notification/</link>
+    <link>https://ichiroex.github.io/tags/notification/</link>
     <description>Recent content in notification on Soichiro Murakami</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© Copyright Soichiro Murakami All Right Reserved</copyright>
-    <lastBuildDate>Thu, 14 Jan 2021 23:44:50 +0900</lastBuildDate><atom:link href="/tags/notification/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 14 Jan 2021 23:44:50 +0900</lastBuildDate><atom:link href="https://ichiroex.github.io/tags/notification/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>EACL2021に主著論文が採択されました.</title>
-      <link>/posts/2021-01-14_eacl2021-notification/</link>
+      <link>https://ichiroex.github.io/posts/2021-01-14_eacl2021-notification/</link>
       <pubDate>Thu, 14 Jan 2021 23:44:50 +0900</pubDate>
       
-      <guid>/posts/2021-01-14_eacl2021-notification/</guid>
-      <description>論文採択のお知らせ 下記の主著論文がEACL2021に採択されました。
- Soichiro Murakami, Sora Tanaka, Masatsugu Hangyo, Hidetaka Kamigaito, Kotaro Funakoshi, Hiroya Takamura and Manabu Okumura, &amp;ldquo;Generating Weather Comments from Meteorological Simulations&amp;rdquo;, In Proceedings of the 16th Conference of the European Chapter of the Association for Computational Linguistics (EACL2021)
- </description>
+      <guid>https://ichiroex.github.io/posts/2021-01-14_eacl2021-notification/</guid>
+      <description>論文採択のお知らせ 下記の主著論文がEACL2021に採択されました。 Soichiro Murakami, Sora Tanaka, Masatsugu Hangyo, Hidetaka Kamigaito, Kotaro Funakoshi, Hiroya Takamura and Manabu Okumura, &amp;ldquo;Generating Weather Comments from Meteorological Simulations&amp;rdquo;, In Proceedings of the 16th Conference of the European Chapter of the Association for Computational Linguistics (EACL2021)</description>
     </item>
     
   </channel>

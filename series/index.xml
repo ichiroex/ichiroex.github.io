@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Series on Soichiro Murakami</title>
-    <link>/series/</link>
+    <link>https://ichiroex.github.io/series/</link>
     <description>Recent content in Series on Soichiro Murakami</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>© Copyright Soichiro Murakami All Right Reserved</copyright><atom:link href="/series/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© Copyright Soichiro Murakami All Right Reserved</copyright><atom:link href="https://ichiroex.github.io/series/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
