@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang='ja' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<meta name="google-site-verification" content="wP3zt3laQFZPBVDi5I-qj_2GK5jvzug4Js9UyPHM8Aw" />
+
+
+<title>Optunaを用いた文書分類モデルのハイパラ最適化 | Soichiro Murakami</title>
+<link rel="stylesheet" href="https://ichiroex.github.io/css/eureka.min.css">
+<script defer src="https://ichiroex.github.io/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-46305538-5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-46305538-5');
+</script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://ichiroex.github.io/images/favicon_hu53a4421b6231ae7001608b5fda2dd431_857_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://ichiroex.github.io/images/favicon_hu53a4421b6231ae7001608b5fda2dd431_857_180x180_fill_box_center_2.png">
+
+<meta name="description"
+  content="ニュース記事のカテゴリを分類する文書分類モデルのハイパラ最適化について解説します.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"https://ichiroex.github.io/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Optunaを用いた文書分類モデルのハイパラ最適化",
+      "item":"https://ichiroex.github.io/posts/2021-09-19_hyper-tune-with-optuna/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ichiroex.github.io/posts/2021-09-19_hyper-tune-with-optuna/"
+    },
+    "headline": "Optunaを用いた文書分類モデルのハイパラ最適化 | Soichiro Murakami","datePublished": "2021-09-19T00:19:00+09:00",
+    "dateModified": "2021-09-19T00:19:00+09:00",
+    "wordCount":  4060 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "S. Murakami",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://ichiroex.github.io/images/favicon.png"
+        }
+        },
+    "description": "ニュース記事のカテゴリを分類する文書分類モデルのハイパラ最適化について解説します."
+}
+</script><meta property="og:title" content="Optunaを用いた文書分類モデルのハイパラ最適化 | Soichiro Murakami" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://ichiroex.github.io/images/favicon.png">
+
+
+<meta property="og:url" content="https://ichiroex.github.io/posts/2021-09-19_hyper-tune-with-optuna/" />
+
+
+
+
+<meta property="og:description" content="ニュース記事のカテゴリを分類する文書分類モデルのハイパラ最適化について解説します." />
+
+
+
+
+<meta property="og:locale" content="ja" />
+
+
+
+
+<meta property="og:site_name" content="Soichiro Murakami" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2021-09-19T00:19:00&#43;09:00" />
+
+
+<meta property="article:modified_time" content="2021-09-19T00:19:00&#43;09:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="ツール" />
+
+
+
+
+
+<body class="flex flex-col min-h-screen">
+    <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+        <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if ((storageColorScheme == 'Auto' && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap p-4">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">Soichiro Murakami</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">About</a>
+            <a href="/publication/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">Publication</a>
+            <a href="/posts/"
+                class="block mt-4 md:inline-block md:mt-0  text-eureka  hover:text-eureka mr-4">Posts</a>
+            <a href="/contact/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">Contact</a>
+            <a href="/tags/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">Tags</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-sun"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == 'Auto') {
+        element.firstElementChild.classList.remove('fa-sun')
+        element.firstElementChild.setAttribute("data-icon", 'adjust')
+        element.firstElementChild.classList.add('fa-adjust')
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-sun')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script></div>
+    </header>
+    <main class="flex-grow pt-16">
+        <div class="pl-scrollbar">
+            <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">Optunaを用いた文書分類モデルのハイパラ最適化</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2021-09-19</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span></span>
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="https://ichiroex.github.io/categories/tool/" class="hover:text-eureka">tool</a>
+        
+    </div>
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <h1 id="はじめに">はじめに</h1>
+<p>より良い機械学習モデルの構築のために, Batch sizeやDropout率といったハイパーパラメータ（ハイパラ）の調整は大きな課題の1つです.<br>
+<strong>本記事では, ニュース記事のカテゴリを分類する文書分類モデルのハイパラ最適化について解説します.</strong> 具体的には, モデルとして事前学習済みの<a href="https://arxiv.org/abs/1810.04805">BERT</a>を使用し, ファインチューニング時のハイパラ最適化方法を扱います.<br>
+ハイパラ最適化には, 機械学習モデルのハイパーパラメータ自動最適化フレームワークの1つである<a href="https://github.com/optuna/optuna">Optuna</a>を使用します.</p>
+<h1 id="実験環境">実験環境</h1>
+<p>本記事の実験環境, ソースコードは下記のNotebookで公開しています.</p>
+<ul>
+<li><a href="https://colab.research.google.com/drive/1ff97_tVm_pxLzCzjfnvwWgbPq5SgV4qs?usp=sharing">Optunaで文書分類モデルのハイパラチューニング (Google Colab Notebook) </a></li>
+</ul>
+<h1 id="参考記事">参考記事</h1>
+<p>本記事で実装した文書分類モデルやOptunaを用いたハイパラ最適化のコードは下記の記事を参考にさせていただきました.</p>
+<ul>
+<li><a href="https://qiita.com/yamaru/items/527ca7d814534beca56a">【PyTorch】BERTを用いた日本語文書分類入門</a></li>
+<li><a href="https://venoda.hatenablog.com/entry/2021/06/06/131004">Optunaでハイパーパラメータの自動チューニング -Pytorch Lightning編-</a></li>
+<li><a href="https://github.com/optuna/optuna-examples/blob/main/pytorch/pytorch_lightning_simple.py">optuna/optuna-examples (github)</a></li>
+<li><a href="https://cpp-learning.com/optuna-pytorch/">PyTorch Lightningによる多クラス分類の実装</a></li>
+</ul>
+<h1 id="livedoorニュースコーパスの取得">Livedoorニュースコーパスの取得</h1>
+<p>Livedoorニュースコーパスは「livedoorニュース」の下記9種類のニュース記事からなるコーパスです.</p>
+<ul>
+<li><a href="http://news.livedoor.com/category/vender/news/">トピックニュース</a></li>
+<li><a href="http://news.livedoor.com/category/vender/208/">Sports Watch</a></li>
+<li><a href="http://news.livedoor.com/category/vender/223/">ITライフハック</a></li>
+<li><a href="http://news.livedoor.com/category/vender/kadench/">家電チャンネル</a></li>
+<li><a href="http://news.livedoor.com/category/vender/movie_enter/">MOVIE ENTER</a></li>
+<li><a href="http://news.livedoor.com/category/vender/90/">独女通信</a></li>
+<li><a href="http://news.livedoor.com/category/vender/smax/">エスマックス</a></li>
+<li><a href="http://news.livedoor.com/category/vender/homme/">livedoor HOMME</a></li>
+<li><a href="http://news.livedoor.com/category/vender/ldgirls/">Peachy</a></li>
+</ul>
+<p>本記事では, Livedoorニュースコーパスを用いて、ある記事のニュースカテゴリ（上記9種類のうちいずれか）を分類する文書分類モデルを構築します.<br>
+<a href="https://www.rondhuit.com/download.html">こちらのサイト</a>で配布されているため, ダウンロードおよび前処理を行います.</p>
+<pre><code class="language-bash"># livedoorニュースコーパスのダウンロード
+!wget https://www.rondhuit.com/download/ldcc-20140209.tar.gz
+!tar zxvf ldcc-20140209.tar.gz
+
+# 整形結果格納用ファイル作成
+!echo -e &quot;filename\tarticle&quot;$(for category in $(basename -a `find ./text -type d` | grep -v text | sort); do echo -n &quot;\t&quot;; echo -n $category; done) &gt; ./text/livedoor.tsv
+
+# カテゴリごとに格納
+!for filename in `basename -a ./text/dokujo-tsushin/dokujo-tsushin-*`; do echo -n &quot;$filename&quot;; echo -ne &quot;\t&quot;; echo -n `sed -e '1,3d' ./text/dokujo-tsushin/$filename`; echo -e &quot;\t1\t0\t0\t0\t0\t0\t0\t0\t0&quot;; done &gt;&gt; ./text/livedoor.tsv
+!for filename in `basename -a ./text/it-life-hack/it-life-hack-*`; do echo -n &quot;$filename&quot;; echo -ne &quot;\t&quot;; echo -n `sed -e '1,3d' ./text/it-life-hack/$filename`; echo -e &quot;\t0\t1\t0\t0\t0\t0\t0\t0\t0&quot;; done &gt;&gt; ./text/livedoor.tsv
+!for filename in `basename -a ./text/kaden-channel/kaden-channel-*`; do echo -n &quot;$filename&quot;; echo -ne &quot;\t&quot;; echo -n `sed -e '1,3d' ./text/kaden-channel/$filename`; echo -e &quot;\t0\t0\t1\t0\t0\t0\t0\t0\t0&quot;; done &gt;&gt; ./text/livedoor.tsv
+!for filename in `basename -a ./text/livedoor-homme/livedoor-homme-*`; do echo -n &quot;$filename&quot;; echo -ne &quot;\t&quot;; echo -n `sed -e '1,3d' ./text/livedoor-homme/$filename`; echo -e &quot;\t0\t0\t0\t1\t0\t0\t0\t0\t0&quot;; done &gt;&gt; ./text/livedoor.tsv
+!for filename in `basename -a ./text/movie-enter/movie-enter-*`; do echo -n &quot;$filename&quot;; echo -ne &quot;\t&quot;; echo -n `sed -e '1,3d' ./text/movie-enter/$filename`; echo -e &quot;\t0\t0\t0\t0\t1\t0\t0\t0\t0&quot;; done &gt;&gt; ./text/livedoor.tsv
+!for filename in `basename -a ./text/peachy/peachy-*`; do echo -n &quot;$filename&quot;; echo -ne &quot;\t&quot;; echo -n `sed -e '1,3d' ./text/peachy/$filename`; echo -e &quot;\t0\t0\t0\t0\t0\t1\t0\t0\t0&quot;; done &gt;&gt; ./text/livedoor.tsv
+!for filename in `basename -a ./text/smax/smax-*`; do echo -n &quot;$filename&quot;; echo -ne &quot;\t&quot;; echo -n `sed -e '1,3d' ./text/smax/$filename`; echo -e &quot;\t0\t0\t0\t0\t0\t0\t1\t0\t0&quot;; done &gt;&gt; ./text/livedoor.tsv
+!for filename in `basename -a ./text/sports-watch/sports-watch-*`; do echo -n &quot;$filename&quot;; echo -ne &quot;\t&quot;; echo -n `sed -e '1,3d' ./text/sports-watch/$filename`; echo -e &quot;\t0\t0\t0\t0\t0\t0\t0\t1\t0&quot;; done &gt;&gt; ./text/livedoor.tsv
+!for filename in `basename -a ./text/topic-news/topic-news-*`; do echo -n &quot;$filename&quot;; echo -ne &quot;\t&quot;; echo -n `sed -e '1,3d' ./text/topic-news/$filename`; echo -e &quot;\t0\t0\t0\t0\t0\t0\t0\t0\t1&quot;; done &gt;&gt; ./text/livedoor.tsv
+
+# ファイルの内容を確認
+!head -10 ./text/livedoor.tsv
+(省略)
+</code></pre>
+<h1 id="文書分類モデルの構築">文書分類モデルの構築</h1>
+<p>今回は, PyTorchの軽量ラッパーである<a href="https://www.pytorchlightning.ai/">PyTorch Lightning</a>を使って文書分類モデルを実装していきます.<br>
+PyTorch Lightningを使うことで, PyTorchを用いたモデルの実装において煩雑になりがちなtrain/testループ等をシンプルに書くことができます.</p>
+<p>PyTorch Ligntningの詳細は<a href="https://qiita.com/ground0state/items/c1d705ca2ee329cdfae4">こちらの記事</a>が参考になります.</p>
+<h2 id="モデル構築の流れ">モデル構築の流れ</h2>
+<p>PyTorch Lightningを使ったモデル構築の流れはおおまかに以下の3つです.<br>
+LightningModuleとは, <code>torch.nn.Module</code>を拡張したようなクラスになっていて, モデルの定義だけでなく, lossの計算やoptimizerの定義などをまとめることができます.</p>
+<ul>
+<li>データの読み込み</li>
+<li>Datasetの定義</li>
+<li>LightningModuleの定義</li>
+</ul>
+<h2 id="データの読み込み">データの読み込み</h2>
+<p>まずはさきほどダウンロード・前処理したlivedoorニュースコーパスをDataFrameに読み込みます.</p>
+<pre><code class="language-py">import pandas as pd
+from sklearn.model_selection import train_test_split
+from tabulate import tabulate
+
+# データの読込
+df = pd.read_csv('./text/livedoor.tsv', sep='\t')
+
+# データの分割
+categories = ['dokujo-tsushin', 'it-life-hack', 'kaden-channel', 'livedoor-homme', 'movie-enter', 'peachy', 'smax', 'sports-watch', 'topic-news']
+train, valid_test = train_test_split(df, test_size=0.2, shuffle=True, random_state=123, stratify=df[categories])
+valid, test = train_test_split(valid_test, test_size=0.5, shuffle=True, random_state=123, stratify=valid_test[categories])
+train.reset_index(drop=True, inplace=True)
+valid.reset_index(drop=True, inplace=True)
+test.reset_index(drop=True, inplace=True)
+
+# 事例数の確認
+table = [['train'] + [train[category].sum() for category in categories],
+         ['valid'] + [valid[category].sum() for category in categories],
+         ['test'] + [test[category].sum() for category in categories]]
+headers = ['data'] + categories
+print(tabulate(table, headers, tablefmt='grid'))
+</code></pre>
+<h2 id="datasetの定義">Datasetの定義</h2>
+<p>学習・検証時に使用するデータセットを定義します.<br>
+具体的には, PyTorchの <code>Dataset</code> クラスを継承させた <code>MyDataset</code> クラスを作ります.<br>
+<code>__getitem__</code>には, indexを引数として, データを返す処理を記述します.</p>
+<p>また, 作成した <code>MyDataset</code> クラス内で テキストデータのトークンid化やPaddingといった前処理を行うことができます.</p>
+<pre><code class="language-py"># Datasetの定義
+class MyDataset(Dataset):
+    def __init__(self, X, y, tokenizer, max_len):
+        self.X = X
+        self.y = y
+        self.tokenizer = tokenizer
+        self.max_len = max_len
+
+    def __len__(self):  # len(Dataset)で返す値を指定
+        return len(self.y)
+
+    def __getitem__(self, index):  # Dataset[index]で返す値を指定
+        text = self.X[index]
+        inputs = self.tokenizer.encode_plus(
+            text,
+            add_special_tokens=True,
+            max_length=self.max_len,
+            pad_to_max_length=True
+        )
+        ids = inputs['input_ids']
+        mask = inputs['attention_mask']
+
+        return {
+            'ids': torch.LongTensor(ids),
+            'mask': torch.LongTensor(mask),
+            'labels': torch.Tensor(self.y[index])
+        }
+    
+    @staticmethod
+    def collate_fn(batch):
+        ids_batch = pad_sequence([item[&quot;ids&quot;] for item in batch], padding_value=0).transpose(0, 1)
+        mask_batch = pad_sequence([item[&quot;mask&quot;] for item in batch], padding_value=0).transpose(0, 1)
+        labels_batch = pad_sequence([item[&quot;labels&quot;] for item in batch]).transpose(0, 1)
+        return ids_batch, mask_batch, labels_batch
+</code></pre>
+<h2 id="lightningmoduleモデルの定義">LightningModule(モデル)の定義</h2>
+<p>次に, LightningModule（モデル）を定義するために,  <code>pl.LightningModule</code> を継承したクラスを作成します. PyTorch Lightningでは, LightningModule内にネットワークやloss関数, optimizerを定義します.<br>
+今回は, BERTを用いた文書分類モデルを作成するため,  <code>BERTClassifier</code> というクラス名のLightnignModuleを作成しました.</p>
+<p><code>pl.LightningModule</code>では様々なメソッドが定義されており, 例えば <code>train_epoch_end</code>や<code>validation_epoch_end</code>といったメソッドをオーバーライドすることで, 学習または検証ループのエポック終了ごとに実行する処理を記述することができます.<br>
+他にもさまざまなメソッドが定義されていますので詳細は<a href="https://pytorch-lightning.readthedocs.io/en/latest/common/lightning_module.html">公式ドキュメント</a>を参照して下さい.</p>
+<pre><code class="language-py">class BERTClassifier(pl.LightningModule):
+    def __init__(self, pretrained, drop_rate, output_size, lr):
+        super().__init__()
+        self.bert = BertModel.from_pretrained(pretrained)
+        self.drop = torch.nn.Dropout(drop_rate)
+        self.fc = torch.nn.Linear(768, output_size)  # BERTの出力に合わせて768次元を指定
+        self.lr = lr
+        self.criterion = torch.nn.BCEWithLogitsLoss()
+
+    def forward(self, ids, mask):
+        outputs = self.bert(ids, attention_mask=mask, return_dict=True)
+        out = self.fc(self.drop(outputs[&quot;last_hidden_state&quot;][:, 0, :]))
+        return out
+        
+    def training_step(self, batch, batch_idx):
+        ids_batch = batch[0]
+        mask_batch = batch[1]
+        labels_batch = batch[2]        
+        out = self(ids_batch, mask_batch)
+        loss = self.criterion(out, labels_batch)
+        self.log('train_loss', loss)        
+        pred_labels = out.argmax(dim=1).detach().cpu().tolist()
+        tgt_labels = labels_batch.argmax(dim=1).detach().cpu().tolist()
+        return {
+            &quot;loss&quot;: loss, 
+            &quot;pred_labels&quot;: pred_labels,
+            &quot;tgt_labels&quot;: tgt_labels
+        }
+
+    def train_epoch_end(self, train_step_outputs):
+        pred_labels = []
+        tgt_labels = []
+        for out in train_step_outputs:
+            pred_labels.extend(out[&quot;pred_labels&quot;])
+            tgt_labels.extend(out[&quot;tgt_labels&quot;])
+        train_f1 = f1_score(tgt_labels, pred_labels, average=&quot;macro&quot;)
+        self.log(&quot;train_f1&quot;, train_f1)
+
+    def validation_step(self, batch, batch_idx):
+        ids_batch = batch[0]
+        mask_batch = batch[1]
+        labels_batch = batch[2]        
+        out = self(ids_batch, mask_batch)
+        loss = self.criterion(out, labels_batch)
+        self.log('valid_loss', loss)
+        pred_labels = out.argmax(dim=1).detach().cpu().tolist()
+        tgt_labels = labels_batch.argmax(dim=1).detach().cpu().tolist()
+        return {
+            &quot;loss&quot;: loss, 
+            &quot;pred_labels&quot;: pred_labels,
+            &quot;tgt_labels&quot;: tgt_labels
+        }
+
+    def validation_epoch_end(self, validation_step_outputs):
+        pred_labels = []
+        tgt_labels = []
+        for out in validation_step_outputs:
+            pred_labels.extend(out[&quot;pred_labels&quot;])
+            tgt_labels.extend(out[&quot;tgt_labels&quot;])
+        val_f1 = f1_score(tgt_labels, pred_labels, average=&quot;macro&quot;)
+        self.log(&quot;val_f1&quot;, val_f1)
+        
+    def configure_optimizers(self):
+        optimizer = torch.optim.Adam(self.parameters(), lr=self.lr)
+        return optimizer
+</code></pre>
+<h2 id="モデルの学習検証">モデルの学習/検証</h2>
+<p>これまで定義した <code>MyDataset</code> から<code>Dataloder</code>を作成し,  <code>BERTClassifier</code>の学習します.<br>
+PyTorch Lightningでは, 下記のように <code>trainer</code> を作成し, <code>trainer.fit</code> で定義したモデルの学習・検証ループを実行することができます.</p>
+<pre><code class="language-py">MAX_LEN = 128
+batch_size = 32
+epochs = 5
+
+# 事前学習済みモデルの指定
+pretrained = 'cl-tohoku/bert-base-japanese-whole-word-masking'
+
+# tokenizerの取得
+tokenizer = BertJapaneseTokenizer.from_pretrained(pretrained)
+
+# modelの作成
+model = BERTClassifier(pretrained, drop_rate=0.1, output_size=9, lr=2e-5)
+
+# Datasetの作成
+dataset_train = MyDataset(train['article'], train[categories].values, tokenizer, MAX_LEN)
+dataset_valid = MyDataset(valid['article'], valid[categories].values, tokenizer, MAX_LEN)
+
+# Dataloaderの作成
+dataloader_train = DataLoader(dataset_train, batch_size=batch_size, shuffle=True, collate_fn=dataset_train.collate_fn)
+dataloader_valid = DataLoader(dataset_valid, batch_size=batch_size, shuffle=False, collate_fn=dataset_valid.collate_fn)
+
+trainer = pl.Trainer(
+    logger=True,
+    max_epochs=epochs,
+    checkpoint_callback=False,
+    gpus=1,
+)
+
+trainer.fit(model, dataloader_train, dataloader_valid)
+</code></pre>
+<p>これで, 文書分類モデルの学習・検証ループまでを実装することができました.<br>
+それでは, 次にこのモデルに対するハイパラ最適化を行います.</p>
+<h1 id="ハイパラ最適化">ハイパラ最適化</h1>
+<h2 id="ハイパラ最適化の流れ">ハイパラ最適化の流れ</h2>
+<p>さきほど作成したモデルの学習/検証のコードを参考に, Optunaによるハイパラ最適化を行います.<br>
+Optunaでは主に下記2ステップによりハイパラ最適化を行います.</p>
+<p>まず, 目的関数の定義では, 最適化したいスコア（loss, 精度 等）を返す <code>objective</code> 関数を作成します.<br>
+次に最適化の実行により, lossであれば最小化, 精度であれば最大化を行います. 　　</p>
+<p>今回実装したコードでは, 検証データ（<code>valid</code>）に対する分類精度(<code>F1</code>)を最大化するようにハイパラ最適化を行います.</p>
+<ul>
+<li>目的関数（<code>objective</code>）の定義</li>
+<li>最適化の実行</li>
+</ul>
+<h2 id="目的関数の定義">目的関数の定義</h2>
+<p>こちらが作成した目的関数（<code>objective</code>）です. 今回調整する対象のハイパーパラメータは, 学習率(<code>lr</code>)とドロップアウト確率（<code>drop_rate</code>）としました.<br>
+Optunaでは, <code>trial.suggest_float</code>のように調整したいパラメータとその範囲を指定することができます.</p>
+<p><code>objective</code>では, ハイパラ最適化により最大化または最小化させたいスコアを返します.<br>
+今回は, 検証データ（<code>valid</code>）に対する分類精度(<code>F1</code>)を最大化するようにハイパラ最適化を行います.</p>
+<pre><code class="language-py">def objective(trial):
+    MAX_LEN = 128
+    batch_size = 32
+    epochs = 5
+
+    # 学習率（lr）とドロップアウト確率（drop_rate）を最適化
+    lr = trial.suggest_float(&quot;lr&quot;, 2e-5, 2e-4)
+    drop_rate = trial.suggest_float(&quot;drop_rate&quot;, 0.1, 0.5)
+
+    # 事前学習済みモデルの指定
+    pretrained = 'cl-tohoku/bert-base-japanese-whole-word-masking'
+
+    # tokenizerの取得
+    tokenizer = BertJapaneseTokenizer.from_pretrained(pretrained)
+
+    # modelの作成
+    model = BERTClassifier(pretrained, drop_rate=drop_rate, output_size=9, lr=lr)
+
+    # Datasetの作成
+    dataset_train = MyDataset(train['article'], train[categories].values, tokenizer, MAX_LEN)
+    dataset_valid = MyDataset(valid['article'], valid[categories].values, tokenizer, MAX_LEN)
+
+    # Dataloaderの作成
+    dataloader_train = DataLoader(dataset_train, batch_size=batch_size, shuffle=True, collate_fn=dataset_train.collate_fn)
+    dataloader_valid = DataLoader(dataset_valid, batch_size=batch_size, shuffle=False, collate_fn=dataset_valid.collate_fn)
+
+    trainer = pl.Trainer(
+        logger=True,
+        max_epochs=epochs,
+        checkpoint_callback=False,
+        gpus=1,
+        callbacks=[PyTorchLightningPruningCallback(trial, monitor=&quot;val_f1&quot;)]
+    )
+
+    hyperparameters = dict(lr=lr, drop_rate=drop_rate)
+    trainer.logger.log_hyperparams(hyperparameters)
+
+    trainer.fit(model, dataloader_train, dataloader_valid)
+    return trainer.callback_metrics[&quot;val_f1&quot;].item() # val_f1を（最適化）最大化する
+</code></pre>
+<h2 id="最適化の実行">最適化の実行</h2>
+<p>最後に定義した目的関数を用いて, Studyにより最適化（スコア最大化）を実行します.<br>
+<code>optuna.create_study</code>を<code>direction=&quot;maximize&quot;</code>とすることで, スコア最大化をすることができます.</p>
+<p><code>pruner = optuna.pruners.MedianPruner()</code>は, ハイパラ最適化における枝刈りの基準を表しています.<br>
+<code>MedianPruner</code>では, その名の通り, 過去の試行（trial）の同じepochにおける値と比較して, それらの中央値よりもスコアが悪ければ試行を打ち切る基準となっています.</p>
+<p>今回のコードでは, <code>n_trials</code>（試行回数）を10に設定しました.<br>
+これにより, 今回実装した文書分類モデルのファインチューニングが10回実行されます.</p>
+<pre><code class="language-py">pruner = optuna.pruners.MedianPruner()
+
+study = optuna.create_study(direction=&quot;maximize&quot;, pruner=pruner)
+study.optimize(objective, n_trials=10)
+
+print(&quot;Number of finished trials: {}&quot;.format(len(study.trials)))
+
+print(&quot;Best trial:&quot;)
+trial = study.best_trial
+
+print(&quot;  Value: {}&quot;.format(trial.value))
+
+print(&quot;  Params: &quot;)
+for key, value in trial.params.items():
+    print(&quot;    {}: {}&quot;.format(key, value))
+</code></pre>
+<p>ハイパラ最適化が完了すると下記のように結果を表示します.<br>
+<code>Value</code>は, 試行回数10回のうち, 最もスコアが良かった検証データ（<code>valid</code>）に対する<code>F1</code>スコアを表しています.
+また, その際の<code>lr</code>と<code>drop_rate</code>も確認することができます.</p>
+<pre><code class="language-bash">Number of finished trials: 10
+Best trial:
+  Value: 0.9065759778022766
+  Params: 
+    lr: 2.4313051844385965e-05
+    drop_rate: 0.34326517678045065
+</code></pre>
+<h1 id="おわりに">おわりに</h1>
+<p>ニュース記事のカテゴリを分類する文書分類モデルのハイパラ最適化について解説しました. 文書分類モデルとしてBERTを使用し, 分類タスクのファインチューニング時のハイパラ最適化を行いました.</p>
+<p>PyTorchやPytorch Lightningでモデルを実装する際には, はじめからOptunaの<code>objective</code>関数を意識してコーディングすることで比較的容易にハイパラ最適化の導入が実現できそうです.</p>
+
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="https://ichiroex.github.io/tags/%E3%83%84%E3%83%BC%E3%83%AB/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#ツール</a>
+    
+</div>
+        
+        
+        
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold"></span>
+        <a href="https://ichiroex.github.io/posts/2021-07-24_survey-on-nested-ner/" class="block">論文紹介: A Neural Layered Model for Nested Named Entity Recognition (Ju&#43;,NAACL2018)</a>
+        
+    </div>
+</div>
+
+        
+    </div>
+    
+
+    
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+            </div>
+        </div>
+        
+    </main>
+    <footer class="pl-scrollbar">
+        <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">© Copyright Soichiro Murakami All Right Reserved &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+    </footer>
+</body>
+
+</html>
