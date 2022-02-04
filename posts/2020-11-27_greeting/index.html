@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang='ja' ><meta charset="utf-8">
+<html lang='ja' dir='ltr' ><meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <meta name="google-site-verification" content="wP3zt3laQFZPBVDi5I-qj_2GK5jvzug4Js9UyPHM8Aw" />
 
 
 <title>サイトを更新しました。 | Soichiro Murakami</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.0" />
 <link rel="stylesheet" href="https://ichiroex.github.io/css/eureka.min.css">
 <script defer src="https://ichiroex.github.io/js/eureka.min.js"></script>
 
@@ -12,13 +14,11 @@
 <link rel="preload"
   href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
   as="style" onload="this.onload=null;this.rel='stylesheet'">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
-   media="print"
-  onload="this.media='all';this.onload=null" crossorigin>
-<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
-   crossorigin></script>
-<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
-   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<script defer type="text/javascript" src="https://ichiroex.github.io/js/fontawesome.min.c9763cde50b8432b3290aa984dff84dcb3db09a9f4927eb1d32f557d9123e3c41c01b05e523c609110aaf29100841821.js" integrity="sha384-yXY83lC4QysykKqYTf&#43;E3LPbCan0kn6x0y9VfZEj48QcAbBeUjxgkRCq8pEAhBgh"></script>
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
@@ -40,6 +40,8 @@
     });
   });
 </script>
+
+
 <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-46305538-5"></script>
 <script>
@@ -140,32 +142,27 @@
 
 
 <body class="flex flex-col min-h-screen">
-    <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
-        <div class="w-full max-w-screen-xl mx-auto"><script>
+  <header class="fixed flex items-center w-full min-h-16 ps-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
     let storageColorScheme = localStorage.getItem("lightDarkMode")
     if ((storageColorScheme == 'Auto' && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
         document.getElementsByTagName('html')[0].classList.add('dark')
     }
 </script>
-<nav class="flex items-center justify-between flex-wrap p-4">
-    <a href="/" class="mr-6 text-primary-text text-xl font-bold">Soichiro Murakami</a>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="me-6 text-primary-text text-xl font-bold">Soichiro Murakami</a>
     <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
         <i class="fas fa-bars"></i>
     </button>
 
     <div id="target"
-        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
-        <div class="text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
-            <a href="/#about"
-                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">About</a>
-            <a href="/publication/"
-                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">Publication</a>
-            <a href="/posts/"
-                class="block mt-4 md:inline-block md:mt-0  text-eureka  hover:text-eureka mr-4">Posts</a>
-            <a href="/contact/"
-                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">Contact</a>
-            <a href="/tags/"
-                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">Tags</a>
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">About</a>
+            <a href="/publication/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Publication</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">Posts</a>
+            <a href="/contact/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Contact</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Tags</a>
         </div>
 
         <div class="flex">
@@ -175,11 +172,11 @@
                 </div>
                 <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
                 </div>
-                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
                     id='lightDarkOptions'>
-                    <span class="px-4 py-1 hover:text-eureka">Light</span>
-                    <span class="px-4 py-1 hover:text-eureka">Dark</span>
-                    <span class="px-4 py-1 hover:text-eureka">Auto</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light"></span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark"></span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto"></span>
                 </div>
             </div>
         </div>
@@ -190,29 +187,31 @@
 
 </nav>
 <script>
+    
     let element = document.getElementById('lightDarkMode')
     if (storageColorScheme == 'Auto') {
         element.firstElementChild.classList.remove('fa-sun')
         element.firstElementChild.setAttribute("data-icon", 'adjust')
         element.firstElementChild.classList.add('fa-adjust')
         document.addEventListener('DOMContentLoaded', () => {
-            switchMode('Auto')
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
         })
     } else if (storageColorScheme == "Dark") {
         element.firstElementChild.classList.remove('fa-sun')
         element.firstElementChild.setAttribute("data-icon", 'moon')
         element.firstElementChild.classList.add('fa-moon')
     }
-    
+
     document.addEventListener('DOMContentLoaded', () => {
         getcolorscheme();
         switchBurger();
     });
-</script></div>
-    </header>
-    <main class="flex-grow pt-16">
-        <div class="pl-scrollbar">
-            <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+</script>
+</div>
+  </header>
+  <main class="grow pt-16">
+    <div class="ps-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
 
 
 <div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
@@ -220,12 +219,12 @@
         class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
         <h1 class="font-bold text-3xl text-primary-text">サイトを更新しました。</h1>
         <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-    <div class="mr-6 my-2">
-        <i class="fas fa-calendar mr-1"></i>
+    <div class="me-6 my-2">
+        <i class="fas fa-calendar me-1"></i>
         <span>2020-11-27</span>
     </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-clock mr-1"></i>
+    <div class="me-6 my-2">
+        <i class="fas fa-clock me-1"></i>
         <span></span>
     </div>
     
@@ -266,12 +265,14 @@
         
         <div class="my-4">
     
-    <a href="https://ichiroex.github.io/tags/blog/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#blog</a>
+    <a href="https://ichiroex.github.io/tags/blog/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#blog</a>
     
 </div>
         
         
         
+
+
         
         
         
@@ -289,27 +290,26 @@
 </div>
 
         
+
+
+
     </div>
     
 
     
     
 </div>
-<script>
-    document.addEventListener('DOMContentLoaded', ()=>{
-        hljs.initHighlightingOnLoad();
-    })
-</script>
 
-            </div>
-        </div>
-        
-    </main>
-    <footer class="pl-scrollbar">
-        <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="ps-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
     <p class="text-sm text-tertiary-text">© Copyright Soichiro Murakami All Right Reserved &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
 </div></div>
-    </footer>
+  </footer>
 </body>
 
 </html>
