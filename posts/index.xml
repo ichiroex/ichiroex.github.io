@@ -7,16 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>© Copyright Soichiro Murakami All Right Reserved</copyright>
-    <lastBuildDate>Sun, 03 Oct 2021 22:43:20 +0900</lastBuildDate><atom:link href="https://ichiroex.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>言語生成のスターターキット（リンク集）</title>
-      <link>https://ichiroex.github.io/posts/2021-10-03_link_collections_about_nlg/</link>
-      <pubDate>Sun, 03 Oct 2021 22:43:20 +0900</pubDate>
-      
-      <guid>https://ichiroex.github.io/posts/2021-10-03_link_collections_about_nlg/</guid>
-      <description>言語生成をこれから勉強したい・研究したい方に向けて、情報収集のためのリンク集をまとめます。</description>
-    </item>
-    
+    <lastBuildDate>Sun, 19 Sep 2021 00:19:00 +0900</lastBuildDate><atom:link href="https://ichiroex.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Optunaを用いた文書分類モデルのハイパラ最適化</title>
       <link>https://ichiroex.github.io/posts/2021-09-19_hyper-tune-with-optuna/</link>
@@ -42,24 +33,6 @@
       
       <guid>https://ichiroex.github.io/posts/2021-06-22_how-to-use-spacy-visualizers/</guid>
       <description>この記事では、固有表現抽出の結果を可視化する方法を紹介します。 可視化のためのライブラリとして、spaCyで利用可能なdisplaCyを利用します。 基本編では、spaCy上で動作する日本語自然言語処理のライブラリ「GiNZA」で固有表現抽出した結果を可視化する方法を紹介します。 応用編として、自作の固有表現抽出器の結果をdisplayCyで可視化する方法を紹介します。</description>
-    </item>
-    
-    <item>
-      <title>EACL2021に主著論文が採択されました.</title>
-      <link>https://ichiroex.github.io/posts/2021-01-14_eacl2021-notification/</link>
-      <pubDate>Thu, 14 Jan 2021 23:44:50 +0900</pubDate>
-      
-      <guid>https://ichiroex.github.io/posts/2021-01-14_eacl2021-notification/</guid>
-      <description>主著論文がEACL2021に採択されました。Generating Weather Comments from Meteorological Simulations</description>
-    </item>
-    
-    <item>
-      <title>サイトを更新しました。</title>
-      <link>https://ichiroex.github.io/posts/2020-11-27_greeting/</link>
-      <pubDate>Fri, 27 Nov 2020 21:28:33 +0900</pubDate>
-      
-      <guid>https://ichiroex.github.io/posts/2020-11-27_greeting/</guid>
-      <description>はじめに これまで個人ページを自作していましたが、管理や更新が大変かつ新たなことを勉強してみたかったので Hugo、 Github Pagesで個人ページを更新しました。 今回の更新にあたりブログ機能も導入しましたので、</description>
     </item>
     
   </channel>
