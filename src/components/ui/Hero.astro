@@ -1,5 +1,6 @@
 ---
 import SocialIcons from './SocialIcons.astro'
+import { profile } from '@/settings'
 
 interface Props {
   fullName: string;
@@ -16,8 +17,7 @@ const {fullName, title, institute, profilePicture} = Astro.props
   </h1>
   <p class='text-xl text-gray-600 mb-4'>{title}{institute ? ` at ${institute}` : ''}</p>
   <p class='text-lg mb-6'>
-    Research Scientist specializing in Natural Language Generation and Computational Advertising.
-    Developing AI systems for generating attractive advertising texts.
+    {profile.bio}
   </p>
   <div class='flex gap-4'>
     <SocialIcons />

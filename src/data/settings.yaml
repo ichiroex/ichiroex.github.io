@@ -5,12 +5,13 @@ profile:
   fullName: "Soichiro Murakami"
   title: "Research Scientist"
   institute: "CyberAgent, Inc."
+  bio: "I am a Research Scientist interested in LLM creativity. My research focuses on ad text generation, attractive expression analysis, and humor understanding. I am passionate about applying NLP to real-world challenges."
   author_names:  # 論文で強調表示する著者名（複数対応）
     - "Soichiro Murakami"
     - "村上聡一朗"
   research_areas:
     - title: "Natural Language Generation"
-      description: "Ad text generation with LLMs"
+      description: "Text generation with LLMs: ads, summaries, and data-to-text"
       field: "nlp"
     - title: "Computational Advertising"
       description: "Analysis and generation of advertising texts"
