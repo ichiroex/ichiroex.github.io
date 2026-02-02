@@ -15,7 +15,7 @@ interface Profile {
 	fullName: string;
 	title: string;
 	institute: string;
-	author_name: string;
+	author_names: string[];
 	research_areas: ResearchArea[];
 }
 

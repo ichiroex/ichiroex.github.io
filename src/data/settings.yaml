@@ -5,7 +5,9 @@ profile:
   fullName: "Soichiro Murakami"
   title: "Research Scientist"
   institute: "CyberAgent, Inc."
-  author_name: "Soichiro Murakami"  # 論文で強調表示する著者名
+  author_names:  # 論文で強調表示する著者名（複数対応）
+    - "Soichiro Murakami"
+    - "村上聡一朗"
   research_areas:
     - title: "Natural Language Generation"
       description: "Ad text generation with LLMs"
