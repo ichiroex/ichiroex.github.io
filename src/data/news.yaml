@@ -7,29 +7,23 @@
   pinned: true
   link: "/papers#eacl2026-multimodal-summarization"
 
-- title: "ACL 2025 に論文が採択されました"
+- title: "ACL 2025 Findings に論文が採択されました"
   date: "2025-06-20"
   content: "AdParaphrase v2.0 が ACL 2025 Findings に採択されました。"
   pinned: false
   link: "/papers#acl2025-adparaphrase-v2"
 
-- title: "NAACL 2025 に論文が採択されました"
+- title: "NAACL 2025 Findings に論文が採択されました"
   date: "2025-03-11"
   content: "AdParaphrase が NAACL 2025 Findings に採択されました。"
   pinned: false
   link: "/papers#naacl2025-adparaphrase"
 
-- title: "EMNLP 2025 に論文が採択されました"
+- title: "EMNLP 2025 Findings に論文が採択されました"
   date: "2025-11-01"
   content: "Distilling Many-Shot In-Context Learning into a Cheat Sheet が EMNLP 2025 Findings に採択されました。"
   pinned: false
   link: "/papers#emnlp2025-cheatsheet"
-
-- title: "言語処理学会第31回年次大会で委員特別賞を受賞"
-  date: "2025-03-15"
-  content: "FaithCAMERA: 広告文生成タスクのための忠実性を担保した評価データセットの構築 が委員特別賞を受賞しました。"
-  pinned: false
-  link: "/papers#nlp2025-faithcamera"
 
 - title: "ACL 2024 に論文が採択されました"
   date: "2024-07-24"
@@ -48,9 +42,3 @@
   content: "Generating Attractive Ad Text by Facilitating the Reuse of Landing Page Expressions が INLG 2024 に採択されました。"
   pinned: false
   link: "/papers#inlg2024-lp-reuse"
-
-- title: "言語処理学会第29回年次大会で委員特別賞を受賞"
-  date: "2023-03-15"
-  content: "広告文生成タスクの規定とベンチマーク構築 が委員特別賞を受賞しました。"
-  pinned: false
-  link: "/papers#nlp2023-benchmark"

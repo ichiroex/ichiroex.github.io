@@ -14,7 +14,6 @@ projects:
       - arxiv2025-diversity-quality
       - arxiv2024-faithcamera
       - arxiv2023-survey
-      - arxiv2023-camera
   - title: "Attractive Expression Analysis"
     description: "Building and analyzing datasets of ad text paraphrase pairs to study the characteristics of attractive expressions."
     publications:
@@ -29,9 +28,7 @@ projects:
   - title: "Data-to-Text Generation"
     description: "Generating natural language text from numerical or structured data, such as weather forecasts and stock market commentary."
     publications:
-      - jnlp2021-weather
       - eacl2021-weather
-      - jnlp2020-market
       - acl2017-market
 
 keywords:

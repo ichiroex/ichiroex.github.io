@@ -22,6 +22,21 @@ const publicationMap = new Map<string, Publication>();
 publications.forEach((pub) => {
   publicationMap.set(pub.id, pub);
 });
+
+// Get badge color based on venue type
+function getBadgeClass(venue: string): string {
+  const v = venue.toLowerCase();
+  if (v.includes('acl') || v.includes('naacl') || v.includes('emnlp') || v.includes('eacl')) {
+    return 'bg-blue-100 text-blue-700 hover:bg-blue-200 border-blue-200';
+  }
+  if (v.includes('arxiv')) {
+    return 'bg-orange-100 text-orange-700 hover:bg-orange-200 border-orange-200';
+  }
+  if (v.includes('journal') || v.includes('jnlp')) {
+    return 'bg-green-100 text-green-700 hover:bg-green-200 border-green-200';
+  }
+  return 'bg-purple-100 text-purple-700 hover:bg-purple-200 border-purple-200';
+}
 ---
 
 <Layout title="Research">
@@ -76,12 +91,13 @@ publications.forEach((pub) => {
                   const pub = publicationMap.get(pubId);
                   if (!pub) return null;
                   const link = pub.links?.arxiv || pub.links?.pdf;
+                  const badgeClass = getBadgeClass(pub.venue);
                   return link ? (
-                    <a href={link} target="_blank" rel="noopener noreferrer" class="badge badge-sm badge-outline hover:badge-primary transition-colors">
+                    <a href={link} target="_blank" rel="noopener noreferrer" class={`px-3 py-1 text-xs font-medium rounded-full border transition-colors ${badgeClass}`}>
                       {pub.venue}
                     </a>
                   ) : (
-                    <span class="badge badge-sm badge-outline">{pub.venue}</span>
+                    <span class={`px-3 py-1 text-xs font-medium rounded-full border ${badgeClass}`}>{pub.venue}</span>
                   );
                 })}
               </div>
