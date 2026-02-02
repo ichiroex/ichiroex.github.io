@@ -1,0 +1,26 @@
+# src/data/research.yaml
+# Research ページのコンテンツ管理
+
+introduction:
+  - "My research focuses on the intersection of Natural Language Processing (NLP) and Computational Advertising. I am particularly interested in automatic ad text generation using Large Language Models (LLMs) and analyzing/understanding attractive advertising expressions."
+  - "I also work on Data-to-Text tasks, which involve generating natural language text from numerical or structured data. I explore applications of language generation technologies to real-world challenges, such as generating weather forecast comments and stock market commentary."
+
+projects:
+  - title: "Ad Text Generation"
+    description: "Research on automatically generating attractive ad texts using LLMs. Extracting and utilizing effective appeal expressions from landing page information."
+  - title: "AdParaphrase Dataset"
+    description: "Building and analyzing a dataset of ad text paraphrase pairs to study the characteristics of attractive expressions."
+  - title: "Humor Understanding"
+    description: "Benchmark construction for humor understanding through Oogiri tasks and analysis of user preferences."
+
+keywords:
+  - "Natural Language Generation"
+  - "Large Language Models"
+  - "Computational Advertising"
+  - "Ad Text Generation"
+  - "Data-to-Text"
+  - "Paraphrase Generation"
+  - "Text Evaluation"
+  - "Humor Understanding"
+
+collaboration: "At CyberAgent AI Lab, I conduct applied research in collaboration with advertising delivery platforms. Through joint research with Okumura Laboratory at Institute of Science Tokyo, I engage in a wide range of work from fundamental research to practical applications."

@@ -1,11 +1,20 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { profile } from "@/settings";
+import { loadYaml } from "@/lib/loadYaml";
 import BetterIcon from "@/components/ui/BetterIcon.astro";
 import List from "@/components/ui/List.astro";
 import {RESEARCH_ICONS} from "@/data/researchIcons";
 
+interface ResearchData {
+  introduction: string[];
+  projects: { title: string; description: string }[];
+  keywords: string[];
+  collaboration: string;
+}
+
 const { research_areas } = profile;
+const research = loadYaml<ResearchData>('research.yaml');
 ---
 
 <Layout title="Research">
@@ -13,16 +22,9 @@ const { research_areas } = profile;
     <h1 class="text-3xl font-bold mb-8">Research</h1>
 
     <div class="mb-12">
-      <p class="text-lg mb-6">
-        My research focuses on the intersection of Natural Language Processing (NLP) and Computational Advertising.
-        I am particularly interested in automatic ad text generation using Large Language Models (LLMs)
-        and analyzing/understanding attractive advertising expressions.
-      </p>
-      <p class="text-lg mb-6">
-        I also work on Data-to-Text tasks, which involve generating natural language text from numerical or structured data.
-        I explore applications of language generation technologies to real-world challenges,
-        such as generating weather forecast comments and stock market commentary.
-      </p>
+      {research.introduction.map((paragraph) => (
+        <p class="text-lg mb-6">{paragraph}</p>
+      ))}
     </div>
 
     <h2 class="text-2xl font-bold mb-6">Research Areas</h2>
@@ -54,46 +56,16 @@ const { research_areas } = profile;
       }
     </div>
 
-    <List listTitle="Projects" listItems={[
-      {
-        title: "Ad Text Generation",
-        description: "Research on automatically generating attractive ad texts using LLMs. Extracting and utilizing effective appeal expressions from landing page information."
-      },
-      {
-        title: "AdParaphrase Dataset",
-        description: "Building and analyzing a dataset of ad text paraphrase pairs to study the characteristics of attractive expressions."
-      },
-      {
-        title: "CAMERA Benchmark",
-        description: "Standardization of ad text generation tasks and benchmark construction. Creating multimodal advertising datasets."
-      },
-      {
-        title: "Humor Understanding",
-        description: "Benchmark construction for humor understanding through Oogiri tasks and analysis of user preferences."
-      }
-    ]} />
+    <List listTitle="Projects" listItems={research.projects} />
 
     <h2 class="text-2xl font-bold mb-6 mt-12">Research Keywords</h2>
     <div class="flex flex-wrap gap-2 mb-8">
-      {[
-        "Natural Language Generation",
-        "Large Language Models",
-        "Computational Advertising",
-        "Ad Text Generation",
-        "Data-to-Text",
-        "Paraphrase Generation",
-        "Text Evaluation",
-        "Humor Understanding"
-      ].map((keyword) => (
+      {research.keywords.map((keyword) => (
         <span class="badge badge-lg badge-outline">{keyword}</span>
       ))}
     </div>
 
     <h2 class="text-2xl font-bold mb-6">Collaboration</h2>
-    <p class="text-lg mb-6">
-      At CyberAgent AI Lab, I conduct applied research in collaboration with advertising delivery platforms.
-      Through joint research with Okumura-Takamura Laboratory at Tokyo Institute of Technology,
-      I engage in a wide range of work from fundamental research to practical applications.
-    </p>
+    <p class="text-lg mb-6">{research.collaboration}</p>
   </div>
 </Layout>
