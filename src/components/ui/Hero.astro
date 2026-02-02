@@ -11,7 +11,7 @@ interface Props {
 
 const {fullName, title, institute, profilePicture} = Astro.props
 ---
-<div class='flex-1'>
+<div class='flex-1 text-center lg:text-left'>
   <h1 class='text-4xl font-bold mb-4'>
     {fullName}
   </h1>
@@ -19,11 +19,11 @@ const {fullName, title, institute, profilePicture} = Astro.props
   <p class='text-lg mb-6'>
     {profile.bio}
   </p>
-  <div class='flex gap-4'>
+  <div class='flex gap-4 justify-center lg:justify-start'>
     <SocialIcons />
   </div>
 </div>
-<div class='size-72 lg:block hidden'>
+<div class='size-40 lg:size-72 shrink-0'>
   <img
     src={profilePicture}
     alt={fullName}

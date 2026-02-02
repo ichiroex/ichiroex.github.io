@@ -1,8 +1,8 @@
 // src/settings.ts
 // YAMLファイルから設定を読み込んでエクスポート
 
-import yaml from 'js-yaml';
 import fs from 'fs';
+import yaml from 'js-yaml';
 import path from 'path';
 
 interface ResearchArea {
