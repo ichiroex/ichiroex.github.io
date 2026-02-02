@@ -1,0 +1,173 @@
+# src/data/cv.yaml
+# CV（職歴・学歴・受賞等）データ
+
+# =============================================================================
+# Work Experience - 職歴
+# =============================================================================
+experiences:
+  - company: "CyberAgent, Inc."
+    time: "March 2021 - Present"
+    title: "Research Scientist"
+    location: "Tokyo, Japan"
+    description: "Research on NLP and ad text generation at AI Lab"
+    url: "https://cyberagent.ai/ailab/"
+
+  - company: "NTT DOCOMO, INC."
+    time: "April 2017 - February 2021"
+    title: "Research Engineer"
+    location: "Tokyo, Japan"
+    description: "Research on machine translation and NLP"
+    url: "https://www.nttdocomo.co.jp/english/"
+
+  - company: "National Institute of Advanced Industrial Science and Technology (AIST)"
+    time: "July 2019 - March 2021"
+    title: "Collaborative Researcher"
+    location: "Tokyo, Japan"
+    description: ""
+
+  - company: "National Institute of Advanced Industrial Science and Technology (AIST)"
+    time: "May 2016 - March 2017"
+    title: "Technical Staff"
+    location: "Tokyo, Japan"
+    description: "Perception and Language Understanding Group (PLU)"
+
+  - company: "Tokyo Institute of Technology"
+    time: "May 2016 - March 2017"
+    title: "Research Assistant"
+    location: "Tokyo, Japan"
+    description: ""
+
+  - company: "Tokyo Institute of Technology"
+    time: "December 2015 - February 2016"
+    title: "Research Assistant"
+    location: "Tokyo, Japan"
+    description: ""
+
+# =============================================================================
+# Education - 学歴
+# =============================================================================
+education:
+  - school: "Tokyo Institute of Technology"
+    time: "September 2019 - September 2022"
+    degree: "Doctor of Engineering"
+    location: "Tokyo, Japan"
+    description: "Supervisor: Prof. Manabu Okumura, Department of Information and Communications Engineering"
+
+  - school: "Tokyo Institute of Technology"
+    time: "April 2015 - March 2017"
+    degree: "Master of Engineering"
+    location: "Tokyo, Japan"
+    description: "Supervisor: Prof. Hiroya Takamura, Department of Computational Intelligence and Systems Science"
+
+  - school: "National Institute of Technology, Kumamoto College"
+    time: "April 2012 - March 2015"
+    degree: "Bachelor of Engineering"
+    location: "Kumamoto, Japan"
+    description: "Supervisor: Prof. Manabu Shimakawa, Department of Electronics and Information Systems Engineering"
+
+  - school: "Oulu University of Applied Sciences"
+    time: "September 2013 - February 2014"
+    degree: "Visiting Student"
+    location: "Oulu, Finland"
+    description: "School of Engineering"
+
+  - school: "Ngee Ann Polytechnic"
+    time: "April 2013 - August 2013"
+    degree: "Visiting Student"
+    location: "Singapore"
+    description: "Electronic & Computer Engineering Division, School of Engineering"
+
+  - school: "National Institute of Technology, Kumamoto College"
+    time: "April 2007 - March 2012"
+    degree: "Associate Degree in Engineering"
+    location: "Kumamoto, Japan"
+    description: "Supervisor: Prof. Ningping Sun, Department of Computer Science"
+
+# =============================================================================
+# Awards - 受賞歴
+# =============================================================================
+awards:
+  - title: "言語処理学会第31回年次大会 委員特別賞"
+    year: 2025
+    month: 3
+
+  - title: "言語処理学会第29回年次大会 委員特別賞"
+    year: 2023
+    month: 3
+
+  - title: "言語処理学会 2021年度論文賞"
+    year: 2022
+    month: 3
+
+  - title: "LINE BOOT AWARDS 2018 メタデータ人工知能API賞"
+    year: 2018
+    month: 11
+
+  - title: "言語処理学会第23回年次大会 若手奨励賞"
+    year: 2017
+    month: 3
+
+  - title: "日本学生支援機構 大学院第一種奨学金 特に優れた業績による返還免除（半額免除）"
+    year: 2017
+    month: 3
+
+# =============================================================================
+# Skills - スキル
+# =============================================================================
+skills:
+  - title: "Programming Languages"
+    description: "Python, Java, C, PHP, JavaScript (React)"
+
+  - title: "Machine Learning Frameworks"
+    description: "PyTorch, transformers, PyTorch Lightning"
+
+  - title: "Languages"
+    description: "Japanese (native), English (fluent)"
+
+# =============================================================================
+# Activities - 学会活動
+# =============================================================================
+activities:
+  - title: "言語処理学会年次大会 プログラム委員"
+    time: "2025-"
+
+  - title: "NLP若手の会運営委員"
+    time: "2022-2024"
+
+  - title: "言語処理技術セミナー運営委員"
+    time: "2021-2022"
+
+# =============================================================================
+# Invited Talks - 招待講演
+# =============================================================================
+invited_talks:
+  - title: "第66回名古屋地区NLPセミナー"
+    date: "2022.11.28"
+    url: "https://sites.google.com/site/nagoyanlpseminar/"
+
+  - title: "MiCS (みちのく情報伝達学セミナー)"
+    date: "2022.11.18"
+    url: "https://www.nlp.ecei.tohoku.ac.jp/research-meetings/mics/"
+
+# =============================================================================
+# Internships - インターンシップ
+# =============================================================================
+internships:
+  - company: "株式会社NTTドコモ"
+    date: "2016.02"
+
+  - company: "株式会社日本総合研究所"
+    date: "2015.09"
+
+  - company: "ソフトバンクモバイル株式会社"
+    date: "2015.08"
+
+  - company: "Toyo Engineering & Construction Sdn. Bhd."
+    location: "Malaysia"
+    date: "2013.03"
+
+  - company: "株式会社富士通九州システムズ"
+    date: "2012.08"
+
+  - company: "株式会社エステンナイン京都"
+    date: "2010.08"

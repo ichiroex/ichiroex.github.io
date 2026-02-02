@@ -1,0 +1,32 @@
+---
+import SocialIcons from './SocialIcons.astro'
+
+interface Props {
+  fullName: string;
+  title: string;
+  institute?: string;
+  profilePicture: string;
+}
+
+const {fullName, title, institute, profilePicture} = Astro.props
+---
+<div class='flex-1'>
+  <h1 class='text-4xl font-bold mb-4'>
+    {fullName}
+  </h1>
+  <p class='text-xl text-gray-600 mb-4'>{title}{institute ? ` at ${institute}` : ''}</p>
+  <p class='text-lg mb-6'>
+    Research Scientist specializing in Natural Language Generation and Computational Advertising.
+    Developing AI systems for generating attractive advertising texts.
+  </p>
+  <div class='flex gap-4'>
+    <SocialIcons />
+  </div>
+</div>
+<div class='size-72 lg:block hidden'>
+  <img
+    src={profilePicture}
+    alt={fullName}
+    class='w-full h-full mask mask-circle object-cover'
+  />
+</div>

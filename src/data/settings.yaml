@@ -1,0 +1,45 @@
+# src/data/settings.yaml
+# サイト設定ファイル
+
+profile:
+  fullName: "Soichiro Murakami"
+  title: "Research Scientist"
+  institute: "CyberAgent, Inc."
+  author_name: "Soichiro Murakami"  # 論文で強調表示する著者名
+  research_areas:
+    - title: "Natural Language Generation"
+      description: "Ad text generation with LLMs"
+      field: "nlp"
+    - title: "Computational Advertising"
+      description: "Analysis and generation of advertising texts"
+      field: "advertising"
+    - title: "Humor Understanding"
+      description: "Computational understanding and generation of humor"
+      field: "nlp"
+
+social:
+  email: ""
+  linkedin: "https://www.linkedin.com/in/soichiro-murakami-85945ba9/"
+  x: "https://twitter.com/ichiroex"
+  bluesky: ""
+  github: "https://github.com/ichiroex"
+  gitlab: ""
+  scholar: "https://scholar.google.com/citations?user=-5tWGrEAAAAJ&hl=ja"
+  inspire: ""
+  arxiv: ""
+  orcid: "https://orcid.org/0009-0008-4563-2833"
+
+template:
+  website_url: "https://ichiroex.github.io"
+  menu_left: false
+  transitions: true
+  lightTheme: "light"
+  darkTheme: "dark"
+  excerptLength: 200
+  postPerPage: 5
+  base: ""
+
+seo:
+  default_title: "Soichiro Murakami"
+  default_description: "Research Scientist at CyberAgent AI Lab, specializing in NLP and ad text generation"
+  default_image: "/images/profile.png"

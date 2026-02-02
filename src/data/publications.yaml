@@ -1,0 +1,448 @@
+# src/data/publications.yaml
+# 論文データ
+
+# =============================================================================
+# Journals (Refereed) - 学術誌
+# =============================================================================
+- id: jnlp2021-weather
+  title: "Generating Weather Comments from Numerical Weather Prediction"
+  authors: "Soichiro Murakami, Sora Tanaka, Masatsugu Hangyo, Hidetaka Kamigaito, Kotaro Funakoshi, Hiroya Takamura, Manabu Okumura"
+  venue: "Journal of Natural Language Processing, Vol.28 No.4"
+  year: 2021
+  month: 12
+  type: journal
+  award: "Best Paper Award"
+  links:
+    pdf: "https://www.jstage.jst.go.jp/article/jnlp/28/4/28_1210/_article/-char/ja/"
+
+- id: jnlp2020-market
+  title: "Generating Market Comments from Stock Prices"
+  authors: "Soichiro Murakami, Akihiko Watanabe, Akira Miyazawa, Keiichi Goshima, Toshihiko Yanase, Hiroya Takamura, Yusuke Miyao"
+  venue: "Journal of Natural Language Processing, Vol.27 No.2"
+  year: 2020
+  month: 6
+  type: journal
+  links:
+    pdf: "https://www.jstage.jst.go.jp/article/jnlp/27/2/27_299/_article/-char/ja/"
+
+- id: ijsbsc2013-stereo
+  title: "A correction algorithm for stereo matching with general digital cameras and web cameras"
+  authors: "Ningping Sun, Soichiro Murakami, Hiroshi Nagaoka, Takuya Shigemoto"
+  venue: "International Journal of Space-Based and Situated Computing, Vol.3, No.3"
+  year: 2013
+  month: 9
+  type: journal
+
+# =============================================================================
+# International Conferences (Refereed) - 国際会議
+# =============================================================================
+- id: eacl2026-multimodal-summarization
+  title: "Progressive Visual Refinement for Multi-modal Summarization"
+  authors: "Ye Xiong, Hidetaka Kamigaito, Soichiro Murakami, Peinan Zhang, Hiroya Takamura, Manabu Okumura"
+  venue: "EACL 2026"
+  year: 2026
+  month: 3
+  type: international
+
+- id: emnlp2025-cheatsheet
+  title: "Distilling Many-Shot In-Context Learning into a Cheat Sheet"
+  authors: "Ukyo Honda, Soichiro Murakami, Peinan Zhang"
+  venue: "EMNLP 2025 Findings"
+  year: 2025
+  month: 11
+  type: international
+  links:
+    arxiv: "https://arxiv.org/abs/2509.20820"
+
+- id: acl2025-adparaphrase-v2
+  title: "AdParaphrase v2.0: Generating Attractive Ad Texts Using a Preference-Annotated Paraphrase Dataset"
+  authors: "Soichiro Murakami, Peinan Zhang, Hidetaka Kamigaito, Hiroya Takamura, Manabu Okumura"
+  venue: "ACL 2025 Findings"
+  year: 2025
+  month: 7
+  type: international
+  links:
+    github: "https://github.com/CyberAgentAILab/AdParaphrase-v2.0"
+    huggingface: "https://huggingface.co/datasets/cyberagent/AdParaphrase-v2.0"
+    arxiv: "https://arxiv.org/abs/2505.20826"
+
+- id: naacl2025-adparaphrase
+  title: "AdParaphrase: Paraphrase Dataset for Analyzing Linguistic Features toward Generating Attractive Ad Texts"
+  authors: "Soichiro Murakami, Peinan Zhang, Hidetaka Kamigaito, Hiroya Takamura, Manabu Okumura"
+  venue: "NAACL 2025 Findings"
+  year: 2025
+  month: 5
+  type: international
+  links:
+    github: "https://github.com/CyberAgentAILab/AdParaphrase"
+    huggingface: "https://huggingface.co/datasets/cyberagent/AdParaphrase"
+    arxiv: "https://arxiv.org/abs/2502.04674"
+
+- id: inlg2024-lp-reuse
+  title: "Generating Attractive Ad Text by Facilitating the Reuse of Landing Page Expressions"
+  authors: "Hidetaka Kamigaito, Soichiro Murakami, Peinan Zhang, Hiroya Takamura, Manabu Okumura"
+  venue: "INLG 2024"
+  year: 2024
+  month: 9
+  type: international
+  links:
+    pdf: "https://aclanthology.org/2024.inlg-main.46.pdf"
+
+- id: acl2024-striking-gold
+  title: "Striking Gold in Advertising: Standardization and Exploration of Ad Text Generation"
+  authors: "Masato Mita, Soichiro Murakami, Akihiko Kato, Peinan Zhang"
+  venue: "ACL 2024"
+  year: 2024
+  month: 8
+  type: international
+  links:
+    pdf: "https://aclanthology.org/2024.acl-long.54.pdf"
+    github: "https://github.com/CyberAgentAILab/camera"
+
+- id: sigir2024-query-summarization
+  title: "Grasping Both Query Relevance and Essential Content or Query-focused Summarization"
+  authors: "Ye Xiong, Hidetaka Kamigaito, Soichiro Murakami, Peinan Zhang, Hiroya Takamura, Manabu Okumura"
+  venue: "SIGIR 2024"
+  year: 2024
+  month: 7
+  type: international
+  links:
+    pdf: "https://dl.acm.org/doi/10.1145/3626772.3657958"
+
+- id: lrec2024-cross-lingual
+  title: "Cross-lingual Transfer or Machine Translation? On Data Augmentation for Monolingual Semantic Textual Similarity"
+  authors: "Sho Hoshino, Akihiko Kato, Soichiro Murakami, Peinan Zhang"
+  venue: "LREC-COLING 2024"
+  year: 2024
+  month: 5
+  type: international
+  links:
+    pdf: "https://aclanthology.org/2024.lrec-main.371.pdf"
+    arxiv: "https://arxiv.org/abs/2403.05257"
+
+- id: naacl2022-ad-appeals
+  title: "Aspect-based Analysis of Advertising Appeals for Search Engine Advertising"
+  authors: "Soichiro Murakami, Peinan Zhang, Sho Hoshino, Hidetaka Kamigaito, Hiroya Takamura, Manabu Okumura"
+  venue: "NAACL-HLT 2022 Industry Track"
+  year: 2022
+  month: 7
+  type: international
+  links:
+    pdf: "https://aclanthology.org/2022.naacl-industry.9.pdf"
+    slides: "https://speakerdeck.com/ichiroex/naacl2022-industry-track-aspect-based-analysis-of-advertising-appeals-for-search-engine-advertising"
+    bibtex: "https://aclanthology.org/2022.naacl-industry.9.bib"
+
+- id: eacl2021-weather
+  title: "Generating Weather Comments from Meteorological Simulations"
+  authors: "Soichiro Murakami, Sora Tanaka, Masatsugu Hangyo, Hidetaka Kamigaito, Kotaro Funakoshi, Hiroya Takamura, Manabu Okumura"
+  venue: "EACL 2021"
+  year: 2021
+  month: 4
+  type: international
+  links:
+    pdf: "https://aclanthology.org/2021.eacl-main.125.pdf"
+    github: "https://github.com/titech-nlp/pinpoint-weather"
+
+- id: wmt2019-robustness
+  title: "NTT's Machine Translation Systems for WMT19 Robustness Task"
+  authors: "Soichiro Murakami*, Makoto Morishita*, Tsutomu Hirao, Masaaki Nagata"
+  venue: "WMT 2019"
+  year: 2019
+  month: 8
+  type: international
+  award: "First Place in the En-Ja Track"
+  links:
+    pdf: "https://aclanthology.org/W19-5365.pdf"
+
+- id: acl2017-market
+  title: "Learning to Generate Market Comments from Stock Prices"
+  authors: "Soichiro Murakami, Akihiko Watanabe, Akira Miyazawa, Keiichi Goshima, Toshihiko Yanase, Hiroya Takamura, Yusuke Miyao"
+  venue: "ACL 2017"
+  year: 2017
+  month: 7
+  type: international
+  links:
+    pdf: "https://aclanthology.org/P17-1126.pdf"
+    github: "https://github.com/aistairc/market-reporter"
+
+- id: scisisis2014-stairs
+  title: "Study on Stairs Detection using RGB-Depth Images"
+  authors: "Soichiro Murakami, Manabu Shimakawa, Kimiyasu Kiyota, Takashi Kato"
+  venue: "SCIS&ISIS 2014"
+  year: 2014
+  month: 12
+  type: international
+
+- id: ists2012-3d
+  title: "3D Model Construction Using Multi-Stereo Matching with General Digital Cameras"
+  authors: "Ningping Sun, Soichiro Murakami"
+  venue: "ISTS 2012"
+  year: 2012
+  month: 11
+  type: international
+
+# =============================================================================
+# Preprints - プレプリント
+# =============================================================================
+- id: arxiv2026-humor
+  title: "Who Laughs with Whom? Disentangling Influential Factors in Humor Preferences across User Clusters and LLMs"
+  authors: "Soichiro Murakami, Hidetaka Kamigaito, Hiroya Takamura, Manabu Okumura"
+  venue: "arXiv:2601.03103"
+  year: 2026
+  month: 1
+  type: preprint
+  links:
+    arxiv: "https://arxiv.org/abs/2601.03103"
+
+- id: arxiv2026-knn-moe
+  title: "Routing by Analogy: kNN-Augmented Expert Assignment for Mixture-of-Experts"
+  authors: "Boxuan Lyu, Soichiro Murakami, Hidetaka Kamigaito, Peinan Zhang"
+  venue: "arXiv:2601.02144"
+  year: 2026
+  month: 1
+  type: preprint
+  links:
+    arxiv: "https://arxiv.org/abs/2601.02144"
+
+- id: arxiv2025-oogiri
+  title: "Oogiri-Master: Benchmarking Humor Understanding via Oogiri"
+  authors: "Soichiro Murakami, Hidetaka Kamigaito, Hiroya Takamura, Manabu Okumura"
+  venue: "arXiv:2512.21494"
+  year: 2025
+  month: 12
+  type: preprint
+  links:
+    arxiv: "https://arxiv.org/abs/2512.21494"
+
+- id: arxiv2025-diversity-quality
+  title: "Exploring the Relationship Between Diversity and Quality in Ad Text Generation"
+  authors: "Yoichi Aoki, Soichiro Murakami, Ukyo Honda, Akihiko Kato"
+  venue: "arXiv:2505.16418"
+  year: 2025
+  month: 5
+  type: preprint
+  links:
+    arxiv: "https://arxiv.org/abs/2505.16418"
+
+- id: arxiv2024-faithcamera
+  title: "FaithCAMERA: Construction of a Faithful Dataset for Ad Text Generation"
+  authors: "Akihiko Kato, Masato Mita, Soichiro Murakami, Ukyo Honda, Sho Hoshino, Peinan Zhang"
+  venue: "arXiv:2410.03839"
+  year: 2024
+  month: 10
+  type: preprint
+  links:
+    arxiv: "https://arxiv.org/abs/2410.03839"
+
+- id: arxiv2023-survey
+  title: "Natural Language Generation for Advertising: A Survey"
+  authors: "Soichiro Murakami, Sho Hoshino, Peinan Zhang"
+  venue: "arXiv:2306.12719"
+  year: 2023
+  month: 6
+  type: preprint
+  links:
+    arxiv: "https://arxiv.org/abs/2306.12719"
+
+- id: arxiv2023-camera
+  title: "CAMERA: A Multimodal Dataset and Benchmark for Ad Text Generation"
+  authors: "Masato Mita, Soichiro Murakami, Akihiko Kato, Peinan Zhang"
+  venue: "arXiv:2309.12030"
+  year: 2023
+  month: 9
+  type: preprint
+  links:
+    arxiv: "https://arxiv.org/abs/2309.12030"
+
+# =============================================================================
+# Domestic (Non-Refereed) - 国内発表
+# =============================================================================
+- id: nlp2025-adparaphrase-ja
+  title: "AdParaphrase: 魅力的な広告表現の分析を目的とした広告文言い換えデータセット"
+  authors: "村上聡一朗, 張培楠, 上垣外英剛, 高村大也, 奥村学"
+  venue: "言語処理学会 第31回年次大会"
+  year: 2025
+  month: 3
+  type: domestic
+  links:
+    pdf: "https://www.anlp.jp/proceedings/annual_meeting/2025/pdf_dir/B8-4.pdf"
+
+- id: nlp2025-adpsyche
+  title: "AdPsyche: 広告心理学に基づく選好データセット"
+  authors: "三田雅人, 村上聡一朗, 本多右京, 岡達志"
+  venue: "言語処理学会 第31回年次大会"
+  year: 2025
+  month: 3
+  type: domestic
+  links:
+    pdf: "https://www.anlp.jp/proceedings/annual_meeting/2025/pdf_dir/P10-13.pdf"
+
+- id: nlp2025-faithcamera
+  title: "FaithCAMERA: 広告文生成タスクのための忠実性を担保した評価データセットの構築"
+  authors: "加藤明彦, 三田雅人, 村上聡一朗, 本多右京, 星野翔, 張培楠"
+  venue: "言語処理学会 第31回年次大会"
+  year: 2025
+  month: 3
+  type: domestic
+  award: "委員特別賞"
+  links:
+    pdf: "https://www.anlp.jp/proceedings/annual_meeting/2025/pdf_dir/Q6-18.pdf"
+
+- id: nlp2024-appeal-axis
+  title: "訴求軸を考慮したキーワードからの広告文生成"
+  authors: "村田栄樹, 大友寛之, 村上聡一朗, 本多右京, 舟久保弘明"
+  venue: "言語処理学会 第30回年次大会"
+  year: 2024
+  month: 3
+  type: domestic
+  links:
+    pdf: "https://www.anlp.jp/proceedings/annual_meeting/2024/pdf_dir/P11-18.pdf"
+
+- id: nlp2023-rewrite
+  title: "原文の書き換えによる広告文生成"
+  authors: "村上聡一朗, 菊田洸, 張培楠, 上垣外英剛, 高村大也, 奥村学"
+  venue: "言語処理学会 第29回年次大会"
+  year: 2023
+  month: 3
+  type: domestic
+  links:
+    pdf: "https://www.anlp.jp/proceedings/annual_meeting/2023/pdf_dir/P11-9.pdf"
+
+- id: nlp2023-benchmark
+  title: "広告文生成タスクの規定とベンチマーク構築"
+  authors: "三田雅人, 村上聡一朗, 張培楠"
+  venue: "言語処理学会 第29回年次大会"
+  year: 2023
+  month: 3
+  type: domestic
+  award: "委員特別賞"
+  links:
+    pdf: "https://www.anlp.jp/proceedings/annual_meeting/2023/pdf_dir/H11-4.pdf"
+
+- id: nlp2023-hallucination
+  title: "広告データセットに内在する幻覚の分析"
+  authors: "加藤明彦, 大田和寛, 村上聡一朗, 三田雅人, 本多右京, 張培楠"
+  venue: "言語処理学会 第29回年次大会"
+  year: 2023
+  month: 3
+  type: domestic
+  links:
+    pdf: "https://www.anlp.jp/proceedings/annual_meeting/2023/pdf_dir/Q4-12.pdf"
+
+- id: jsai2022-survey
+  title: "広告文自動生成に関する最近の研究動向"
+  authors: "村上聡一朗, 星野翔, 張培楠"
+  venue: "人工知能学会全国大会 (第36回)"
+  year: 2022
+  month: 6
+  type: domestic
+  links:
+    slides: "https://speakerdeck.com/ichiroex/guang-gao-wen-zi-dong-sheng-cheng-niguan-suruzui-jin-falseyan-jiu-dong-xiang"
+
+- id: nlp2022-lp-to-text
+  title: "LP-to-Text: マルチモーダル広告文生成"
+  authors: "村上聡一朗, 星野翔, 張培楠, 上垣外英剛, 高村大也, 奥村学"
+  venue: "言語処理学会 第28回年次大会"
+  year: 2022
+  month: 3
+  type: domestic
+  links:
+    pdf: "https://www.anlp.jp/proceedings/annual_meeting/2022/pdf_dir/D5-3.pdf"
+
+- id: yans2021-appeal
+  title: "訴求軸を考慮した広告文の作成支援に向けた訴求表現の抽出"
+  authors: "村上聡一朗, 張培楠, 星野翔, 上垣外英剛, 高村大也, 奥村学"
+  venue: "NLP若手の会 (YANS) 第16回シンポジウム"
+  year: 2021
+  month: 8
+  type: domestic
+
+- id: jsai2020-d2t
+  title: "Data-to-Textモデルにおけるトピック系列を用いた一貫性の制御"
+  authors: "村上聡一朗, 田中天, 萩行正嗣, 上垣外英剛, 高村大也, 奥村学"
+  venue: "人工知能学会全国大会 (第34回)"
+  year: 2020
+  month: 6
+  type: domestic
+
+- id: nlp2019-robust-mt
+  title: "自然発話に頑健な機械翻訳の検討"
+  authors: "村上聡一朗, 松岡保静, 内田渉, 礒田佳徳, 森下睦, 平尾努, 永田昌明"
+  venue: "言語処理学会 第25回年次大会"
+  year: 2019
+  month: 3
+  type: domestic
+
+- id: jsai2017-event
+  title: "企業経営における意思決定支援のためのイベント抽出"
+  authors: "柳瀬利彦, 柳井孝介, 丹羽芳樹, 村上聡一朗, 渡邉亮彦, 宮澤彬, 五島圭一, 高村大也, 宮尾祐介, 中田亨"
+  venue: "人工知能学会全国大会 (第31回)"
+  year: 2017
+  month: 5
+  type: domestic
+
+- id: nlp2017-weather
+  title: "数値予報マップからの天気予報コメントの自動生成"
+  authors: "村上聡一朗, 笹野遼平, 高村大也, 奥村学"
+  venue: "言語処理学会 第23回年次大会"
+  year: 2017
+  month: 3
+  type: domestic
+
+- id: nlp2017-market
+  title: "時系列数値データからの概況テキストの自動生成"
+  authors: "村上聡一朗, 渡邉亮彦, 宮澤彬, 五島圭一, 柳瀬利彦, 高村大也, 宮尾祐介"
+  venue: "言語処理学会 第23回年次大会"
+  year: 2017
+  month: 3
+  type: domestic
+  award: "若手奨励賞"
+  links:
+    pdf: "https://www.anlp.jp/proceedings/annual_meeting/2017/pdf_dir/B7-1.pdf"
+
+- id: nlp2017-trf
+  title: "TRF: テキストの読みやすさ解析ツール"
+  authors: "渡邉亮彦, 村上聡一朗, 宮澤彬, 五島圭一, 柳瀬利彦, 高村大也, 宮尾祐介"
+  venue: "言語処理学会 第23回年次大会"
+  year: 2017
+  month: 3
+  type: domestic
+
+- id: nlp2016-baseball
+  title: "打者成績からのイニング速報の自動生成"
+  authors: "村上聡一朗, 笹野遼平, 高村大也, 奥村学"
+  venue: "言語処理学会 第22回年次大会"
+  year: 2016
+  month: 3
+  type: domestic
+
+- id: fss2015-stairs
+  title: "RGB-Depth画像を用いた階段検出に関する研究"
+  authors: "島川学, 村上聡一朗, 清田公保"
+  venue: "日本知能情報ファジィ学会 第31回ファジィシステムシンポジウム"
+  year: 2015
+  month: 9
+  type: domestic
+
+# =============================================================================
+# Technical Reports - テクニカルレポート
+# =============================================================================
+- id: docomo2020-essay
+  title: "英作文採点・添削技術の開発"
+  authors: "松岡保静, 中村俊允, 村上聡一朗, 澤山熱気"
+  venue: "NTT DOCOMO テクニカル・ジャーナル, Vol.27 No.4"
+  year: 2020
+  month: 1
+  type: technical
+  links:
+    pdf: "https://www.nttdocomo.co.jp/binary/pdf/corporate/technology/rd/technical_journal/bn/vol27_4/vol27_4_010jp.pdf"
+
+- id: docomo2019-domain
+  title: "機械翻訳における利用ドメインの自動推定"
+  authors: "村上聡一朗, 澤山熱気, 中村俊允, 松岡保静, 内田渉"
+  venue: "NTT DOCOMO テクニカル・ジャーナル, Vol.27 No.2"
+  year: 2019
+  month: 7
+  type: technical
+  links:
+    pdf: "https://www.nttdocomo.co.jp/binary/pdf/corporate/technology/rd/technical_journal/bn/vol27_2/vol27_2_004jp.pdf"

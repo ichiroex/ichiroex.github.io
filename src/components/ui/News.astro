@@ -1,0 +1,60 @@
+---
+import { loadYaml } from '@/lib/loadYaml';
+
+interface NewsItem {
+  title: string;
+  date: string;
+  content: string;
+  pinned?: boolean;
+  link?: string;
+}
+
+interface Props {
+  limit?: number;
+}
+
+const { limit = 5 } = Astro.props;
+
+// YAMLからニュースデータを読み込み
+const newsData = loadYaml<NewsItem[]>('news.yaml');
+
+// 日付でソートして最新を取得
+const recentNews = newsData
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  .slice(0, limit);
+
+// 日付をフォーマット
+const formatDate = (dateStr: string) => {
+  const date = new Date(dateStr);
+  return date.toLocaleDateString('ja-JP', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  });
+};
+---
+
+<section class="news-section">
+  <h2 class="text-2xl font-bold mb-6">📢 News</h2>
+  <ul class="space-y-3">
+    {recentNews.map((item) => (
+      <li class={`flex gap-4 items-start ${item.pinned ? 'font-medium' : ''}`}>
+        <time class="text-sm text-base-content/60 w-24 shrink-0 tabular-nums">
+          {formatDate(item.date)}
+        </time>
+        <span class="flex-1">
+          {item.link ? (
+            <a href={item.link} class="link link-hover link-primary">
+              {item.title}
+            </a>
+          ) : (
+            <span>{item.title}</span>
+          )}
+          {item.pinned && (
+            <span class="badge badge-primary badge-sm ml-2">NEW</span>
+          )}
+        </span>
+      </li>
+    ))}
+  </ul>
+</section>

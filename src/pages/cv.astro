@@ -1,0 +1,212 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import { loadYaml } from '@/lib/loadYaml'
+import CvTimeline from '@/components/ui/CvTimeline.astro'
+import List from '@/components/ui/List.astro'
+
+interface Experience {
+	company: string;
+	time: string;
+	title: string;
+	location?: string;
+	description?: string;
+	url?: string;
+}
+
+interface Education {
+	school: string;
+	time: string;
+	degree: string;
+	location?: string;
+	description?: string;
+}
+
+interface Award {
+	title: string;
+	year: number;
+	month?: number;
+}
+
+interface Skill {
+	title: string;
+	description: string;
+}
+
+interface Activity {
+	title: string;
+	time: string;
+}
+
+interface InvitedTalk {
+	title: string;
+	date: string;
+	url?: string;
+}
+
+interface Internship {
+	company: string;
+	date: string;
+	location?: string;
+}
+
+interface CVData {
+	experiences: Experience[];
+	education: Education[];
+	awards: Award[];
+	skills: Skill[];
+	activities: Activity[];
+	invited_talks: InvitedTalk[];
+	internships: Internship[];
+}
+
+// YAMLからCVデータを読み込み
+const cvData = loadYaml<CVData>('cv.yaml');
+
+// ソート関数
+const orderElement = <T extends { time: string }>(a: T, b: T) => {
+	const presentValues = ['present', 'now', 'current', 'today', '-']
+	const aEnd = (a.time as string)?.split(' - ')[1]?.toLowerCase() || ''
+	const bEnd = (b.time as string)?.split(' - ')[1]?.toLowerCase() || ''
+	
+	if (presentValues.some(v => aEnd.includes(v))) return -1
+	if (presentValues.some(v => bEnd.includes(v))) return 1
+	
+	const dateA = new Date(aEnd)
+	const dateB = new Date(bEnd)
+	return dateB.getTime() - dateA.getTime()
+}
+
+// ソート
+const orderedExperiences = [...cvData.experiences].sort(orderElement)
+const orderedEducations = [...cvData.education].sort(orderElement)
+const orderedAwards = [...cvData.awards].sort((a, b) => b.year - a.year)
+---
+
+<Layout title="CV">
+	<div class="prose max-w-none">
+		<h1 class="text-3xl font-bold mb-8">Curriculum Vitae</h1>
+
+		{/* Education */}
+		{orderedEducations.length > 0 && (
+			<section class='mb-12'>
+				<h2 class='text-2xl font-bold mb-6 border-b border-base-300 pb-2'>
+					Education
+				</h2>
+				<CvTimeline elements={orderedEducations} colored={true} />
+			</section>
+		)}
+
+		{/* Work Experience */}
+		{orderedExperiences.length > 0 && (
+			<section class='mb-12'>
+				<h2 class='text-2xl font-bold mb-6 border-b border-base-300 pb-2'>
+					Work Experience
+				</h2>
+				<CvTimeline elements={orderedExperiences} colored={true} />
+			</section>
+		)}
+
+		{/* Awards */}
+		{orderedAwards.length > 0 && (
+			<section class='mb-12'>
+				<h2 class='text-2xl font-bold mb-6 border-b border-base-300 pb-2'>
+					Awards & Grants
+				</h2>
+				<ul class="space-y-3">
+					{orderedAwards.map((award) => (
+						<li class="flex items-start gap-3">
+							<span class="text-primary">🏆</span>
+							<div>
+								<span class="font-medium">{award.title}</span>
+								<span class="text-base-content/60 ml-2">
+									({award.year}{award.month && `.${award.month.toString().padStart(2, '0')}`})
+								</span>
+							</div>
+						</li>
+					))}
+				</ul>
+			</section>
+		)}
+
+		{/* Skills */}
+		{cvData.skills.length > 0 && (
+			<section class='mb-12'>
+				<h2 class='text-2xl font-bold mb-6 border-b border-base-300 pb-2'>
+					Skills
+				</h2>
+				<div class="space-y-4">
+					{cvData.skills.map((skill) => (
+						<div>
+							<h3 class="font-bold text-lg">{skill.title}</h3>
+							<p class="text-base-content/80">{skill.description}</p>
+						</div>
+					))}
+				</div>
+			</section>
+		)}
+
+		{/* Activities */}
+		{cvData.activities.length > 0 && (
+			<section class='mb-12'>
+				<h2 class='text-2xl font-bold mb-6 border-b border-base-300 pb-2'>
+					Professional Activities
+				</h2>
+				<ul class="space-y-2">
+					{cvData.activities.map((activity) => (
+						<li class="flex items-start gap-2">
+							<span class="text-primary">•</span>
+							<span>{activity.title} <span class="text-base-content/60">({activity.time})</span></span>
+						</li>
+					))}
+				</ul>
+			</section>
+		)}
+
+		{/* Invited Talks */}
+		{cvData.invited_talks.length > 0 && (
+			<section class='mb-12'>
+				<h2 class='text-2xl font-bold mb-6 border-b border-base-300 pb-2'>
+					Invited Talks
+				</h2>
+				<ul class="space-y-2">
+					{cvData.invited_talks.map((talk) => (
+						<li class="flex items-start gap-2">
+							<span class="text-primary">🎤</span>
+							<div>
+								{talk.url ? (
+									<a href={talk.url} target="_blank" rel="noopener noreferrer" class="link link-hover">
+										{talk.title}
+									</a>
+								) : (
+									<span>{talk.title}</span>
+								)}
+								<span class="text-base-content/60 ml-2">({talk.date})</span>
+							</div>
+						</li>
+					))}
+				</ul>
+			</section>
+		)}
+
+		{/* Internships */}
+		{cvData.internships.length > 0 && (
+			<section class='mb-12'>
+				<h2 class='text-2xl font-bold mb-6 border-b border-base-300 pb-2'>
+					Internships
+				</h2>
+				<ul class="space-y-2">
+					{cvData.internships.map((intern) => (
+						<li class="flex items-start gap-2">
+							<span class="text-primary">•</span>
+							<span>
+								{intern.company}
+								{intern.location && <span class="text-base-content/60"> ({intern.location})</span>}
+								<span class="text-base-content/60 ml-2">- {intern.date}</span>
+							</span>
+						</li>
+					))}
+				</ul>
+			</section>
+		)}
+	</div>
+</Layout>

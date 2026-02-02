@@ -1,0 +1,147 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { loadYaml } from "@/lib/loadYaml";
+import { highlightAuthor } from "@/lib/utils";
+import type { Publication, PublicationType } from "@/types/publication";
+import { publicationTypeLabels, publicationTypeOrder } from "@/types/publication";
+
+// YAMLから論文データを読み込み
+const publications = loadYaml<Publication[]>('publications.yaml');
+
+// 種類別・年別にグループ化
+const publicationsByTypeAndYear = publicationTypeOrder.reduce((acc, type) => {
+  const pubs = publications.filter(p => p.type === type);
+  if (pubs.length > 0) {
+    // 年度でソート（新しい順）
+    pubs.sort((a, b) => {
+      if (b.year !== a.year) return b.year - a.year;
+      return (b.month || 0) - (a.month || 0);
+    });
+    
+    // 年ごとにグループ化
+    const byYear = pubs.reduce((yearAcc, pub) => {
+      if (!yearAcc[pub.year]) {
+        yearAcc[pub.year] = [];
+      }
+      yearAcc[pub.year].push(pub);
+      return yearAcc;
+    }, {} as Record<number, Publication[]>);
+    
+    acc[type] = {
+      total: pubs.length,
+      byYear,
+      years: Object.keys(byYear).map(Number).sort((a, b) => b - a)
+    };
+  }
+  return acc;
+}, {} as Record<PublicationType, { total: number; byYear: Record<number, Publication[]>; years: number[] }>);
+
+// 総論文数
+const totalCount = publications.length;
+---
+
+<Layout title="Publications">
+  <div class="prose max-w-none">
+    <h1 class="text-3xl font-bold mb-4">Publications</h1>
+    <p class="text-base-content/70 mb-8">Total: {totalCount} publications</p>
+
+    {publicationTypeOrder.map((type) => {
+      const data = publicationsByTypeAndYear[type];
+      if (!data) return null;
+      
+      return (
+        <section class="mb-12">
+          <h2 class="text-2xl font-bold mb-6 border-b border-base-300 pb-2">
+            {publicationTypeLabels[type]}
+            <span class="text-base font-normal text-base-content/60 ml-2">
+              ({data.total})
+            </span>
+          </h2>
+          
+          {data.years.map((year) => (
+            <div class="mb-6">
+              <h3 class="text-lg font-semibold text-base-content/80 mb-3 ml-1">{year}</h3>
+              <div class="space-y-3">
+                {data.byYear[year].map((pub) => (
+              <div id={pub.id} class="card bg-base-200/50 hover:bg-base-200 transition-colors scroll-mt-20">
+                <div class="card-body py-3 px-4 gap-0">
+                  {/* タイトル */}
+                  <h3 class="card-title text-base leading-tight m-0">
+                    {pub.title}
+                    {pub.award && (
+                      <span class="badge badge-error badge-sm ml-2">
+                        🏆 {pub.award}
+                      </span>
+                    )}
+                  </h3>
+                  
+                  {/* 著者 */}
+                  <p class="text-sm leading-snug m-0 mt-1">
+                    <span set:html={highlightAuthor(pub.authors)} />
+                  </p>
+                  
+                  {/* 会議・ジャーナル名と年 */}
+                  <p class="text-sm text-base-content/70 m-0">
+                    <span class="italic">{pub.venue}</span>
+                    {pub.month && ` (${pub.year}.${pub.month.toString().padStart(2, '0')})`}
+                    {!pub.month && ` (${pub.year})`}
+                  </p>
+                  
+                  {/* リンク */}
+                  {pub.links && Object.keys(pub.links).length > 0 && (
+                    <div class="flex flex-wrap gap-1 mt-2">
+                      {pub.links.pdf && (
+                        <a href={pub.links.pdf} target="_blank" rel="noopener noreferrer" 
+                           class="btn btn-xs btn-outline">
+                          📄 PDF
+                        </a>
+                      )}
+                      {pub.links.arxiv && (
+                        <a href={pub.links.arxiv} target="_blank" rel="noopener noreferrer"
+                           class="btn btn-xs btn-outline">
+                          📝 arXiv
+                        </a>
+                      )}
+                      {pub.links.github && (
+                        <a href={pub.links.github} target="_blank" rel="noopener noreferrer"
+                           class="btn btn-xs btn-outline">
+                          💻 Code
+                        </a>
+                      )}
+                      {pub.links.huggingface && (
+                        <a href={pub.links.huggingface} target="_blank" rel="noopener noreferrer"
+                           class="btn btn-xs btn-outline">
+                          🤗 Dataset
+                        </a>
+                      )}
+                      {pub.links.slides && (
+                        <a href={pub.links.slides} target="_blank" rel="noopener noreferrer"
+                           class="btn btn-xs btn-outline">
+                          📊 Slides
+                        </a>
+                      )}
+                      {pub.links.poster && (
+                        <a href={pub.links.poster} target="_blank" rel="noopener noreferrer"
+                           class="btn btn-xs btn-outline">
+                          🖼️ Poster
+                        </a>
+                      )}
+                      {pub.links.bibtex && (
+                        <a href={pub.links.bibtex} target="_blank" rel="noopener noreferrer"
+                           class="btn btn-xs btn-outline">
+                          📚 BibTeX
+                        </a>
+                      )}
+                    </div>
+                  )}
+                </div>
+              </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </section>
+      );
+    })}
+  </div>
+</Layout>
