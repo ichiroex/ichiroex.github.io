@@ -2,16 +2,37 @@
 # Research ページのコンテンツ管理
 
 introduction:
-  - "My research focuses on the intersection of Natural Language Processing (NLP) and Computational Advertising. I am particularly interested in automatic ad text generation using Large Language Models (LLMs) and analyzing/understanding attractive advertising expressions."
-  - "I also work on Data-to-Text tasks, which involve generating natural language text from numerical or structured data. I explore applications of language generation technologies to real-world challenges, such as generating weather forecast comments and stock market commentary."
+  - "My primary research interest lies in the creativity of Large Language Models (LLMs). I explore how LLMs can generate creative and attractive text across various domains, including ad text generation, summarization, and data-to-text applications."
+  - "I also work on understanding what makes text attractive or appealing, particularly in advertising contexts, as well as computational approaches to humor understanding and generation."
 
 projects:
   - title: "Ad Text Generation"
     description: "Research on automatically generating attractive ad texts using LLMs. Extracting and utilizing effective appeal expressions from landing page information."
-  - title: "AdParaphrase Dataset"
-    description: "Building and analyzing a dataset of ad text paraphrase pairs to study the characteristics of attractive expressions."
+    publications:
+      - acl2024-striking-gold
+      - inlg2024-lp-reuse
+      - arxiv2025-diversity-quality
+      - arxiv2024-faithcamera
+      - arxiv2023-survey
+      - arxiv2023-camera
+  - title: "Attractive Expression Analysis"
+    description: "Building and analyzing datasets of ad text paraphrase pairs to study the characteristics of attractive expressions."
+    publications:
+      - acl2025-adparaphrase-v2
+      - naacl2025-adparaphrase
+      - naacl2022-ad-appeals
   - title: "Humor Understanding"
     description: "Benchmark construction for humor understanding through Oogiri tasks and analysis of user preferences."
+    publications:
+      - arxiv2026-humor
+      - arxiv2025-oogiri
+  - title: "Data-to-Text Generation"
+    description: "Generating natural language text from numerical or structured data, such as weather forecasts and stock market commentary."
+    publications:
+      - jnlp2021-weather
+      - eacl2021-weather
+      - jnlp2020-market
+      - acl2017-market
 
 keywords:
   - "Natural Language Generation"

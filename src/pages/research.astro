@@ -3,18 +3,25 @@ import Layout from "@/layouts/Layout.astro";
 import { profile } from "@/settings";
 import { loadYaml } from "@/lib/loadYaml";
 import BetterIcon from "@/components/ui/BetterIcon.astro";
-import List from "@/components/ui/List.astro";
 import {RESEARCH_ICONS} from "@/data/researchIcons";
+import type { Publication } from "@/types/publication";
 
 interface ResearchData {
   introduction: string[];
-  projects: { title: string; description: string }[];
+  projects: { title: string; description: string; publications?: string[] }[];
   keywords: string[];
   collaboration: string;
 }
 
 const { research_areas } = profile;
 const research = loadYaml<ResearchData>('research.yaml');
+const publications = loadYaml<Publication[]>('publications.yaml');
+
+// Create a map of publication id to publication for quick lookup
+const publicationMap = new Map<string, Publication>();
+publications.forEach((pub) => {
+  publicationMap.set(pub.id, pub);
+});
 ---
 
 <Layout title="Research">
@@ -56,7 +63,33 @@ const research = loadYaml<ResearchData>('research.yaml');
       }
     </div>
 
-    <List listTitle="Projects" listItems={research.projects} />
+    <h2 class="text-2xl font-bold mb-6">Projects</h2>
+    <div class="grid gap-6 mb-12">
+      {
+        research.projects.map((project) => (
+          <div class="p-6 bg-base-200 rounded-xl text-base-content">
+            <h3 class="text-xl font-semibold mb-3">{project.title}</h3>
+            <p class="mb-4">{project.description}</p>
+            {project.publications && project.publications.length > 0 && (
+              <div class="flex flex-wrap gap-2 mt-4">
+                {project.publications.map((pubId) => {
+                  const pub = publicationMap.get(pubId);
+                  if (!pub) return null;
+                  const link = pub.links?.arxiv || pub.links?.pdf;
+                  return link ? (
+                    <a href={link} target="_blank" rel="noopener noreferrer" class="badge badge-sm badge-outline hover:badge-primary transition-colors">
+                      {pub.venue}
+                    </a>
+                  ) : (
+                    <span class="badge badge-sm badge-outline">{pub.venue}</span>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+        ))
+      }
+    </div>
 
     <h2 class="text-2xl font-bold mb-6 mt-12">Research Keywords</h2>
     <div class="flex flex-wrap gap-2 mb-8">
