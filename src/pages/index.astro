@@ -12,9 +12,10 @@ import { highlightAuthor } from '@/lib/utils'
 
 const { fullName, title, institute, research_areas } = profile
 
-// 論文データを読み込み、最新5件を取得
+// 論文データを読み込み、最新5件を取得（国内発表は除外）
 const publications = loadYaml<Publication[]>('publications.yaml');
 const recentPublications = publications
+	.filter(pub => pub.type !== 'domestic')
 	.sort((a, b) => {
 		if (b.year !== a.year) return b.year - a.year;
 		return (b.month || 0) - (a.month || 0);
