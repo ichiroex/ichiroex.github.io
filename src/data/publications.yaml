@@ -257,6 +257,47 @@
 # =============================================================================
 # Domestic (Non-Refereed) - 国内発表
 # =============================================================================
+- id: nlp2026-oogiri-preference
+  title: "個別選好の異質性を考慮した大喜利ユーモア選好要因の分析"
+  authors: "村上聡一朗, 上垣外英剛, 高村大也, 奥村学"
+  venue: "言語処理学会 第32回年次大会"
+  year: 2026
+  month: 3
+  type: domestic
+
+- id: nlp2026-story-generation
+  title: "読者の質問と予想が駆動する物語生成"
+  authors: "城戸晴輝, 上垣外英剛, 村上聡一朗, 高村大也, 奥村学"
+  venue: "言語処理学会 第32回年次大会"
+  year: 2026
+  month: 3
+  type: domestic
+
+- id: nlp2026-ad-diversity-quality
+  title: "広告文生成における多様性と広告品質の関係"
+  authors: "青木洋一, 村上聡一朗, 本多右京, 加藤明彦"
+  venue: "言語処理学会 第32回年次大会"
+  year: 2026
+  month: 3
+  type: domestic
+
+- id: nlp2026-ad-span-error
+  title: "広告文におけるスパン単位の誤り推定"
+  authors: "上垣外英剛, 村上聡一朗, 張培楠"
+  venue: "言語処理学会 第32回年次大会"
+  year: 2026
+  month: 3
+  type: domestic
+
+
+- id: nlp2026-knn-moe
+  title: "類推に基づくエキスパート割当：kNN検索を用いたMixture-of-Experts"
+  authors: "呂博軒, 村上聡一朗, 上垣外英剛, 張培楠"
+  venue: "言語処理学会 第32回年次大会"
+  year: 2026
+  month: 3
+  type: domestic
+
 - id: nlp2025-adparaphrase-ja
   title: "AdParaphrase: 魅力的な広告表現の分析を目的とした広告文言い換えデータセット"
   authors: "村上聡一朗, 張培楠, 上垣外英剛, 高村大也, 奥村学"

@@ -1,5 +1,10 @@
 # src/data/news.yaml
 # お知らせデータ
+- title: "NLP2026で5件の論文を発表します"
+  date: "2026-02-04"
+  content: "言語処理学会第32回年次大会 (NLP 2026) で 5 件の論文を発表します。"
+  pinned: true
+  link: "/papers"
 
 - title: "EACL 2026 に論文が採択されました"
   date: "2026-01-15"
