@@ -44,6 +44,14 @@
   month: 3
   type: international
 
+- id: lrec2026-gain
+  title: "GAIN: A Benchmark for Goal-Aligned Decision-Making of Large Language Models under Imperfect Norms"
+  authors: "Masayuki Kawarada, Kodai Watanabe, Soichiro Murakami"
+  venue: "LREC 2026"
+  year: 2026
+  month: 5
+  type: international
+
 - id: emnlp2025-cheatsheet
   title: "Distilling Many-Shot In-Context Learning into a Cheat Sheet"
   authors: "Ukyo Honda, Soichiro Murakami, Peinan Zhang"

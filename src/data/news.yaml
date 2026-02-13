@@ -1,8 +1,14 @@
 # src/data/news.yaml
 # お知らせデータ
-- title: "NLP2026で5件の論文を発表します"
+- title: "LREC 2026 に論文が採択されました"
+  date: "2026-02-13"
+  content: "GAIN: A Benchmark for Goal-Aligned Decision-Making of Large Language Models under Imperfect Norms が LREC 2026 に採択されました。"
+  pinned: true
+  link: "/papers#lrec2026-gain"
+
+- title: "NLP 2026 で5件の論文を発表します"
   date: "2026-02-04"
-  content: "言語処理学会第32回年次大会 (NLP 2026) で 5 件の論文を発表します。"
+  content: "言語処理学会第32回年次大会 (NLP 2026) で「個別選好の異質性を考慮した大喜利ユーモア選好要因の分析」（筆頭）他、計 5 件の論文を発表します。"
   pinned: true
   link: "/papers#nlp2026-oogiri-preference"
 
