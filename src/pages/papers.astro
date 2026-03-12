@@ -66,10 +66,10 @@ const totalCount = publications.length;
               <div id={pub.id} class="card bg-base-200/50 hover:bg-base-200 transition-colors scroll-mt-20">
                 <div class="card-body py-3 px-4 gap-0">
                   {/* タイトル */}
-                  <h3 class="card-title text-base leading-tight m-0">
-                    {pub.title}
+                  <h3 class="card-title text-base leading-tight m-0 flex flex-wrap items-start gap-2">
+                    <span class="min-w-0 break-words">{pub.title}</span>
                     {pub.award && (
-                      <span class="badge badge-error badge-sm ml-2">
+                      <span class="badge badge-error badge-sm whitespace-nowrap shrink-0">
                         🏆 {pub.award}
                       </span>
                     )}
