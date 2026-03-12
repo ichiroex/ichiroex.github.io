@@ -272,6 +272,7 @@
   year: 2026
   month: 3
   type: domestic
+  award: "委員特別賞"
 
 - id: nlp2026-story-generation
   title: "読者の質問と予想が駆動する物語生成"
@@ -305,6 +306,7 @@
   year: 2026
   month: 3
   type: domestic
+  award: "優秀賞"
 
 - id: nlp2025-adparaphrase-ja
   title: "AdParaphrase: 魅力的な広告表現の分析を目的とした広告文言い換えデータセット"

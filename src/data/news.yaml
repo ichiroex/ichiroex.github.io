@@ -1,5 +1,11 @@
 # src/data/news.yaml
 # お知らせデータ
+- title: "NLP 2026 で2件受賞しました"
+  date: "2026-03-12"
+  content: "言語処理学会第32回年次大会 (NLP 2026) にて、「個別選好の異質性を考慮した大喜利ユーモア選好要因の分析」が委員特別賞、「類推に基づくエキスパート割当：kNN検索を用いたMixture-of-Experts」が優秀賞を受賞しました。"
+  pinned: true
+  link: "/papers#nlp2026-oogiri-preference"
+
 - title: "LREC 2026 に論文が採択されました"
   date: "2026-02-13"
   content: "GAIN: A Benchmark for Goal-Aligned Decision-Making of Large Language Models under Imperfect Norms が LREC 2026 に採択されました。"
