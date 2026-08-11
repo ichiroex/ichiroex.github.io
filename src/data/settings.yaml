@@ -46,3 +46,7 @@ seo:
   default_title: "Soichiro Murakami"
   default_description: "Research Scientist at CyberAgent AI Lab, specializing in NLP and ad text generation"
   default_image: "/images/profile.png"
+
+analytics:
+  # GA4の測定ID（例: G-XXXXXXXXXX）。空文字列の場合は計測タグを出力しない
+  google_analytics_id: "G-82EHW2WFWM"

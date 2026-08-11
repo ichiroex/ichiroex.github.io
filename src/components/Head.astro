@@ -1,5 +1,5 @@
 ---
-import {template} from '@/settings'
+import {template, analytics} from '@/settings'
 interface Props {
 	title: string
 	description: string
@@ -9,6 +9,10 @@ interface Props {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
 const { title, description, image } = Astro.props
+
+// GA4計測タグは本番ビルドかつ測定IDが設定されている場合のみ出力する
+const gaId = analytics?.google_analytics_id
+const enableAnalytics = import.meta.env.PROD && Boolean(gaId)
 ---
 
 <meta charset='utf-8' />
@@ -44,6 +48,21 @@ const { title, description, image } = Astro.props
 <meta property='twitter:title' content={title} />
 <meta property='twitter:description' content={description} />
 <meta property='twitter:image' content={new URL(image, Astro.url)} />
+
+<!-- Google Analytics (GA4) -->
+{enableAnalytics && (
+	<script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+)}
+{enableAnalytics && (
+	<script is:inline define:vars={{ gaId }}>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+		gtag('config', gaId);
+	</script>
+)}
 
 <!-- Theme selector scripts -->
 <script is:inline>

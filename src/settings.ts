@@ -50,11 +50,16 @@ interface Seo {
 	default_image: string;
 }
 
+interface Analytics {
+	google_analytics_id: string;
+}
+
 interface Settings {
 	profile: Profile;
 	social: Social;
 	template: Template;
 	seo: Seo;
+	analytics: Analytics;
 }
 
 const settingsPath = path.join(process.cwd(), 'src/data/settings.yaml');
@@ -65,3 +70,4 @@ export const profile = settings.profile;
 export const social = settings.social;
 export const template = settings.template;
 export const seo = settings.seo;
+export const analytics = settings.analytics;
