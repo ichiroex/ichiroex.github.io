@@ -53,6 +53,8 @@
   year: 2026
   month: 3
   type: international
+  links:
+    pdf: "https://aclanthology.org/2026.eacl-short.5/"
 
 - id: lrec2026-gain
   title: "GAIN: A Benchmark for Goal-Aligned Decision-Making of Large Language Models under Imperfect Norms"
