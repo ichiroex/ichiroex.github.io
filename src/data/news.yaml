@@ -1,5 +1,7 @@
 # src/data/news.yaml
 # お知らせデータ
+# 運用ルール: pinned は NEW バッジの表示フラグ。日付から3ヶ月以内のニュースのみ true にする。
+# 新しいニュースを追加する際、3ヶ月を過ぎた古いエントリの pinned を false に直すこと。
 - title: "EMNLP 2026 に論文が採択されました"
   date: "2026-08-24"
   content: "Who Laughs with Whom? Disentangling Influential Factors in Humor Preferences across User Clusters and LLMs が EMNLP 2026 (main conference) に採択されました。"
@@ -9,25 +11,25 @@
 - title: "NLP 2026 で2件受賞しました"
   date: "2026-03-12"
   content: "言語処理学会第32回年次大会 (NLP 2026) にて、「個別選好の異質性を考慮した大喜利ユーモア選好要因の分析」が委員特別賞、「類推に基づくエキスパート割当：kNN検索を用いたMixture-of-Experts」が優秀賞を受賞しました。"
-  pinned: true
+  pinned: false
   link: "/papers/#nlp2026-oogiri-preference"
 
 - title: "LREC 2026 に論文が採択されました"
   date: "2026-02-13"
   content: "GAIN: A Benchmark for Goal-Aligned Decision-Making of Large Language Models under Imperfect Norms が LREC 2026 に採択されました。"
-  pinned: true
+  pinned: false
   link: "/papers/#lrec2026-gain"
 
 - title: "NLP 2026 で5件の論文を発表します"
   date: "2026-02-04"
   content: "言語処理学会第32回年次大会 (NLP 2026) で「個別選好の異質性を考慮した大喜利ユーモア選好要因の分析」（筆頭）他、計 5 件の論文を発表します。"
-  pinned: true
+  pinned: false
   link: "/papers/#nlp2026-oogiri-preference"
 
 - title: "EACL 2026 に論文が採択されました"
   date: "2026-01-15"
   content: "Progressive Visual Refinement for Multi-modal Summarization が EACL 2026 に採択されました。"
-  pinned: true
+  pinned: false
   link: "/papers/#eacl2026-multimodal-summarization"
 
 - title: "ACL 2025 Findings に論文が採択されました"
