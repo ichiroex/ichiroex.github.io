@@ -61,6 +61,8 @@
   year: 2026
   month: 5
   type: international
+  links:
+    arxiv: "https://arxiv.org/abs/2603.18469"
 
 - id: emnlp2025-cheatsheet
   title: "Distilling Many-Shot In-Context Learning into a Cheat Sheet"
