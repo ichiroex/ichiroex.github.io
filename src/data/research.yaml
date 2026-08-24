@@ -23,7 +23,7 @@ projects:
   - title: "Humor Understanding"
     description: "Benchmark construction for humor understanding through Oogiri tasks and analysis of user preferences."
     publications:
-      - arxiv2026-humor
+      - emnlp2026-humor
       - arxiv2025-oogiri
   - title: "Data-to-Text Generation"
     description: "Generating natural language text from numerical or structured data, such as weather forecasts and stock market commentary."

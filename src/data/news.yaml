@@ -1,5 +1,11 @@
 # src/data/news.yaml
 # お知らせデータ
+- title: "EMNLP 2026 に論文が採択されました"
+  date: "2026-08-24"
+  content: "Who Laughs with Whom? Disentangling Influential Factors in Humor Preferences across User Clusters and LLMs が EMNLP 2026 (main conference) に採択されました。"
+  pinned: true
+  link: "/papers/#emnlp2026-humor"
+
 - title: "NLP 2026 で2件受賞しました"
   date: "2026-03-12"
   content: "言語処理学会第32回年次大会 (NLP 2026) にて、「個別選好の異質性を考慮した大喜利ユーモア選好要因の分析」が委員特別賞、「類推に基づくエキスパート割当：kNN検索を用いたMixture-of-Experts」が優秀賞を受賞しました。"

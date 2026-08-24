@@ -36,6 +36,16 @@
 # =============================================================================
 # International Conferences (Refereed) - 国際会議
 # =============================================================================
+- id: emnlp2026-humor
+  title: "Who Laughs with Whom? Disentangling Influential Factors in Humor Preferences across User Clusters and LLMs"
+  authors: "Soichiro Murakami, Hidetaka Kamigaito, Hiroya Takamura, Manabu Okumura"
+  venue: "EMNLP 2026"
+  year: 2026
+  month: 10
+  type: international
+  links:
+    arxiv: "https://arxiv.org/abs/2601.03103"
+
 - id: eacl2026-multimodal-summarization
   title: "Progressive Visual Refinement for Multi-modal Summarization"
   authors: "Ye Xiong, Hidetaka Kamigaito, Soichiro Murakami, Peinan Zhang, Hiroya Takamura, Manabu Okumura"
@@ -192,16 +202,6 @@
 # =============================================================================
 # Preprints - プレプリント
 # =============================================================================
-- id: arxiv2026-humor
-  title: "Who Laughs with Whom? Disentangling Influential Factors in Humor Preferences across User Clusters and LLMs"
-  authors: "Soichiro Murakami, Hidetaka Kamigaito, Hiroya Takamura, Manabu Okumura"
-  venue: "arXiv:2601.03103"
-  year: 2026
-  month: 1
-  type: preprint
-  links:
-    arxiv: "https://arxiv.org/abs/2601.03103"
-
 - id: arxiv2026-knn-moe
   title: "Routing by Analogy: kNN-Augmented Expert Assignment for Mixture-of-Experts"
   authors: "Boxuan Lyu, Soichiro Murakami, Hidetaka Kamigaito, Peinan Zhang"
