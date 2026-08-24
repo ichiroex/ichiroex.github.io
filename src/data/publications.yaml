@@ -44,6 +44,7 @@
   month: 10
   type: international
   links:
+    github: "https://github.com/CyberAgentAILab/oogiri-dataset-builder"
     arxiv: "https://arxiv.org/abs/2601.03103"
 
 - id: eacl2026-multimodal-summarization
