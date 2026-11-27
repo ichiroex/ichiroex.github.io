@@ -36,6 +36,25 @@
 # =============================================================================
 # International Conferences (Refereed) - 国際会議
 # =============================================================================
+- id: eacl2027-oogiri
+  title: "What Makes Humor Funny? A Feature-Level Analysis of Oogiri and Its Use for LLM Judgment"
+  authors: "Soichiro Murakami, Hidetaka Kamigaito, Hiroya Takamura, Manabu Okumura"
+  venue: "EACL 2027"
+  year: 2027
+  month: 3
+  type: international
+  links:
+    arxiv: "https://arxiv.org/abs/2512.21494"
+    github: "https://github.com/CyberAgentAILab/oogiri-dataset-builder"
+
+- id: eacl2027-make-me-laugh
+  title: "Make Me Laugh: Aligning LLMs to Individual Humor by Reasoning over Quantified Preferences"
+  authors: "Dongyuan Li, Soichiro Murakami, Hidetaka Kamigaito, Hiroya Takamura, Manabu Okumura"
+  venue: "EACL 2027 Findings"
+  year: 2027
+  month: 3
+  type: international
+
 - id: emnlp2026-humor
   title: "Who Laughs with Whom? Disentangling Influential Factors in Humor Preferences across User Clusters and LLMs"
   authors: "Soichiro Murakami, Hidetaka Kamigaito, Hiroya Takamura, Manabu Okumura"
@@ -44,6 +63,7 @@
   month: 10
   type: international
   links:
+    pdf: "https://aclanthology.org/2026.emnlp-main.66/"
     github: "https://github.com/CyberAgentAILab/oogiri-dataset-builder"
     arxiv: "https://arxiv.org/abs/2601.03103"
 
@@ -216,16 +236,6 @@
   type: preprint
   links:
     arxiv: "https://arxiv.org/abs/2601.02144"
-
-- id: arxiv2025-oogiri
-  title: "Oogiri-Master: Benchmarking Humor Understanding via Oogiri"
-  authors: "Soichiro Murakami, Hidetaka Kamigaito, Hiroya Takamura, Manabu Okumura"
-  venue: "arXiv:2512.21494"
-  year: 2025
-  month: 12
-  type: preprint
-  links:
-    arxiv: "https://arxiv.org/abs/2512.21494"
 
 - id: arxiv2025-diversity-quality
   title: "Exploring the Relationship Between Diversity and Quality in Ad Text Generation"

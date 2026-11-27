@@ -2,10 +2,16 @@
 # お知らせデータ
 # 運用ルール: pinned は NEW バッジの表示フラグ。日付から3ヶ月以内のニュースのみ true にする。
 # 新しいニュースを追加する際、3ヶ月を過ぎた古いエントリの pinned を false に直すこと。
+- title: "EACL 2027 に論文2件が採択されました"
+  date: "2026-11-14"
+  content: "EACL 2027 に論文2件が採択されました。"
+  pinned: true
+  link: "/papers/#eacl2027-oogiri"
+
 - title: "EMNLP 2026 に論文が採択されました"
   date: "2026-08-24"
   content: "Who Laughs with Whom? Disentangling Influential Factors in Humor Preferences across User Clusters and LLMs が EMNLP 2026 (main conference) に採択されました。"
-  pinned: true
+  pinned: false
   link: "/papers/#emnlp2026-humor"
 
 - title: "NLP 2026 で2件受賞しました"
